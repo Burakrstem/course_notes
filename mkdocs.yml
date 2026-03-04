@@ -1,0 +1,223 @@
+site_name: "Burak's Notes"
+site_author: "Burak Rustemogullari"
+site_url: https://burakrustemogullari.github.io/
+repo_url: "https://github.com/burakrustemogullari/robotics-notes"
+docs_dir: docs
+
+use_directory_urls: false
+
+theme:
+  name: material
+  logo: assets/images/logo.png
+  favicon: assets/images/logo.png
+  language: en
+  features:
+    - content.code.copy
+    - search.highlight
+    - search.share
+    - content.tabs.link
+    - toc.integrate
+    - navigation.expand
+    - navigation.indexes
+    - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.footer
+  palette:
+    - scheme: slate
+      primary: grey
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  font:
+    text: Roboto
+    code: JetBrains Mono
+
+extra:
+  font:
+    text: Roboto
+    code: Roboto Mono
+extra_css:
+  - assets/stylesheets/extra.css
+
+
+plugins:
+  - awesome-pages
+  - exclude:
+      regex:
+        - ^(?!(.*/)?assets/).*\.(?!(.*\.)?md|(.*\.)?svg|(.*\.)?png|(.*\.)?gif|(.*\.)?jpg).*$
+        - ^(.*/)?[^.]*$
+  - macros
+  - mkdocs-video
+  - same-dir
+  - search
+  - include-markdown
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: false
+  - footnotes
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: true
+      use_pygments: true
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: "#"
+      toc_depth: 3
+
+
+nav:
+  - Home: index.md
+  # - Robotics:
+  #     - Intro: robotics/intro.md
+  # - Embedded:
+  #     - Intro: embedded/intro.md
+  - C:
+      - Programming and C: c/1_programming_and_c.md
+      - Number Systems: c/2_number_systems.md
+      - General Concepts and Terms: c/3_general_concepts_and_terms.md
+      - Creating a C Program: c/4_creating_a_c_program.md
+      - Data Types: c/5_data_types.md
+      - Declarations and Definitions: c/6_declarations_and_definitions.md
+      - Constants: c/7_constants.md
+      - Operators: c/8_operators.md
+      - Functions: c/9_functions.md
+      - Scope and Lifetime: c/10_scope_and_lifetime.md
+      - Control Statements: c/11_control_statements.md
+      - If Statement: c/12_if_statement.md
+      - Function Declarations: c/13_function_declarations.md
+      - Type Conversions: c/14_type_conversions.md
+      - Loop Statements: c/15_loop_statements.md
+      - Ternary Operator: c/16_ternary_operator.md
+      - Preprocessor Directives - 1: c/17_preprocessor_directives__1.md
+      - Switch Statement: c/18_switch_statement.md
+      - goto Statement: c/19_goto_statement.md
+      - Random Number Generation and Control Statements: c/20_random_number_generation_and_control_statements.md
+      - Arrays: c/21_arrays.md
+      - Character Arrays and Strings: c/22_character_arrays_and_strings.md
+      - sizeof Operator: c/23_sizeof_operator.md
+      - Pointers: c/24_pointers.md
+      - Pointer Operators: c/25_pointer_operators.md
+      - Standard Functions for String Operations: c/26_standard_functions_for_string_operations.md
+      - Pointer Errors: c/27_pointer_errors.md
+      - void Type Pointers: c/28_void_type_pointers.md
+      - Strings: c/29_strings.md
+      - Pointer Arrays: c/30_pointer_arrays.md
+      - Pointers to Pointers: c/31_pointers_to_pointers.md
+      - Multidimensional Arrays: c/32_multidimensional_arrays.md
+      - exit, abort and atexit Functions: c/33_exit_abort_and_exit_functions.md
+      - Dynamic Memory Management: c/34_dynamic_memory_management.md
+      - Storage Class Specifiers and Type Qualifiers: c/35_storage_class_specifiers_and_type_qualifiers.md
+      - Structures: c/36_structures.md
+      - Type Definitions and typedef: c/37_type_definitions_and_typedef.md
+      - Date and Time Standard Functions: c/38_date_and_time_standard_functions.md
+      - Unions: c/39_unions.md
+      - Enumerations: c/40_enumerations.md
+      - Bitwise Operators: c/41_bitwise_operators.md
+      - Bit Fields: c/42_bit_fields.md
+      - Command Line Arguments: c/43_command_line_arguments.md
+      - Files: c/44_files.md
+      - Macros: c/45_macros.md
+      - Preprocessor Directives - 2: c/46_preprocessor_directives__2.md
+      - Function Pointers: c/47_function_pointers.md
+      - Recursive Functions: c/48_recursive_functions.md
+      - Variable Argument Functions: c/49_variable_argument_functions.md
+      - DSA in C: c/50_DSA_in_C.md
+
+  - AI:
+      - RAG Overview:
+        - RAG Intro: ai/1_RAG_Overview/1_rag.md
+        - RAG Uygulama Alanları: ai/1_RAG_Overview/2_rag_uygulama_alanlari.md
+        - RAG Mimarisi: ai/1_RAG_Overview/3_rag_mimarisi.md
+        - Introduction to LLM: ai/1_RAG_Overview/4_Introduction_to_LLM.md
+        - Python Libraries for RAG: ai/1_RAG_Overview/5_Python_Libraries_for_RAG.md
+        - Crafting Simple Augmented Prompts: ai/1_RAG_Overview/6_Crafting_Simple_Augmented_Prompts.md
+        - Information Retrieval (overview): ai/1_RAG_Overview/7_Information_Retrieval.md
+      - Information Retrieval and Search Foundations:
+        - Retriever Architecture: ai/2_Information_Retrieval_and_Search_Foundations/1_retriever_architecture.md
+        - Metadata Filtering: ai/2_Information_Retrieval_and_Search_Foundations/2_metadata_filtering.md
+        - Keyword Search (TF-IDF): ai/2_Information_Retrieval_and_Search_Foundations/3_keyword_search_TF-IDF.md
+        - Keyword Search (BM25): ai/2_Information_Retrieval_and_Search_Foundations/4_Keyword_search_BM25.md
+        - Semantic Search: ai/2_Information_Retrieval_and_Search_Foundations/5_Semantic_search.md
+        - Embedding Model Deep Dive: ai/2_Information_Retrieval_and_Search_Foundations/6_Semantic_search-embedding_model_deepdive.md
+        - Hybrid Search: ai/2_Information_Retrieval_and_Search_Foundations/7_Hybrid_Search.md
+        - Evaluating Retrieval: ai/2_Information_Retrieval_and_Search_Foundations/8_Evaluating_retrieval.md
+        - Wrap Up: ai/2_Information_Retrieval_and_Search_Foundations/10_Wrap_up.md
+      - Information Retrieval with Vector DB:
+        - Introduction: ai/3_Information_Retrieval_with_Vector_DB/1_introduction.md
+        - ANN Algorithms: ai/3_Information_Retrieval_with_Vector_DB/2_Approximate_neares_neighbors_algorithms_ANN.md
+        - Vector Databases: ai/3_Information_Retrieval_with_Vector_DB/3_Vector_Databases.md
+        - Chunking: ai/3_Information_Retrieval_with_Vector_DB/5_Chuncking.md
+        - Advanced Chunking: ai/3_Information_Retrieval_with_Vector_DB/6_Advanced_chuncking_techniques.md
+        - Query Parsing: ai/3_Information_Retrieval_with_Vector_DB/7_Query_parsing.md
+        - Cross-encoders & ColBERT: ai/3_Information_Retrieval_with_Vector_DB/8_Cross_encoders_and_ColBERT.md
+        - Reranking: ai/3_Information_Retrieval_with_Vector_DB/9_Reranking.md
+      - LLMs and Text Generation:
+        - Intro: ai/4_LLMs_and_Text_Generation/1_introduction.md
+        - Transformer Architecture: ai/4_LLMs_and_Text_Generation/2_Transformer_architecture.md
+        - LLM Sampling Strategies: ai/4_LLMs_and_Text_Generation/3_LLM_sampling_strategies.md
+        - Choosing Your LLM: ai/4_LLMs_and_Text_Generation/4_Choosing_your_LLM.md
+        - Prompt Engineering — Build an Augmented Prompt: ai/4_LLMs_and_Text_Generation/5_Promp_engineering_build_a_augmented_prompt.md
+        - Prompt Engineering (Advanced): ai/4_LLMs_and_Text_Generation/6_Prompt_engineering_advanced.md
+        - Handling Hallucinations: ai/4_LLMs_and_Text_Generation/7_handling_hallucinations.md
+        - Evaluating LLM Performance: ai/4_LLMs_and_Text_Generation/8_Evaluating_LLMs_performance.md
+        - Agentic RAG: ai/4_LLMs_and_Text_Generation/9_Agentic_RAG.md
+        - RAG vs Fine-Tuning: ai/4_LLMs_and_Text_Generation/10_RAG_vs_Fine-Tuning.md
+        - Wrap Up: ai/4_LLMs_and_Text_Generation/11_Wrap_up.md
+      - RAG Systems in Production:
+        - Intro: ai/5_RAG_System_in_Production/1_introduction.md
+        - Production Challenges: ai/5_RAG_System_in_Production/2_What_makes_production_challenging.md
+        - Implementation & Evaluation Strategies: ai/5_RAG_System_in_Production/3_Implementation_RAG_evaluation_strategies.md
+        - Logging, Monitoring & Observability: ai/5_RAG_System_in_Production/4_Logging_monitoring_and_observability.md
+        - Customized Evaluation: ai/5_RAG_System_in_Production/5_Customized_evaluation.md
+        - Quantization: ai/5_RAG_System_in_Production/6_Quantization.md
+        - Cost vs Response Quality: ai/5_RAG_System_in_Production/7_Cost_vs_Response_Quality.md
+        - Latency vs Response Quality: ai/5_RAG_System_in_Production/8_Latency_vs_Response_Quality.md
+        - Security: ai/5_RAG_System_in_Production/9_Security.md
+        - Multimodal RAG: ai/5_RAG_System_in_Production/10_Multimodal_RAG.md
+        - Wrap Up: ai/5_RAG_System_in_Production/11_Wrap_up.md
+  - Robotics:
+    - Intro: robotics/intro.md
+    - Overview: robotics/1.md
+  - Embedded:
+    - Intro: embedded/intro.md
+    - STM32CubeIDE: embedded/1_STM32CubeIDE.md
+    - Hello World: embedded/2_Hello world.md
+  - C++:
+    - Basics: cpp/basics.md
+    - Difference between C and C++: cpp/1_difference_between_c_and_cpp.md
+    - Valid in C, invalid in C++: cpp/2_valid_in_cpp_invalid_in_c.md
+    - Rule differences between C and C++: cpp/3_rule_difference_between_c_and_cpp.md
+    - References: cpp/4_references.md
+    - Assignment default values to parameter vars: cpp/5_assigment_default_values_to_parameter_vars.md
+    - Function Overloading: cpp/6_function_overloading.md
+    - Classes: cpp/7_classes.md
+    - Operator Overloading: cpp/8_operator_overloading.md
+    - Misc: cpp/9.md
