@@ -1,2 +1,2 @@
+# mkdocs_notes# course_notes
 # course_notes
-Notes taken from courses, documents, tutorials, demos, etc.
