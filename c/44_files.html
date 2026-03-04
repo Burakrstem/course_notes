@@ -1,0 +1,5427 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Burak Rustemogullari">
+      
+      
+        <link rel="canonical" href="https://burakrustemogullari.github.io/c/44_files.html">
+      
+      
+        <link rel="prev" href="43_command_line_arguments.html">
+      
+      
+        <link rel="next" href="45_macros.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Files - Burak's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c-programming-basics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Burak&#39;s Notes" class="md-header__button md-logo" aria-label="Burak's Notes" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Burak's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Files
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/burakrustemogullari/robotics-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="1_programming_and_c.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  C
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ai/1_RAG_Overview/1_rag.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../robotics/intro.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Robotics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../embedded/intro.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Embedded
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cpp/basics.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  C++
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Burak&#39;s Notes" class="md-nav__button md-logo" aria-label="Burak's Notes" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    Burak's Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/burakrustemogullari/robotics-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_programming_and_c.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming and C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_number_systems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Number Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3_general_concepts_and_terms.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Concepts and Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4_creating_a_c_program.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating a C Program
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5_data_types.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6_declarations_and_definitions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Declarations and Definitions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7_constants.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10_scope_and_lifetime.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope and Lifetime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11_control_statements.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12_if_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="13_function_declarations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Declarations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="14_type_conversions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="15_loop_statements.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loop Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16_ternary_operator.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ternary Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="17_preprocessor_directives__1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprocessor Directives - 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="18_switch_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="19_goto_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    goto Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="20_random_number_generation_and_control_statements.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Random Number Generation and Control Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="21_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="22_character_arrays_and_strings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Character Arrays and Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="23_sizeof_operator.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sizeof Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="24_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="25_pointer_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="26_standard_functions_for_string_operations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standard Functions for String Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="27_pointer_errors.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="28_void_type_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    void Type Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="29_strings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="30_pointer_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="31_pointers_to_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointers to Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="32_multidimensional_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multidimensional Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="33_exit_abort_and_exit_functions.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    exit, abort and atexit Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="34_dynamic_memory_management.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Memory Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="35_storage_class_specifiers_and_type_qualifiers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Class Specifiers and Type Qualifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="36_structures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="37_type_definitions_and_typedef.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Definitions and typedef
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="38_date_and_time_standard_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Date and Time Standard Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="39_unions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="40_enumerations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enumerations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="41_bitwise_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitwise Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="42_bit_fields.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bit Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="43_command_line_arguments.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Arguments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="44_files.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="45_macros.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Macros
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="46_preprocessor_directives__2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprocessor Directives - 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="47_function_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="48_recursive_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursive Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="49_variable_argument_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable Argument Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="50_DSA_in_C.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA in C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/1_rag.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/2_rag_uygulama_alanlari.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Uygulama Alanları
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/3_rag_mimarisi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Mimarisi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/4_Introduction_to_LLM.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to LLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/5_Python_Libraries_for_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Libraries for RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/6_Crafting_Simple_Augmented_Prompts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crafting Simple Augmented Prompts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/7_Information_Retrieval.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval (overview)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval and Search Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Information Retrieval and Search Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/1_retriever_architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retriever Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/2_metadata_filtering.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/3_keyword_search_TF-IDF.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keyword Search (TF-IDF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/4_Keyword_search_BM25.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keyword Search (BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/5_Semantic_search.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semantic Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/6_Semantic_search-embedding_model_deepdive.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedding Model Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/7_Hybrid_Search.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/8_Evaluating_retrieval.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluating Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/10_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval with Vector DB
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Information Retrieval with Vector DB
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/2_Approximate_neares_neighbors_algorithms_ANN.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ANN Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/3_Vector_Databases.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/5_Chuncking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chunking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/6_Advanced_chuncking_techniques.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Chunking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/7_Query_parsing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query Parsing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/8_Cross_encoders_and_ColBERT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-encoders & ColBERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/9_Reranking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLMs and Text Generation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LLMs and Text Generation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/2_Transformer_architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformer Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/3_LLM_sampling_strategies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Sampling Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/4_Choosing_your_LLM.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing Your LLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/5_Promp_engineering_build_a_augmented_prompt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering — Build an Augmented Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/6_Prompt_engineering_advanced.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering (Advanced)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/7_handling_hallucinations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handling Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/8_Evaluating_LLMs_performance.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluating LLM Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/9_Agentic_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/10_RAG_vs_Fine-Tuning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/11_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Systems in Production
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG Systems in Production
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/2_What_makes_production_challenging.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Challenges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/3_Implementation_RAG_evaluation_strategies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation & Evaluation Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/4_Logging_monitoring_and_observability.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging, Monitoring & Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/5_Customized_evaluation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customized Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/6_Quantization.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/7_Cost_vs_Response_Quality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cost vs Response Quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/8_Latency_vs_Response_Quality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latency vs Response Quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/9_Security.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/10_Multimodal_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multimodal RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/11_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robotics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robotics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/intro.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedded
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Embedded
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/intro.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/1_STM32CubeIDE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    STM32CubeIDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/2_Hello%20world.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hello World
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C++
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/basics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/1_difference_between_c_and_cpp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Difference between C and C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/2_valid_in_cpp_invalid_in_c.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Valid in C, invalid in C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/3_rule_difference_between_c_and_cpp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rule differences between C and C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/4_references.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/5_assigment_default_values_to_parameter_vars.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignment default values to parameter vars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/6_function_overloading.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Overloading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/7_classes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/8_operator_overloading.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operator Overloading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Misc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div><h1 id="c-programming-basics">🧠 C Programming Basics<a class="headerlink" href="#c-programming-basics" title="Permanent link">#</a></h1>
+<h1 id="files">📂 Files<a class="headerlink" href="#files" title="Permanent link">#</a></h1>
+<p>Regions defined in secondary memory are called <strong>files</strong>. File operations are entirely under the control of the operating system. Every file has a name. However, file naming rules can vary from system to system.</p>
+<p>The operating system is also a program. This program also works in the form of separately written functions calling each other. For example, running a program by typing its name on the command line is actually done by calling several system functions. Functions that receive the text written on the command line, search for a file on the disk, load a file into memory, and run the program in memory are called sequentially.</p>
+<p>Functions belonging to the operating system, which the operating system itself calls during its operation and which the system programmer can call from outside, are called <strong>system functions</strong>. These types of functions are called API (Application Programming Interface) functions in Windows systems, and <strong>system calls</strong> in the UNIX operating system.</p>
+<p>In fact, all file operations, regardless of the programming language used, are performed by the operating system's system functions. The names and parametric structures of system functions can vary from system to system.</p>
+<h2 id="opening-a-file">Opening a File<a class="headerlink" href="#opening-a-file" title="Permanent link">#</a></h2>
+<p>A file must be opened before operations can be performed on it. To open a file, a system function named "file open" of the operating system is used. Various initial operations related to the file are performed by the operating system during the file opening process.</p>
+<p>When a file is opened, the file information is written to a table within the operating system called the <strong>"File Table."</strong> The format of the file table can vary from system to system. For example, a typical file table might look like the following:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>File Table</strong></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Sequence No</strong></td>
+<td style="text-align: left;"><strong>File Name</strong></td>
+<td style="text-align: left;"><strong>File Location on Disk</strong></td>
+<td style="text-align: left;"><strong>File Properties</strong></td>
+<td style="text-align: left;"><strong>Others</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">AUTOEXEC.BAT</td>
+<td style="text-align: left;">......</td>
+<td style="text-align: left;">......</td>
+<td style="text-align: left;">......</td>
+</tr>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>The system functions of the operating system also have parameter variables and return values. The parameter of the "file open" system function is the name of the file to be opened. The function returns with the sequence number where the file information is written in the file table, which is called the <strong>"file handle."</strong> This handle value is passed as a parameter to other file functions. Additionally, other important operations are performed during the file opening process.</p>
+<h2 id="closing-a-file">Closing a File<a class="headerlink" href="#closing-a-file" title="Permanent link">#</a></h2>
+<p>Closing a file reverses the operations performed during opening. For example, during file closing, the information related to this file in the operating system's file table is deleted. Every opened file must be closed. Not closing a file can lead to various problems.</p>
+<h2 id="writing-and-reading-information-to-a-file">Writing and Reading Information to a File<a class="headerlink" href="#writing-and-reading-information-to-a-file" title="Permanent link">#</a></h2>
+<p>Operating systems have system functions that write <span class="arithmatex">\(n\)</span> bytes of data to a file and read <span class="arithmatex">\(n\)</span> bytes of data from a file. Writing and reading operations are performed using these functions.</p>
+<h2 id="file-position-indicator">File Position Indicator<a class="headerlink" href="#file-position-indicator" title="Permanent link">#</a></h2>
+<p>A file consists of bytes. Each byte in the file is assigned a number starting from 0 and increasing sequentially. This number is called the <strong>offset number</strong> of the relevant byte. The file position indicator is an internally held <code>long</code> type variable, specifying an offset value, i.e., a byte number. Standard functions that write to and read from a file always perform these writing and reading operations starting from the location indicated by the file position indicator. These functions do not request a value indicating where in the file to write or where in the file to read from. For example, let the location indicated by the file position indicator be the 100th offset. When a system function is called to read 10 bytes of information from the file, 10 bytes of information are read starting from the 100th offset. The operating system has a system function that positions the file indicator. When a file is first opened, the file position indicator points to the 0th offset. For example, if 10 bytes are desired to be read starting from the 100th byte of a file, the following operations must be performed sequentially:</p>
+<ul>
+<li>The relevant file is opened.</li>
+<li>The file position indicator is positioned to the 100th offset.</li>
+<li>10 bytes are read from the file.</li>
+<li>The file is closed.</li>
+</ul>
+<p>File operations in the C language can be performed in two ways:</p>
+<ol>
+<li>By directly calling the operating system's system functions.</li>
+<li>By using standard C functions.</li>
+</ol>
+<p>The names of all standard file functions declared in <code>stdio.h</code> start with the letter <strong><code>f</code></strong>. Standard C functions also call the operating system's system functions to perform their tasks. The system functions of the operating system are <strong>not portable</strong>. Their names and parametric structures can vary from system to system. Therefore, the use of <strong>standard C functions is recommended</strong>.</p>
+<h2 id="the-fopen-function">The <code>fopen</code> Function<a class="headerlink" href="#the-fopen-function" title="Permanent link">#</a></h2>
+<div class="codehilite"><pre><span></span><code>FILE *fopen (const char *fname, const char *mode);
+</code></pre></div>
+
+<p>The first parameter of the function is the name of the file to be opened. The second parameter is the <strong>opening mode</strong> information. Both pieces of information are conveyed to the function as a string. The file name can also include path information. The character <code>/</code> can also be used for directory traversal. A file can be opened in specific modes. The opening mode information determines which operations can be performed on the file to be opened. The opening mode information also determines how the function will behave if the file desired to be opened does not exist. The table below lists the strings that must be passed to the <code>fopen</code> function to convey the opening mode information:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Mode</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>"w"</code></td>
+<td style="text-align: left;">Opens the file for writing. Cannot read from the file. The file does not have to exist. If the file does not exist, a file with the given name is created. If the file exists, the file is zeroed out (truncated). Opening an existing file in this mode causes the file to be lost.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"w+"</code></td>
+<td style="text-align: left;">Opens the file for both writing and reading. The file does not have to exist. If the file does not exist, a file with the given name is created. If the file exists, the file is zeroed out. Opening an existing file in this mode causes the file to be lost.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"r"</code></td>
+<td style="text-align: left;">Opens the file for reading. Cannot write to the file. If the file does not exist, it cannot be opened.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"r+"</code></td>
+<td style="text-align: left;">Opens the file for both reading and writing. If the file does not exist, it cannot be opened.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"a"</code></td>
+<td style="text-align: left;">Opens the file for appending. Cannot read from the file. The file does not have to exist. If the file does not exist, a file with the given name is created. If the file exists, the file is not zeroed out.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"a+"</code></td>
+<td style="text-align: left;">Opens the file for both appending and reading. The file does not have to exist. If the file does not exist, a file with the given name is created. If the file exists, the file is not zeroed out.</td>
+</tr>
+</tbody>
+</table>
+<p>The return value of the function is an address of type <strong><code>FILE *</code></strong> (a pointer to the <code>FILE</code> structure). The function stores some information related to the opened file in the members of an object of type <code>FILE</code> structure and returns the address of this object. The <code>FILE</code> structure related to the function's return value is declared in the <code>stdio.h</code> header file. The members of this structure are not standard. They can vary from system to system. Programmers do not need to access the members of this structure directly.</p>
+<p>The <code>fopen</code> function calls the operating system's file open system function to open the file, writes some information related to the file to the members of an object of type <code>FILE</code> structure, and returns the starting address of this object. For example, the "file handle" value is also contained within this structure.</p>
+<p>The <code>FILE *</code> address returned by the <code>fopen</code> function is a <strong>safe address</strong>. The file may not be opened due to various reasons. In this case, the <code>fopen</code> function returns the <strong>NULL address</strong>. The return value of the function must definitely be checked. A typical check operation can be done as follows:</p>
+<div class="codehilite"><pre><span></span><code>/*…..*/
+FILE *f;
+if ((f = fopen("letter.txt", "r")) == NULL) {
+    printf("cannot open file...\n");
+    exit(EXIT_FAILURE);
+}
+</code></pre></div>
+
+<p>In the example above, a file named <code>letter.txt</code> is attempted to be opened for reading. If the file is not opened, an error message is printed to the screen, and the program is terminated with the standard <code>exit</code> function. You see that the code snippet above utilizes the fact that the value produced by the assignment operator is the value assigned to the object. Undoubtedly, terminating the program is not mandatory if a file desired to be opened with the <code>fopen</code> function cannot be opened. However, in the code examples to be given later, the program will be terminated for now if a file cannot be opened.</p>
+<p>The file name can contain information such as the drive and path regarding the file's location. Care must be taken when providing path information if the file name is provided with a string literal. Path information may contain the <code>\</code> (backslash) character. Using the <code>\</code> character inside a string literal can cause the <code>\</code> character and the character following it to be interpreted as a predetermined escape sequence. For example:</p>
+<div class="codehilite"><pre><span></span><code>fopen("C:\source\new.dat", "r");
+</code></pre></div>
+
+<p>In the function call above, the compiler interprets the <code>\n</code> character as the "newline" character, and the <code>\s</code> character as "undefined." Avoiding this problem is possible by using <strong><code>\\</code></strong> instead of the <code>\</code> character:</p>
+<div class="codehilite"><pre><span></span><code>fopen("C:\\source\\new.dat", "r");
+</code></pre></div>
+
+<p>The append modes (<code>"a"</code>, <code>"a+"</code>) are not frequently used modes. There is a difference between the <code>"w"</code> mode and the <code>"a"</code> mode when writing to a file. In the <code>"w"</code> mode, data can be written over existing bytes in the file. In the <code>"a"</code> mode, the file content is preserved, and writing can only be done at the end of the file.</p>
+<p>Care must be taken when a file is opened for both reading and writing, i.e., when the <code>+</code> character is used in the string specifying the opening mode. Between reading and writing operations, the file position indicator must definitely be repositioned (e.g., with the <code>fseek</code> function) or the file's buffer area must be flushed. This topic will be addressed in detail later.</p>
+<p>Whether a file can be opened can be checked with the following small program:</p>
+<p>When the program is executed from the command line as:</p>
+<div class="codehilite"><pre><span></span><code>canopen file.dat
+</code></pre></div>
+
+<p>the screen prints "file.dat can be opened" or "file.dat cannot be opened."</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main(int argc, char *argv[])
+{
+    FILE *fp;
+    if (argc != 2) {
+        printf("usage: canopen filename\n");
+        return 1;
+    }
+    // Try to open the file for reading
+    if ((fp = fopen(argv[1], "r")) == NULL) { 
+        printf("%s file cannot be opened\n", argv[1]);
+        return 2;
+    }
+    printf("%s file can be opened\n", argv[1]);
+    fclose(fp); // Close the file
+    return 0;
+}
+</code></pre></div>
+
+<p>The symbolic constant <strong><code>FOPEN_MAX</code></strong> is defined in the <code>stdio.h</code> header file. The <code>FOPEN_MAX</code> symbolic constant is also the maximum number of files that can be opened simultaneously.</p>
+<h2 id="the-fclose-function">The <code>fclose</code> Function<a class="headerlink" href="#the-fclose-function" title="Permanent link">#</a></h2>
+<p>This standard function's declaration in the <code>stdio.h</code> header file is as follows:</p>
+<div class="codehilite"><pre><span></span><code>int fclose(FILE *stream);
+</code></pre></div>
+
+<p>This function closes an opened file. The function takes the <code>FILE *</code> address obtained from the <code>fopen</code> or <code>freopen</code> function as a parameter and closes the open file. If the return value of the function is <span class="arithmatex">\(0\)</span>, it means the file was closed successfully. If the return value of the function is <strong><code>EOF</code></strong>, the file could not be closed.</p>
+<p><strong><code>EOF</code></strong> is a symbolic constant defined in the <code>stdio.h</code> header file, defined as <span class="arithmatex">\((-1)\)</span> in most compilers:</p>
+<div class="codehilite"><pre><span></span><code>#define EOF (-1)
+</code></pre></div>
+
+<p>The success of the function should only be checked when in doubt. Under normal conditions, there is no reason for the file not to be closed.</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main()
+{
+    FILE *f;
+    if ((f = fopen("letter.txt", "w")) == NULL) {
+        printf("letter.txt file cannot be created!\n");
+        exit(EXIT_FAILURE);
+    }
+    fclose(f);
+    printf("letter.txt file closed!\n");
+    return 0;
+}
+</code></pre></div>
+
+<p>There is also a non-standard function named <strong><code>fcloseall</code></strong> that is present in most compilers:</p>
+<div class="codehilite"><pre><span></span><code>int fcloseall(void);
+</code></pre></div>
+
+<p>When this function is called, all open files are closed. The return value of the function is the number of files closed.</p>
+<p>Now let's examine the standard C functions that read from an opened file or write to an opened file:</p>
+<h2 id="the-fgetc-function">The <code>fgetc</code> Function<a class="headerlink" href="#the-fgetc-function" title="Permanent link">#</a></h2>
+<div class="codehilite"><pre><span></span><code>int fgetc(FILE *f);
+</code></pre></div>
+
+<p>Standard C functions that perform writing and reading advance the file position indicator by the number of offsets written and read. The <code>fgetc</code> function reads the byte at the location indicated by the file indicator and returns the integer value of this byte as the return value. If the function fails, i.e., the reading operation cannot be performed, it returns the value <strong><code>EOF</code></strong>, defined as a symbolic constant in the <code>stdio.h</code> file.</p>
+<p>Assigning the return value of the <code>fgetc</code> function to a <code>char</code> type variable can lead to incorrect results; care must be taken in this regard, and the function's return value must be stored in an <strong><code>int</code> type variable</strong>.</p>
+<div class="codehilite"><pre><span></span><code>char ch;
+ch = fgetc(fp);
+</code></pre></div>
+
+<p>Suppose the character read from the file is the ASCII character number 255 (<span class="arithmatex">\(0\text{x}00\text{FF}\)</span>). When this number is assigned to a <code>char</code> type variable, its high-order byte is lost, and the value <span class="arithmatex">\(0\text{x}\text{FF}\)</span> is assigned to the variable <span class="arithmatex">\(ch\)</span>. In this case, since the variable <span class="arithmatex">\(ch\)</span> is of type signed <code>char</code>, the meaning is that a negative integer is held inside the variable <span class="arithmatex">\(ch\)</span>.</p>
+<p>In a comparison statement like:</p>
+<div class="codehilite"><pre><span></span><code>if (ch == EOF)
+</code></pre></div>
+
+<p>automatic type conversion is performed so that the comparison operation inside the <code>if</code> parenthesis can be done, i.e., <span class="arithmatex">\(ch\)</span> is promoted to an integer (integral promotion). In this automatic type conversion, the variable <span class="arithmatex">\(ch\)</span>, which will be converted to the signed <code>int</code> type, is padded with the <span class="arithmatex">\(\text{FF}\)</span> byte because it is negative. In this case, the equality comparison gives a correct result, i.e., it is interpreted that the end of the file has been reached (or reading could not be done for another reason). However, if <span class="arithmatex">\(ch\)</span> were of type <code>int</code>, the value assigned to the variable <span class="arithmatex">\(ch\)</span> would be <span class="arithmatex">\(0\text{x}00\text{FF}\)</span>. In this case, when the comparison is made, the result would be that <span class="arithmatex">\(ch\)</span> is not equal to the value <span class="arithmatex">\(\text{EOF}\)</span> (<span class="arithmatex">\(0\text{x}\text{FFFF}\)</span>).</p>
+<p>The <code>fgetc</code> function can be used to read a file opened for reading character by character. The program below prints the content of a file whose name is received from the keyboard to the screen:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define FILENAME_LEN 256
+int main()
+{
+    FILE *f;
+    char file_name[FILENAME_LEN];
+    int ch;
+    printf("Name of the file to be printed : ");
+    gets(file_name);
+    if ((f = fopen(file_name, "r")) == NULL) {
+        printf("cannot open file...\n");
+        exit(EXIT_FAILURE);
+    }
+    while ((ch = fgetc(f)) != EOF)
+        putchar(ch);
+    fclose(f);
+    return 0;
+}
+</code></pre></div>
+
+<p>Examine the code above. First, the name of the file to be printed is received from the keyboard and placed into the array named <code>file_name</code>. The file whose name is received into the <code>file_name</code> array is opened for reading with the call made to the <code>fopen</code> function. The program is terminated if the <code>fopen</code> function fails.</p>
+<p>With the loop statement:</p>
+<div class="codehilite"><pre><span></span><code>while ((ch = fgetc(f)) != EOF)
+    putchar(ch);
+</code></pre></div>
+
+<p>a character is read from the file until the <code>fgetc</code> function returns the <span class="arithmatex">\(\text{EOF}\)</span> value, and the image of the read character is printed to the screen with the standard <code>putchar</code> function. When the reading operation is complete, the file is closed with the standard <code>fclose</code> function.</p>
+<p>Now examine the following program to be run from the command line. The function is executed from the command line as:</p>
+<div class="codehilite"><pre><span></span><code>&lt;count&gt; &lt;file name&gt; &lt;character&gt;
+</code></pre></div>
+
+<p>The program prints the count of the character given as the third command line argument in the file whose name is given, to the screen. First examine the program, then compile and run it:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define FILENAME_LEN 256
+int main(int argc, char **argv)
+{
+    FILE *f;
+    char file_name[FILENAME_LEN];
+    int ch, cval;
+    int char_counter = 0;
+
+    if (argc != 3) {
+        printf("File name : ");
+        gets(file_name);
+        printf("character to be counted : ");
+        cval = getchar();
+    }
+    else {
+        strcpy(file_name, argv[1]);
+        cval = *argv[2]; // Use the first character of the string argument
+    }
+
+    if ((f = fopen(file_name, "r")) == NULL) {
+        printf("%s file cannot be opened!\n", file_name);
+        exit(EXIT_FAILURE);
+    }
+
+    while ((ch = fgetc(f)) != EOF)
+        if (ch == cval)
+            char_counter++;
+
+    fclose(f);
+    // Corrected output (ch is EOF after loop, use cval)
+    printf("%s file has %d occurrences of character %c!\n", file_name, char_counter, cval); 
+    return 0;
+}
+</code></pre></div>
+
+<p>Finally, let us add this. <code>fgetc</code> is a function. However, a macro named <strong><code>getc</code></strong> is also defined in the <code>stdio.h</code> header file. Most compilers also define a function with the same name as the <code>getc</code> macro. However, <code>fgetc</code> is a function, not a macro. The topic of macros will be addressed in later sections.</p>
+<h2 id="the-fputc-function">The <code>fputc</code> Function<a class="headerlink" href="#the-fputc-function" title="Permanent link">#</a></h2>
+<div class="codehilite"><pre><span></span><code>int fputc(int ch, FILE *p);
+</code></pre></div>
+
+<p>This function writes 1 byte of information to the location indicated by the file position indicator. The first parameter of the function is the character to be written, and the second parameter is the <code>FILE *</code> address related to the file to be written to. If the return value of the function is <strong><code>EOF</code></strong>, it means the writing operation failed. If the writing operation was successful, the function returns the sequence number of the character written.</p>
+<p>A frequent mistake is confusing the order of the arguments to be sent to the function. For example, let <span class="arithmatex">\(f\)</span> be a pointer pointing to an object of type <code>FILE *</code>. If the <code>fputc</code> function is mistakenly called in the form:</p>
+<div class="codehilite"><pre><span></span><code>fputc(f, 'A'); // Incorrect order
+</code></pre></div>
+
+<p>instead of:</p>
+<div class="codehilite"><pre><span></span><code>fputc('A', f);
+</code></pre></div>
+
+<p>the address <span class="arithmatex">\(f\)</span> is converted to the <code>int</code> type, and the integer value 'A' is converted to a <code>FILE *</code> type address. In this case, the writing operation undoubtedly fails.</p>
+<p>Below you see the code of a program that makes a copy of a file using the <code>fgetc</code> and <code>fputc</code> functions. The program is executed from the command line as:</p>
+<div class="codehilite"><pre><span></span><code>&lt;copy&gt; &lt;source file name&gt; &lt;target file name&gt;
+</code></pre></div>
+
+<p>The execution of the program creates a copy of the file whose name is given by the second command line argument, with the name given by the third command line argument. Carefully examine the program:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define MAX_FILE_NAME_LEN 256
+int main(int argc, char **argv)
+{
+    FILE *fsource, *fdest;
+    char source_name[MAX_FILE_NAME_LEN];
+    char dest_name[MAX_FILE_NAME_LEN];
+    int ch;
+    int byte_counter = 0;
+
+    if (argc != 3) {
+        printf("name of the file to be copied : ");
+        gets(source_name);
+        printf("name of the copy file : ");
+        gets (dest_name);
+    }
+    else {
+        strcpy(source_name, argv[1]);
+        strcpy(dest_name, argv[2]);
+    }
+
+    if ((fsource = fopen(source_name, "r")) == NULL) { // Open source for reading
+        printf("%s file cannot be opened\n", source_name);
+        exit(EXIT_FAILURE);
+    }
+    printf("%s file opened!\n", source_name);
+
+    if ((fdest = fopen(dest_name, "w")) == NULL) { // Open destination for writing
+        printf("%s file cannot be created\n", dest_name);
+        fclose(fsource); // Close source file before exiting
+        exit(EXIT_FAILURE);
+    }
+    printf("%s file created!\n", dest_name);
+
+    // Copy loop (byte by byte)
+    while ((ch = fgetc(fsource)) != EOF) {
+        fputc(ch, fdest);
+        byte_counter++;
+    }
+
+    fclose(fsource);
+    printf("%s file closed!\n", source_name);
+    fclose(fdest);
+    printf("%s file closed!\n", dest_name);
+    printf("copy of %s file with name %s and length %d successfully created!\n",
+           source_name, dest_name, byte_counter);
+    return 0;
+}
+</code></pre></div>
+
+<p><code>fputc</code> is a function. However, a macro named <strong><code>putc</code></strong> is also defined in the <code>stdio.h</code> header file. Most compilers also define a function with the same name as the <code>putc</code> macro. However, <code>fputc</code> is a function, not a macro.</p>
+<h2 id="the-fprintf-function">The <code>fprintf</code> Function<a class="headerlink" href="#the-fprintf-function" title="Permanent link">#</a></h2>
+<div class="codehilite"><pre><span></span><code>int fprintf(FILE *stream, const char *format, …);
+</code></pre></div>
+
+<p>This function is just like the <code>printf</code> function. However, its first parameter specifies which file the writing operation will be performed on. Its other parameters are the same as in the <code>printf</code> function. While the <code>printf</code> function writes to the screen, the <code>fprintf</code> function writes to the file specified in the first parameter variable.</p>
+<p>Examine the following example:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main()
+{
+    FILE *f;
+    int i, ch;
+    if ((f = fopen("data.txt", "w")) == NULL) { // Open for writing
+        printf("cannot open file...\n");
+        exit(EXIT_FAILURE);
+    }
+    printf("data.txt file created!\n");
+    for (i = 0; i &lt; 10; ++i)
+        fprintf(f, "number = %d\n", i); // Write formatted data to file
+    fclose(f);
+    printf("data.txt file closed!\n");
+
+    if ((f = fopen("data.txt", "r")) == NULL) { // Open for reading
+        printf("cannot open file...\n");
+        exit(EXIT_FAILURE);
+    }
+    printf("data.txt file opened for reading!\n");
+    while ((ch = fgetc(f)) != EOF) // Read back and print content
+        putchar(ch);
+    fclose(f);
+    return 0;
+}
+</code></pre></div>
+
+<h2 id="the-fscanf-function">The <code>fscanf</code> Function<a class="headerlink" href="#the-fscanf-function" title="Permanent link">#</a></h2>
+<p>This is a function that reads from a file. It is very similar to the <code>scanf</code> function. Just as the <code>fprintf</code> function performs the writing operation on the file specified by its first parameter instead of writing to the screen, the <strong><code>fscanf</code></strong> function reads from a specified file instead of reading from the keyboard. The <code>fscanf</code> function, unlike the <code>scanf</code> function, takes a <code>FILE *</code> address as its first parameter variable. The declaration of the function is as follows:</p>
+<div class="codehilite"><pre><span></span><code>int fscanf(FILE *stream, const char *format, …);
+</code></pre></div>
+
+<p>The return value of the function is the number of values read from the file and written to the memory locations. If no assignment is made to any memory location, the function returns <span class="arithmatex">\(0\)</span>. If the end of the file is reached before the first assignment can be made, or if an error occurs, the function returns the value <strong><code>EOF</code></strong>. The format specifiers to be used in the string passed as the second parameter are the same as in the <code>scanf</code> function.</p>
+<p>Carefully examine the following program:</p>
+<p>... (The provided code is a lengthy application involving file creation, reading, and processing student grades, which is summarized here based on the instructions).</p>
+<p>The code demonstrates:</p>
+<ol>
+<li>Creating a file (<code>notlar.txt</code>) with random name, surname, and grade data using <code>fprintf</code>.</li>
+<li>Reading this file line by line using <strong><code>fscanf</code></strong> to extract the name, surname, and grade into corresponding variables.</li>
+<li>Based on the <code>grade</code> (compared to <code>PASS_GRADE</code>), writing the record to either a "gecen.txt" (passed) or "kalan.txt" (failed) file, also using <code>fprintf</code>.</li>
+<li>Using <code>fcloseall</code> to close all opened files at the end.</li>
+</ol>
+<p>Let's address an important detail related to the format specifiers used in the <code>fscanf</code> function: It is not mandatory that every read from the file be converted and written to a memory location. If a character group separated by whitespace characters is desired to be removed from the file buffer without being assigned to a memory location, the <strong><code>*</code> character</strong> is used after the <code>%</code> character in the format specifier group. For example, suppose the following line is located at the position indicated by the file position indicator in a text file:</p>
+<div class="codehilite"><pre><span></span><code>1376 ---------- 4567
+</code></pre></div>
+
+<p>Suppose only the values 1376 and 4567 need to be transferred to the variables <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> as a result of the reading operation. A call like the following can be made for this:</p>
+<div class="codehilite"><pre><span></span><code>fscanf(f, "%d%*s%d", &amp;x, &amp;y); // %*s skips the next string (the '--------' part)
+</code></pre></div>
+
+<h2 id="the-fgets-function">The <code>fgets</code> Function<a class="headerlink" href="#the-fgets-function" title="Permanent link">#</a></h2>
+<div class="codehilite"><pre><span></span><code>char *fgets(char *buf, int n, FILE *f);
+</code></pre></div>
+
+<p>This function reads one line of information starting from the location indicated by the file position indicator. The function reads until it reads the <code>\n</code> character, writes it to the address given in its first parameter, and then terminates its operation.</p>
+<p>The first parameter of the function is the address of the location in memory where the information to be read will be placed. The second parameter is the maximum number of characters to be read. The <code>fgets</code> function reads at most <span class="arithmatex">\(n - 1\)</span> characters. It appends the null terminator to the end of the read characters and terminates its operation. If the number of characters on the line is less than <span class="arithmatex">\(n - 1\)</span>, it reads the entire line and terminates its operation. For example, suppose this parameter is entered as 10. Let there be 20 characters on the line. The function reads 9 characters and places them into the array, appending the null terminator to the end. However, if there were 5 characters on the line, including <code>\n</code>, the function would read all 5 characters, append the null terminator to the end, and terminate its operation. Passing the size of a <code>char</code> array or a dynamically obtained block as the second parameter of the function directly prevents overflow errors. This is because the <code>fgets</code> function writes at most one character less than the array size to the array and writes the value of the null terminator to the last element of the array.</p>
+<p>The return value of the function is the same address specified by the first parameter if at least 1 character was read; it is the <strong><code>NULL</code> address</strong> if no characters were read.</p>
+<p>The entire file can be read by continuously calling the <code>fgets</code> function within a loop.</p>
+<p>Examine the following program that prints the content of a file line by line using the <code>fgets</code> function:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define MAX_FILE_NAME_LEN 256
+#define BUFFER_SIZE 100
+int main()
+{
+    FILE *f;
+    char file_name[MAX_FILE_NAME_LEN];
+    char buf[BUFFER_SIZE];
+    printf("File name : ");
+    gets(file_name);
+    if ((f = fopen(file_name, "r")) == NULL) {
+        printf("cannot open the file %s\n", file_name);
+        exit(EXIT_FAILURE);
+    }
+    while (fgets(buf, BUFFER_SIZE, f) != NULL)
+        printf("%s", buf);
+    fclose(f);
+    return 0;
+}
+</code></pre></div>
+
+<p>With the loop:</p>
+<div class="codehilite"><pre><span></span><code>while (fgets(buf, BUFFER_SIZE, f) != NULL)
+    printf("%s", buf);
+</code></pre></div>
+
+<p>reading is done line by line from the file indicated by <span class="arithmatex">\(f\)</span>, and the read characters are written to the <code>buf</code> array. If no character remains to be read from the file, the <code>fgets</code> function returns the <strong><code>NULL</code> address</strong>.</p>
+<h2 id="the-fputs-function">The <code>fputs</code> Function<a class="headerlink" href="#the-fputs-function" title="Permanent link">#</a></h2>
+<p>The declaration of the function is as follows:</p>
+<div class="codehilite"><pre><span></span><code>int fputs(const char *str, FILE *stream);
+</code></pre></div>
+
+<p>The function writes the string at the address passed to its first parameter to the file associated with the <code>FILE *</code> type address passed to its second parameter. The null terminator at the end of the string is <strong>not</strong> written to the file by the function. If the function fails in the writing operation, it returns the value <strong><code>EOF</code></strong>. In case of success, the function's return value is a non-negative integer.</p>
+<p>The following program copies a text file using the <code>fputs</code> and <code>fgets</code> functions:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define FILE_NAME_LEN 256
+#define BUFFER_SIZE 100
+int main()
+{
+    char source_file_name[FILE_NAME_LEN];
+    char dest_file_name[FILE_NAME_LEN];
+    char buffer [BUFFER_SIZE];
+    FILE *fs, *fd;
+
+    printf("source file name: ");
+    gets(source_file_name);
+    printf("copy file name: ");
+    gets(dest_file_name);
+
+    fs = fopen(source_file_name, "r");
+    if (fs == NULL) {
+        printf("%s file cannot be opened!\n", source_file_name);
+        exit(EXIT_FAILURE);
+    }
+
+    fd = fopen(dest_file_name, "w");
+    if (fd == NULL) {
+        printf("%s file cannot be created!\n", dest_file_name);
+        fclose(fs); // Close source file before exiting
+        exit(EXIT_FAILURE);
+    }
+
+    while (fgets(buffer, BUFFER_SIZE, fs)) // Read line by line
+        fputs(buffer, fd); // Write line by line
+
+    printf("copy completed successfully!\n");
+    fclose(fs);
+    fclose(fd);
+    return 0;
+}
+</code></pre></div>
+
+<h2 id="text-files-and-binary-files">Text Files and Binary Files<a class="headerlink" href="#text-files-and-binary-files" title="Permanent link">#</a></h2>
+<p>A file can be opened in <strong>text mode</strong> or <strong>binary mode</strong>. The default opening mode is text mode. That is, if the mode in which the file is opened is not explicitly specified, it is assumed that the file is opened in text mode. To open the file in binary mode, the character <strong><code>b</code></strong> must be added to the opening mode string. Valid strings that can be sent to the <code>fopen</code> function to open a file in binary mode are given below:</p>
+<p><code>"rb"</code>, <code>"r+b"</code>, <code>"rb+"</code>, <code>"w+b"</code>, <code>"wb+"</code>, <code>"a+b"</code>, <code>"ab+"</code></p>
+<p>In some operating systems, such as DOS and WINDOWS, there are some important differences between opening a file in text mode and binary mode:</p>
+<p>In the DOS operating system, if a character is to appear at the beginning of the next line when a file is printed, the <strong>CR (carriage return)</strong> and <strong>LF (line feed)</strong> characters must be present before that character. The CR character is denoted by <code>\r</code> in C (ASCII character number 13). The LF character is denoted by <code>\n</code> in C (ASCII character number 10).</p>
+<p>For example, let the file content be in the form <code>a\r\nb</code>. On UNIX-based systems, only the LF character is used to move to the beginning of the next line. The file equivalent of the image <code>a b</code> on the screen in the UNIX operating system is in the form <code>a\nb</code>.</p>
+<p>In the DOS operating system, the LF character means move down one line, and the CR character means move to the beginning of the current line. For example, if the content of a file in the DOS operating system is in the form <code>a\nb</code>, the image <code>a b</code> is obtained when the file is printed. If the content of the file is in the form <code>a\rb</code>, the image <code>b</code> is obtained when the file is printed.</p>
+<p>The <code>\n</code> character in the <code>printf</code> function is used to move to the beginning of the next line on the screen. Actually, when <code>\n</code> is placed inside the string that is the first parameter of the <code>printf</code> function, this transition is achieved with only <code>\n</code> in UNIX, and with <code>\r</code> and <code>\n</code> in the DOS operating system.</p>
+<p>To work easily with text files, files are divided into text and binary. When a file is opened in <strong>text mode</strong>, if the <code>\n</code> character is desired to be written to the file, the file functions automatically write the <strong><code>\r</code> and <code>\n</code></strong> characters to the file. Similarly, if the file is opened in text mode and the file indicator points to the <code>\r\n</code> pair, only the <code>\n</code> character is read from the file. Another difference between text and binary files in the DOS operating system is the assumption that <strong>CTRL Z (ASCII character number 26) terminates the file</strong>. However, when the file is opened in binary mode, no such assumption is made.</p>
+<p>In the UNIX operating system, there is <strong>no difference</strong> between text mode and binary mode. That is, there is no problem with opening a file in text mode instead of binary mode in the UNIX operating system. However, opening a non-text file in text mode instead of binary mode under DOS can have drawbacks. For example, suppose an exe file is opened in text mode instead of binary mode under DOS. When ASCII characters number 10 and number 13 are located next to each other in this file, only 1 byte is read from the file. Similarly, when the ASCII character number 26 is read from the file, no more reading can be done from the file. It is assumed that the end of the file has been reached.</p>
+<h2 id="eof-state">EOF State<a class="headerlink" href="#eof-state" title="Permanent link">#</a></h2>
+<p>There is no special character at the end of the file. The operating system can tell whether the end of the file has been reached by looking at the file's length. The <strong>EOF (end of file) state</strong> is the situation where the file position indicator points to the last character that is not in the file. In the EOF state, the offset value of the file position indicator is the same as the file length. If reading is attempted from the file in the EOF state, the functions that read from the file fail. However, if the opening mode is appropriate, writing can be done to the file, and appending is performed in this case.</p>
+<p>As mentioned before, information related to a file opened in the C language is held inside an object of type <code>FILE</code>. The members of this structure provide information about the file's properties. The C programmer does not deal directly with the values of the members of this structure, as the return value of the <code>fopen</code> function is a pointer of type <code>FILE *</code> pointing to this structure object, and C language functions that operate on files mostly access information related to the desired file by taking this address as a parameter.</p>
+<p>One of the members of the <code>FILE</code> structure in question is the <strong>EOF flag</strong>, which is used as a flag. In most compilers, it is actually only a specific bit of an <code>int</code> type flag. Some C language functions that operate on files change the value of the EOF flag. That is, they set or clear the EOF flag. Functions that perform reading check the value of this flag before reading. If the EOF flag is set, reading is unsuccessful. The EOF flag must be cleared again for a successful reading operation to be performed. Functions that open a file clear the EOF flag in the <code>FILE</code> structure. In addition to these functions, functions that change the value of the file position indicator (<code>fseek</code>, <code>rewind</code>, <code>fsetpos</code>) and the <code>clearerr</code> function also clear the EOF bit.</p>
+<h2 id="formatted-and-unformatted-writing">Formatted and Unformatted Writing<a class="headerlink" href="#formatted-and-unformatted-writing" title="Permanent link">#</a></h2>
+<p>Suppose integer values are to be written to a file. What does it mean to write an <code>int</code> type value to a file? For example, on a system where the <code>int</code> type is 4 bytes long, let the integer value to be written to the file be <span class="arithmatex">\(1234567890\)</span>. This value is desired to be written to a file and then read back from that file.</p>
+<p>This operation can be done with the <code>fprintf</code> function, right? Let <span class="arithmatex">\(f\)</span> be a pointer to a file opened for writing.</p>
+<div class="codehilite"><pre><span></span><code>fprintf(f, "%d", 1234567890);
+</code></pre></div>
+
+<p>With the call above, 10 bytes are added to the file, starting from the location indicated by the file position indicator. The bytes written to the file are the sequence numbers of the digits that represent the place values of the number <span class="arithmatex">\(1234567890\)</span>. Assuming ASCII character encoding is used on the system, the following bytes are written to the file:</p>
+<div class="arithmatex">\[\text{49 50 51 42 53 54 55 56 57 59 48 (ASCII for "1234567890")}\]</div>
+<p>However, a value like <span class="arithmatex">\(1234567890\)</span> is expressed in a 4-byte area on a 32-bit system, right? For example, the memory image of the number <span class="arithmatex">\(1234567890\)</span> is as follows:</p>
+<div class="arithmatex">\[\text{0100 1001 1001 0110 0000 0010 1101 0010}\]</div>
+<p>Can't these 4 bytes be written to the file just as they are in RAM? Writing in this way to the file is <strong>unformatted writing</strong>. Two important standard C functions transfer a specific number of bytes from RAM to the file and from the file to RAM in an unformatted manner. We will examine these functions now:</p>
+<h2 id="the-fread-and-fwrite-functions">The <code>fread</code> and <code>fwrite</code> Functions<a class="headerlink" href="#the-fread-and-fwrite-functions" title="Permanent link">#</a></h2>
+<p>These two functions are among the most frequently used functions in C. They generally perform <strong>transfer</strong> between the file and RAM. The declaration of both functions is the same:</p>
+<div class="codehilite"><pre><span></span><code>size_t fread(void *adr, size_t block_size, size_t n_blocks, FILE *stream);
+size_t fwrite(const void *adr, size_t block_size, size_t n_blocks, FILE *stream);
+</code></pre></div>
+
+<p>Recall that the type <code>size_t</code> is the <code>typedef</code> new name for the <code>unsigned int</code> or <code>unsigned long</code> type in almost all systems.</p>
+<p>The <code>fread</code> function copies the product of the values copied to its second and third parameters of bytes, starting from the location indicated by the file position indicator, to the memory location starting from the address indicated by its first parameter. Generally, the second parameter of the function is provided as the length of a data structure element, and the third parameter is provided as the number of elements. The return value of the function is the number of elements read from the file or written to the file from memory.</p>
+<p>With these functions, arrays and structure objects can be transferred to a file with a single call. For example, a 10-element <code>int</code> array can be written to a file with a single call as follows:</p>
+<div class="codehilite"><pre><span></span><code>int a[5] = {3, 4, 5, 7, 8};
+fwrite (a, sizeof(int), 5, f);
+</code></pre></div>
+
+<p>In the example above, since the array name <span class="arithmatex">\(a\)</span> is address information of type <code>int *</code>, it can be sent as the 1st argument to the <code>fwrite</code> function. A total of <span class="arithmatex">\(\text{sizeof}(\text{int}) \times 5\)</span> bytes are written from the address <span class="arithmatex">\(a\)</span> in memory to the file associated with the <code>FILE *</code> pointer <span class="arithmatex">\(f\)</span>.</p>
+<p>The following code snippet transfers a structure object from memory to a file:</p>
+<div class="codehilite"><pre><span></span><code>typedef struct {
+    char name[20];
+    char fname[20];
+    int no;
+} Person;
+int main()
+{
+    FILE *f;
+    Person per = {"Necati", "Ergin", 325};
+    f = fopen("person.dat", "wb"); // Open in binary mode
+    /*********************************/
+    fwrite(&amp;per, sizeof(Person), 1, f); // Write the structure object unformatted
+    /****/
+    // fclose(f) should be called here
+    return 0;
+}
+</code></pre></div>
+
+<p>The <code>fwrite</code> function writes the numbers to the file with their memory image. That is, it does not write formatted like the <code>fprintf</code> function. For example, in the DOS operating system:</p>
+<div class="codehilite"><pre><span></span><code>int i = 1535;
+fwrite(&amp;i, sizeof(int), 1, f);
+</code></pre></div>
+
+<p>Here, if the file is printed, random characters appear for 2 bytes. This is because the <code>int</code> type is 2 bytes long in the DOS operating system. What we see are the random bytes of the number 1525. The <code>fprintf</code> function can be used to write the information to the file with their ASCII equivalents.</p>
+<p>Since the <code>fread</code> and <code>fwrite</code> functions transfer information that is in memory, it is appropriate for the files to also be opened in <strong>binary mode</strong>.</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main()
+{
+    FILE *f;
+    int i;
+    int a[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int b[10];
+
+    if ((f = fopen("data", "w+b")) == NULL) { // Open binary for read/write
+        printf("cannot open file...\n");
+        exit(EXIT_FAILURE);
+    }
+
+    fwrite (a, sizeof(int), 10, f); // Write array a
+    fseek(f, 0, SEEK_SET); // Reset file position to the beginning
+    fread(b, sizeof(int), 10, f); // Read into array b
+
+    for (i = 0; i &lt; 10; ++i)
+        printf("%d\n", b[i]);
+
+    fclose(f);
+    return 0;
+}
+</code></pre></div>
+
+<p>The return values of the <code>fread</code> and <code>fwrite</code> functions are the number of elements read or written, as specified by the third parameter. For example:</p>
+<div class="codehilite"><pre><span></span><code>n = fread(a, sizeof(int), 10, f);
+</code></pre></div>
+
+<p>With the call, <span class="arithmatex">\(\text{sizeof}(\text{int}) \times 10\)</span> bytes are desired to be read from the file indicated by <span class="arithmatex">\(f\)</span> and written to the address <span class="arithmatex">\(a\)</span> in RAM. That is, if all the numbers from the position indicated by the file position indicator can be read, the function returns the value 10. If the number of remaining bytes in the file is less than the number desired to be read, the function reads all the bytes, and the return value is the number of read elements multiplied by the value specified by the 2nd parameter. For example, let's assume we are working under the DOS operating system. Let 10 bytes of information remain in the file. The function returns the value 5 with:</p>
+<div class="codehilite"><pre><span></span><code>n = fread(a, sizeof(int), 10, f); // Reads 5 integers (5 * 2 bytes = 10 bytes)
+</code></pre></div>
+
+<p>Examine the following two calls:</p>
+<div class="codehilite"><pre><span></span><code>fread(str, 100, 1, f); // Reads 1 block of 100 bytes
+fread(str, 1, 100, f); // Reads 100 blocks of 1 byte
+</code></pre></div>
+
+<p>Both function calls can be used to read 100 bytes from the file associated with the <code>FILE *</code> pointer <span class="arithmatex">\(f\)</span> to the address <span class="arithmatex">\(str\)</span> in RAM. However, while the return value could be either 0 or 1 in the first call, the return value could be any value in the range [0, 100] in the second function call.</p>
+<h2 id="the-fseek-ftell-and-rewind-functions">The <code>fseek</code>, <code>ftell</code>, and <code>rewind</code> Functions<a class="headerlink" href="#the-fseek-ftell-and-rewind-functions" title="Permanent link">#</a></h2>
+<p>The file position indicator can be positioned with standard C functions:</p>
+<h3 id="the-fseek-function">The <code>fseek</code> Function<a class="headerlink" href="#the-fseek-function" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>int fseek(FILE *f, long offset, int origin);
+</code></pre></div>
+
+<p>This function is called to position the file position indicator to a desired offset value. With the call to this function, it becomes possible to read from a desired location or write to a desired location of an opened file.</p>
+<ul>
+<li>The third parameter specifies the point from which the positioning will be made. One of the symbolic constants <strong><code>SEEK_SET</code></strong>, <strong><code>SEEK_CUR</code></strong>, or <strong><code>SEEK_END</code></strong> declared in <code>stdio.h</code> must be passed to this parameter.</li>
+</ul>
+<p>If the value <strong><code>SEEK_SET</code></strong> is passed to the last parameter, positioning is done from the beginning of the file. In this case, the second parameter must be <span class="arithmatex">\(\ge 0\)</span>. For example:</p>
+<div class="codehilite"><pre><span></span><code>fseek(f, 10L, SEEK_SET); // Positions the file indicator to the 10th offset.
+</code></pre></div>
+
+<p>If the value <strong><code>SEEK_CUR</code></strong> is passed to the third parameter variable of the function, positioning is done relative to the file indicator's current position. In this case, the second parameter can have a positive or negative value. A positive value means forward, and a negative value means backward. For example, let the file indicator point to the 10th byte.</p>
+<div class="codehilite"><pre><span></span><code>fseek(f, -1, SEEK_CUR); // Positions the file indicator to the 9th offset.
+</code></pre></div>
+
+<p>If the value <strong><code>SEEK_END</code></strong> is passed to the third parameter variable of the function, positioning is done from the EOF state, i.e., from the end of the file. In this case, the value passed to the second parameter must be <span class="arithmatex">\(\le 0\)</span>. For example, to position the file indicator to the end of the file:</p>
+<div class="codehilite"><pre><span></span><code>fseek(f, 0L, SEEK_END); // Positions to the end of the file.
+</code></pre></div>
+
+<p>The function's return value provides information about the success of the operation. If the return value is <span class="arithmatex">\(0\)</span>, the operation was successful; if it is a non-zero value, the operation failed. Checking the return value is only recommended in problematic situations.</p>
+<p>The file indicator must be positioned with a positioning function between writing and reading operations. Alternatively, the file buffer area must be flushed with a call to the <code>fflush</code> function. If necessary, positioning can be done to the current location with an empty <code>fseek</code> call: <code>fseek(f, 0L, SEEK_CUR)</code>.</p>
+<p>For example, let a character be read from the file, and the next character be written as the read character plus 1:</p>
+<div class="codehilite"><pre><span></span><code>ch = fgetc(f);
+fputc(ch + 1, f);
+</code></pre></div>
+
+<p>The operation above is erroneous. The situation exhibits <strong>undefined behavior</strong> related to runtime. The file indicator must be positioned when transitioning from writing to reading, or from reading to writing. The only exception to this situation is when the end of the file is reached with the last reading operation. In this case, it is guaranteed that writing can be done at the end of the file without repositioning.</p>
+<h3 id="the-rewind-function">The <code>rewind</code> Function<a class="headerlink" href="#the-rewind-function" title="Permanent link">#</a></h3>
+<p>This function positions the file position indicator to the <strong>beginning</strong> of the file. The declaration of the function is as follows:</p>
+<div class="codehilite"><pre><span></span><code>void rewind(FILE *fp);
+</code></pre></div>
+
+<p>The call <code>rewind(f);</code> is synonymous with the call <code>(void) fseek(f, 0L, SEEK_SET);</code>.</p>
+<h3 id="the-ftell-function">The <code>ftell</code> Function<a class="headerlink" href="#the-ftell-function" title="Permanent link">#</a></h3>
+<p>This function is called to obtain the value of the file position indicator. The declaration of the function is as follows:</p>
+<div class="codehilite"><pre><span></span><code>long ftell(FILE *stream);
+</code></pre></div>
+
+<p>The return value of the function is the value of the file position indicator. This value is given as the byte count from the beginning of the file. In case of an error, the function returns the value <span class="arithmatex">\(-1\text{L}\)</span>. The length of a binary file can be obtained with calls to the <code>fseek</code> and <code>ftell</code> functions:</p>
+<div class="codehilite"><pre><span></span><code>fseek(f, 0, SEEK_END);
+length = ftell(f);
+</code></pre></div>
+
+<h2 id="file-position-functions-fgetpos-fsetpos">File Position Functions (<code>fgetpos</code>, <code>fsetpos</code>)<a class="headerlink" href="#file-position-functions-fgetpos-fsetpos" title="Permanent link">#</a></h2>
+<p>These functions are used in conjunction with each other to obtain the value of the file position indicator or to change its value. With these functions, a point in the file can be marked, and later the file position indicator can be positioned to the same point for reading or writing. The value of the file position indicator is obtained with the <strong><code>fgetpos</code></strong> function, and the <strong><code>fsetpos</code></strong> function is used to return to this position later.</p>
+<div class="codehilite"><pre><span></span><code>int fgetpos(FILE *stream, fpos_t *pos);
+</code></pre></div>
+
+<p>The function obtains the value of the file position indicator of the file associated with the address passed to its first parameter and writes it to the address passed to its second parameter. The type <code>fpos_t</code> is a standard <code>typedef</code> type declared in the <code>stdio.h</code> header file. This type is used only in the <code>fgetpos</code> and <code>fsetpos</code> functions.</p>
+<div class="codehilite"><pre><span></span><code>int fsetpos(FILE *stream, const fpos_t *pos);
+</code></pre></div>
+
+<p>The function positions the file position indicator of the file associated with the address passed to its first parameter to the value read from the address passed to its second parameter. The address of an object carrying a value obtained from the <code>fgetpos</code> function must be passed to the second parameter of the function.</p>
+<p>The <code>fgetpos</code>/<code>fsetpos</code> functions should be preferred over the <code>fseek</code> function, especially when large files are in question. This is because the second parameter of the <code>fseek</code> function is of type <code>long</code>, while the <code>fpos_t</code> type used in the <code>fgetpos</code>/<code>fsetpos</code> functions can be an internally defined structure type large enough to hold the position information of very large files.</p>
+<h2 id="other-standard-functions-operating-on-files">Other Standard Functions Operating on Files<a class="headerlink" href="#other-standard-functions-operating-on-files" title="Permanent link">#</a></h2>
+<h3 id="the-remove-function">The <code>remove</code> Function<a class="headerlink" href="#the-remove-function" title="Permanent link">#</a></h3>
+<p>This function deletes a file. The declaration of the function is:</p>
+<div class="codehilite"><pre><span></span><code>int remove (const char *filename);
+</code></pre></div>
+
+<p>The name of the file to be deleted is sent as an argument to the function. The return value of the function is <span class="arithmatex">\(0\)</span> if the file can be successfully deleted; otherwise, i.e., if the file could not be deleted, it is a non-zero value. Since the ability to delete an open file is system-dependent, for the portability of the written code, a file to be deleted should be closed first if it is open.</p>
+<h3 id="the-rename-function">The <code>rename</code> Function<a class="headerlink" href="#the-rename-function" title="Permanent link">#</a></h3>
+<p>This function is used to change the name of a file. The declaration of the function is:</p>
+<div class="codehilite"><pre><span></span><code>int rename (const char *old, const char *new);
+</code></pre></div>
+
+<p>The old name of the file must be sent as the first argument to the function, and the new name of the file must be sent as the second argument. The return value of the function is <span class="arithmatex">\(0\)</span> if the renaming operation is successful; otherwise, i.e., if the file name could not be changed, it is a non-zero value. In most systems, the function fails and returns a non-zero value if an attempt is made to change the name of an open file.</p>
+<h3 id="the-tmpfile-function">The <code>tmpfile</code> Function<a class="headerlink" href="#the-tmpfile-function" title="Permanent link">#</a></h3>
+<p>The function is used to open a temporary file. The declaration of the function is:</p>
+<div class="codehilite"><pre><span></span><code>FILE *tmpfile(void);
+</code></pre></div>
+
+<p>The <code>tmpfile</code> function opens the temporary file it creates in <strong><code>"wb"</code> mode</strong>. The opened file is automatically deleted when it is closed with the <code>fclose</code> function or when the program terminates if the file is not closed. The return value of the function is an address of type <code>FILE *</code> that is used to establish a connection with the opened temporary file. If the temporary file cannot be opened for any reason, the function returns the <strong><code>NULL</code> address</strong>.</p>
+<p>The symbolic constant <strong><code>TMP_MAX</code></strong> defined in the <code>stdio.h</code> header file indicates the maximum number of temporary files that can be created with the <code>tmpfile</code> function. The number of temporary files opened simultaneously in a written source code should not be greater than the value of <code>TMP_MAX</code>.</p>
+<h3 id="the-tmpnam-function">The <code>tmpnam</code> Function<a class="headerlink" href="#the-tmpnam-function" title="Permanent link">#</a></h3>
+<p>This function is used to generate a name for a file that will be used temporarily. The declaration of the function in the <code>stdio.h</code> header file is:</p>
+<div class="codehilite"><pre><span></span><code>char *tmpnam(char *s);
+</code></pre></div>
+
+<p>The function writes the file name it generates to the <code>char *</code> address sent to it. The function also writes the same file name into a static duration array and returns the starting address of this array. If the <strong><code>NULL</code> address</strong> is sent as an argument to the function, the function only returns the address of the static duration array. What should be the size of the array of type <code>char</code> when its address is sent as an argument to the function? That is, how many characters long is the file name that the <code>tmpnam</code> function generates? This value is specified by the symbolic constant <strong><code>L_tmpnam</code></strong> defined in the <code>stdio.h</code> file.</p>
+<p>It is guaranteed that the file name generated by the <code>tmpnam</code> function is a file name that has not been used before in the current directory. That is, the generated file name is unique in the current directory. Suppose a file is to be opened for later deletion in a program, and after some information is written to this file, the file will be deleted or given another name. In this case, since the relevant file will be opened in writing mode, the name of an existing file should not be given to this file. If the name of an existing file is given, the existing file will be zeroed out (truncated), and the file will be lost. To avoid this risk, the file to be used temporarily should be opened using the <code>tmpfile</code> function. However, if the <code>tmpfile</code> function is used, the opened file cannot be made permanent. That is, if the temporary file is desired not to be deleted for any reason, or if the file is desired to be made permanent, the file must be opened with the <code>fopen</code> function. In this case, the temporary file must be opened with the name generated by the <code>tmpnam</code> function to avoid risking another file.</p>
+<p>So, what is the maximum number of reliable file names that can be generated with the <code>tmpnam</code> function? This value is determined by the symbolic constant <strong><code>TMP_MAX</code></strong> defined in <code>stdio.h</code>.</p>
+<h2 id="streams">Streams<a class="headerlink" href="#streams" title="Permanent link">#</a></h2>
+<p>In the C language, some input and output units (like the keyboard and screen) are treated directly as a file. Any input/output unit is named a <strong>stream</strong>. A stream can be a file, or it can be an input/output unit treated as a file. For example, small programs generally receive their input from a single stream (e.g., the keyboard) and convey their output to a single stream (e.g., the screen).</p>
+<h3 id="the-stdout-stdin-and-stderr-streams">The <code>stdout</code>, <code>stdin</code>, and <code>stderr</code> Streams<a class="headerlink" href="#the-stdout-stdin-and-stderr-streams" title="Permanent link">#</a></h3>
+<p>Inputs made to a program are accepted as coming from a <strong>byte stream (input stream)</strong> flowing towards the program. Similarly, the output of a program is considered as bytes flowing outwards from the program (<strong>output stream</strong>). Functions that perform reading and writing related to files can read directly from the input stream and write to the output stream.</p>
+<p>It is accepted that 3 streams are automatically opened when a C program starts running. These streams can be used as files and are associated with predefined values of type <code>FILE *</code>:</p>
+<ul>
+<li><strong><code>stdin</code></strong>: Represents the standard input unit. This stream is normally connected to the keyboard.</li>
+<li><strong><code>stdout</code></strong>: Represents the standard output stream. This stream is normally connected to the screen.</li>
+<li><strong><code>stderr</code></strong>: Represents the standard error stream. This stream is also normally connected to the screen.</li>
+</ul>
+<p>The functions we previously learned as input functions from the keyboard (<code>getchar</code>, <code>gets</code>, <code>scanf</code>) are actually functions that read from the <code>stdin</code> stream. The functions we previously learned as output functions to the screen (<code>putchar</code>, <code>puts</code>, <code>printf</code>) are actually functions that write to the <code>stdout</code> stream.</p>
+<p>Functions that read from files can be passed <code>stdin</code>, and functions that write to files can be passed <code>stdout</code> and <code>stderr</code> as <code>FILE *</code> type values. For example:</p>
+<div class="codehilite"><pre><span></span><code>fprintf(stdout, "Necati Ergin"); // Prints "Necati Ergin" to the screen.
+</code></pre></div>
+
+<p>Similarly:</p>
+<div class="codehilite"><pre><span></span><code>fputc('A', stdout); // Prints the character 'A' to the screen.
+
+fscanf(stdin, "%d", &amp;val); // Assigns the value read from the keyboard to the variable 'val'.
+</code></pre></div>
+
+<h3 id="redirecting-streams">Redirecting Streams<a class="headerlink" href="#redirecting-streams" title="Permanent link">#</a></h3>
+<p>Most operating systems allow input and output streams to be redirected to other files. For example, suppose a program named <code>primenumwriter</code> prints prime numbers in the range <span class="arithmatex">\(1 - 1000\)</span> to the screen when executed. Let the <code>printf</code> function be called for the printing operation in the program's source code. When this program is executed from the command line in DOS/WINDOWS operating systems as:</p>
+<div class="codehilite"><pre><span></span><code>primenumwriter
+</code></pre></div>
+
+<p>its output is written to the screen.</p>
+<p>If the <code>primenumwriter</code> program is executed from the command line as:</p>
+<div class="codehilite"><pre><span></span><code>primenumwriter &gt; primes.txt
+</code></pre></div>
+
+<p>everything that the <code>primenumwriter</code> program sends to the <code>stdout</code> stream, i.e., the screen, is written to the <code>primes.txt</code> file. The <code>&gt;</code> symbol used here is called the <strong>"redirection"</strong> symbol.</p>
+<p>Similarly, the <code>&lt;</code> redirection symbol is used for the <code>stdin</code> stream. For example, if a program named <code>process</code> is executed in the form:</p>
+<div class="codehilite"><pre><span></span><code>process &lt; numbers.txt
+</code></pre></div>
+
+<p>all information that would normally be read from the keyboard is read from the <code>numbers.txt</code> file.</p>
+<p>Both redirection symbols can be used together:</p>
+<div class="codehilite"><pre><span></span><code>process &lt; numbers.txt &gt; prime.txt
+</code></pre></div>
+
+<p>When the <code>process</code> function is executed as above, it reads its input from the <code>numbers.txt</code> file and writes its output to the <code>prime.txt</code> file.</p>
+<p>In addition to these, there is another redirection symbol in the UNIX operating system in the form <code>|</code>. In an operation like:</p>
+<div class="codehilite"><pre><span></span><code>x | y
+</code></pre></div>
+
+<p>where <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> are two programs, these two programs are executed simultaneously. Everything that program <span class="arithmatex">\(x\)</span> writes to the screen is treated as if it were input from the keyboard in program <span class="arithmatex">\(y\)</span>. This redirection operation is called a <strong>pipe</strong>.</p>
+<p>The <code>stderr</code> file is also normally redirected to the screen. That is, if a writing operation is performed to the <code>stderr</code> file with the standard <code>fprintf</code> function, the written information still appears on the screen. However, if the <code>stdout</code> stream is redirected to another file, the <code>stderr</code> stream is unaffected by the redirection operation and remains connected to the screen. That is, even if redirection is performed from the command line:</p>
+<div class="codehilite"><pre><span></span><code>fprintf(stderr, "error!\n");
+</code></pre></div>
+
+<p>a call like this results in the word "Error" being written to the screen, not to the file. Error messages should be written to the <code>stderr</code> stream with the <code>fprintf</code> function instead of being printed to the screen with the <code>printf</code> function.</p>
+<h3 id="calling-the-fgets-function-with-the-stdin-value">Calling the <code>fgets</code> Function with the <code>stdin</code> Value:<a class="headerlink" href="#calling-the-fgets-function-with-the-stdin-value" title="Permanent link">#</a></h3>
+<p>You know that the <code>fgets</code> function requires a value of type <code>FILE *</code> as its third parameter:</p>
+<div class="codehilite"><pre><span></span><code>fgets(char *str, int n, FILE *f);
+</code></pre></div>
+
+<p>When the <code>stdin</code> value is passed to this parameter of the function, the line to be placed into the array is read from the keyboard. Such a call should be preferred over a call to the <code>gets</code> function because the risk of a pointer error is eliminated.</p>
+<p>In the call to the <code>gets</code> function above:</p>
+<div class="codehilite"><pre><span></span><code>char str[20];
+gets(str);
+</code></pre></div>
+
+<p>entering 20 or more characters from the keyboard causes a pointer error. However, when the call is made in the form:</p>
+<div class="codehilite"><pre><span></span><code>fgets(str, 20, stdin);
+</code></pre></div>
+
+<p>at most 19 characters are written to the array. That is, there is no risk of a pointer error occurring. The only point to note here is the possibility that the <code>\n</code> character is also written to the array by the <code>fgets</code> function. Examine the following code:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main()
+{
+    char str[20];
+    printf("enter a name : ");
+    fgets(str, 20, stdin);
+    if (!strcmp(str, "NECATI"))
+        printf("equal\n");
+    else
+        printf("not equal\n");
+    return 0;
+}
+</code></pre></div>
+
+<p>When the program above is executed and the name "NECATI" is entered from the keyboard, the screen prints "not equal." This is because the <code>fgets</code> function also places the entered newline character into the array after the "NECATI" input is made. That is, the <code>strcmp</code> function actually compares the strings "N E C A T I \n" and "N E C A T I \n".</p>
+<p>A statement like the following could have been used before the comparison operation:</p>
+<div class="codehilite"><pre><span></span><code>if ((ptr = strchr(str, '\n')) != NULL)
+    *ptr = '\0';
+</code></pre></div>
+
+<p>In the statement above, the <code>\n</code> character is searched for in the string at the address <span class="arithmatex">\(str\)</span> with the <code>strchr</code> function. If the <code>\n</code> character is found in the string, the null terminator is written in its place. That is, if the <code>\n</code> character is present at the end of the string, it is deleted from the string.</p>
+<h2 id="the-freopen-function">The <code>freopen</code> Function<a class="headerlink" href="#the-freopen-function" title="Permanent link">#</a></h2>
+<p>This function redirects a previously opened file to the file it opens. The declaration of the function is:</p>
+<div class="codehilite"><pre><span></span><code>FILE *freopen(const char *filename, const char *mode, FILE *stream);
+</code></pre></div>
+
+<p>It is mostly used in applications for redirecting standard files (<code>stdin</code>, <code>stdout</code>, <code>stderr</code>) to other files. For example, if the output of a program is desired to be written to the file named <code>data.dat</code>:</p>
+<div class="codehilite"><pre><span></span><code>if (freopen("data.dat", "w", stdout) == NULL) {
+    printf("data.dat file cannot be opened\n");
+    exit(EXIT_FAILURE);
+}
+</code></pre></div>
+
+<p>With the function call above, the file to which the <code>stdout</code> file was redirected is closed, and the <code>stdout</code> file is redirected to the <code>data.dat</code> file. This redirection operation might have been done from the command line, or it might have been performed with a previous call to the <code>freopen</code> function.</p>
+<p>The return value of the <code>freopen</code> function is the <code>FILE *</code> type pointer that is the third argument sent to the function. <code>freopen</code> returns the <strong><code>NULL</code> address</strong> if the file to which the redirection will be made cannot be opened. If the old file to which the redirection was made cannot be closed, the <code>freopen</code> function does not provide an indication in this case.</p>
+<h2 id="the-feof-function">The <code>feof</code> Function<a class="headerlink" href="#the-feof-function" title="Permanent link">#</a></h2>
+<p>If reading is performed from a file when the file position indicator points to the end of the file, the reading operation is unsuccessful. In this case, an internally held flag is set. Functions that perform reading check the value of this flag first. If the flag is set, they do not perform reading. The <strong><code>feof</code></strong> function retrieves the value of this flag:</p>
+<div class="codehilite"><pre><span></span><code>int feof(FILE *stream);
+</code></pre></div>
+
+<p>If reading was performed from the file when the file position indicator pointed to the end of the file, the function returns a non-zero value. Otherwise, the function returns <span class="arithmatex">\(0\)</span>.</p>
+<p>A typical mistake made with the <code>feof</code> function is thinking that the function checks whether the file position indicator points to the end of the file:</p>
+<div class="codehilite"><pre><span></span><code>if (feof(f))
+    /******/
+</code></pre></div>
+
+<p>A check like this cannot be performed with the statement above. This is because the <code>feof</code> function returns <span class="arithmatex">\(0\)</span> if the file position indicator points to the end of the file but no reading attempt has been made from this location yet.</p>
+<p>The following C code, which tries to print the content of a text file to the screen, is erroneous. Try to find out why it is erroneous:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define FILE_NAME_LEN 256
+#define BUFFER_SIZE 20
+int main()
+{
+    char source_file_name[FILE_NAME_LEN];
+    char buffer [BUFFER_SIZE];
+    FILE *fs;
+    printf("file name to be printed: ");
+    gets(source_file_name);
+    fs = fopen(source_file_name, "r");
+    if (fs == NULL) {
+        printf("%s file cannot be opened!\n", source_file_name);
+        exit(EXIT_FAILURE);
+    }
+    // Error: feof checks after an *unsuccessful* read. This loop structure 
+    // will perform the read one last time after EOF is reached, and print 
+    // the content of the buffer twice (the last good read + the content of 
+    // the buffer after the failed read).
+    while (!feof(fs)) { 
+        fgets(buffer, BUFFER_SIZE, fs);
+        printf("%s", buffer);
+    }
+    fclose(fs);
+    return 0;
+}
+</code></pre></div>
+
+<h2 id="the-ferror-function">The <code>ferror</code> Function<a class="headerlink" href="#the-ferror-function" title="Permanent link">#</a></h2>
+<p>Functions that perform reading or writing set an internally held flag (often in a bit field) when an error occurs during the reading or writing operation. Functions that perform reading or writing check the value of this flag first. If the flag is set, a new reading or writing operation cannot be performed. The flags must be cleared again first. The <strong><code>ferror</code></strong> function checks whether the error flag has been set:</p>
+<div class="codehilite"><pre><span></span><code>int ferror(FILE *stream);
+</code></pre></div>
+
+<p>If the error flag is set, the function returns a non-zero value. If the error flag is not set, the function returns <span class="arithmatex">\(0\)</span>.</p>
+<h2 id="the-clearerr-function">The <code>clearerr</code> Function<a class="headerlink" href="#the-clearerr-function" title="Permanent link">#</a></h2>
+<div class="codehilite"><pre><span></span><code>void clearerr(FILE *stream);
+</code></pre></div>
+
+<p>We said that the error flag is set when an error occurs during the reading or writing operation, and the EOF flag is set when an attempt is made to read from the end of the file. A reading or writing operation cannot be performed while these flags are set. The <strong><code>clearerr</code></strong> function can be called to clear the flags. The function receives the <code>FILE *</code> value related to the file and clears the EOF and Error flags of this file.</p>
+<h2 id="the-ungetc-function">The <code>ungetc</code> Function<a class="headerlink" href="#the-ungetc-function" title="Permanent link">#</a></h2>
+<p>This function puts the character read from the file <strong>back</strong> into the file's buffer area.</p>
+<div class="codehilite"><pre><span></span><code>int ungetc(int c, FILE *f);
+</code></pre></div>
+
+<p>The file must be opened in reading mode for the <code>ungetc</code> function. The value <span class="arithmatex">\(c\)</span> is read in the first reading operation performed after the function is called. If the function is successful, it returns the value <span class="arithmatex">\(c\)</span>. In case of failure, no change occurs in the file's buffer area, and the <span class="arithmatex">\(\text{EOF}\)</span> value is returned. The function also clears the <span class="arithmatex">\(\text{EOF}\)</span> flag after placing the character back into the buffer area. The <code>ungetc</code> function should not be called consecutively without the file position indicator being repositioned.</p>
+<h2 id="file-buffering-functions">File Buffering Functions<a class="headerlink" href="#file-buffering-functions" title="Permanent link">#</a></h2>
+<p>Operations performed with secondary memory (floppy disk, hard disk, etc.) are very slow compared to operations performed in memory. Therefore, directly accessing the file every time a character is read from a file or a character is written to a file is not an efficient method. The efficiency of the operation is increased through <strong>buffering</strong>. Data to be written to a file is first stored in a buffer area in memory. When this buffer area is full, or when the file to be written to is closed, whatever data is in the buffer is written to the file. This is called <strong>flushing</strong> the buffer area. Input files can also be buffered similarly. Bytes received from an input device, such as the keyboard, are first written to the buffer. Buffering files causes a very large increase in efficiency. This is because reading a character from the buffer, i.e., from memory, or writing a character to the buffer is done in a negligible amount of time. The transfer between the buffer and the file undoubtedly still takes time, but a single block transfer takes much less time than the total of many small transfers.</p>
+<p>Functions that operate on files and are declared in the <code>stdio.h</code> header file perform buffering automatically. That is, this task is done in the background without the programmer being aware of it; the programmer does not need to do anything for the files to be buffered. However, in some situations, the programmer may want to be in control of the buffering. In these situations, the programmer uses the file buffering functions (<code>fflush</code>, <code>setbuf</code>, <code>setvbuf</code>):</p>
+<h3 id="the-fflush-function">The <code>fflush</code> Function<a class="headerlink" href="#the-fflush-function" title="Permanent link">#</a></h3>
+<p>Input/output operations on files are mostly done through buffering. When a function that performs a writing operation to a file is called, the function writes the data to a buffer area in memory if buffering is enabled. The data in the buffer is written to the file when the file is closed or when the buffering area is full. With a call to the <strong><code>fflush</code></strong> function, the data in the buffer area is written to the file without waiting for the file to be closed or the buffering area to be full. This operation can be done as frequently as desired.</p>
+<div class="codehilite"><pre><span></span><code>int fflush (FILE *stream);
+</code></pre></div>
+
+<p>The buffer of the file associated with the <code>FILE *</code> pointer <span class="arithmatex">\(fp\)</span> is flushed with the call <code>fflush(fp);</code>. If the <strong><code>NULL</code> address</strong> is sent to the <code>fflush</code> function, the buffers of all open files are flushed.</p>
+<p>If the flushing operation is successful, the <code>fflush</code> function returns <span class="arithmatex">\(0\)</span>; otherwise, it returns the value <strong><code>EOF</code></strong>.</p>
+<h3 id="the-setvbuf-function">The <code>setvbuf</code> Function<a class="headerlink" href="#the-setvbuf-function" title="Permanent link">#</a></h3>
+<p>The <code>setvbuf</code> function is used to change the buffering method of a file and to change the location and size of the buffer area. The declaration of the function is as follows:</p>
+<div class="codehilite"><pre><span></span><code>int setvbuf(FILE *stream, char *buf, int mode, size_t size);
+</code></pre></div>
+
+<p>The third argument sent to the function specifies the buffering method. The value of the third argument is determined by the symbolic constants defined in the <code>stdio.h</code> header file.</p>
+<ul>
+<li><strong><code>_IOFBF</code> (full buffering)</strong>: Data is written to the file when the buffering area is full. Or, if input buffering is in question, reading is performed from the file when the buffering area is empty.</li>
+<li><strong><code>_IOLBF</code> (line buffering)</strong>: Reading or writing between the buffering area and the file is done line by line.</li>
+<li><strong><code>_IONBF</code> (no buffering)</strong>: Reading from or writing to the file is performed directly without buffering.</li>
+</ul>
+<p>The second argument sent to the <code>setvbuf</code> function is the starting address of the block in RAM where the buffering will be performed. The area where the buffering will be performed can have static or dynamic storage duration, or it can be obtained with dynamic memory functions.</p>
+<p>The last argument sent to the function is the number of bytes to be held in the buffering area. The <code>setvbuf</code> function must be called after the file is opened but before any operation is performed on the file. If the function is successful, it returns <span class="arithmatex">\(0\)</span>. If the third argument sent to the function is invalid, or if the function cannot perform the relevant buffering, the return value is a non-zero value. The file must not be closed before the validity of the buffer area sent to the function ends, i.e., before its lifespan is complete.</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="43_command_line_arguments.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Command Line Arguments">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Command Line Arguments
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="45_macros.html" class="md-footer__link md-footer__link--next" aria-label="Next: Macros">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Macros
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "search.highlight", "search.share", "content.tabs.link", "toc.integrate", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

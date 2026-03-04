@@ -1,0 +1,5712 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Burak Rustemogullari">
+      
+      
+        <link rel="canonical" href="https://burakrustemogullari.github.io/c/15_loop_statements.html">
+      
+      
+        <link rel="prev" href="14_type_conversions.html">
+      
+      
+        <link rel="next" href="16_ternary_operator.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Loop Statements - Burak's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#loop-statements" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Burak&#39;s Notes" class="md-header__button md-logo" aria-label="Burak's Notes" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Burak's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Loop Statements
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/burakrustemogullari/robotics-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="1_programming_and_c.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  C
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ai/1_RAG_Overview/1_rag.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../robotics/intro.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Robotics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../embedded/intro.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Embedded
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cpp/basics.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  C++
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Burak&#39;s Notes" class="md-nav__button md-logo" aria-label="Burak's Notes" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    Burak's Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/burakrustemogullari/robotics-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_programming_and_c.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming and C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_number_systems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Number Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3_general_concepts_and_terms.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Concepts and Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4_creating_a_c_program.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating a C Program
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5_data_types.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6_declarations_and_definitions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Declarations and Definitions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7_constants.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10_scope_and_lifetime.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope and Lifetime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11_control_statements.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12_if_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="13_function_declarations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Declarations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="14_type_conversions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loop Statements
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="15_loop_statements.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loop Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-while-loop-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⏳ The while Loop Statement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⏳ The while Loop Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#control-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-break-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚪 The break Statement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-continue-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⏩ The continue Statement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⏩ The continue Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-postfix-or-operator-in-the-control-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using the Postfix ++ or -- Operator in the Control Expression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while-loop-that-iterates-n-times" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        while Loop That Iterates \(n\) Times
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-body-being-a-null-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loop Body Being a Null Statement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples-using-the-while-loop-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples Using the while Loop Statement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-do-while-loop-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔁 The do while Loop Statement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-for-loop-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔂 The for Loop Statement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔂 The for Loop Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loop Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#omission-of-expressions-inside-the-for-parenthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Omission of Expressions inside the for Parenthesis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-loops-that-iterate-n-times" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        for Loops That Iterate \(n\) Times
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-of-the-continue-statement-in-for-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use of the continue Statement in for Loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-loop-variable-as-a-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using the Loop Variable as a Flag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples-of-for-loop-statement-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples of for Loop Statement Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Nested Loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-of-the-break-statement-in-nested-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use of the break Statement in Nested Loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ways-to-exit-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ways to Exit Loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16_ternary_operator.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ternary Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="17_preprocessor_directives__1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprocessor Directives - 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="18_switch_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="19_goto_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    goto Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="20_random_number_generation_and_control_statements.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Random Number Generation and Control Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="21_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="22_character_arrays_and_strings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Character Arrays and Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="23_sizeof_operator.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sizeof Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="24_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="25_pointer_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="26_standard_functions_for_string_operations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standard Functions for String Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="27_pointer_errors.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="28_void_type_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    void Type Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="29_strings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="30_pointer_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="31_pointers_to_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointers to Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="32_multidimensional_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multidimensional Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="33_exit_abort_and_exit_functions.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    exit, abort and atexit Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="34_dynamic_memory_management.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Memory Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="35_storage_class_specifiers_and_type_qualifiers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Class Specifiers and Type Qualifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="36_structures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="37_type_definitions_and_typedef.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Definitions and typedef
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="38_date_and_time_standard_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Date and Time Standard Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="39_unions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="40_enumerations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enumerations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="41_bitwise_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitwise Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="42_bit_fields.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bit Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="43_command_line_arguments.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Arguments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="44_files.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="45_macros.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Macros
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="46_preprocessor_directives__2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprocessor Directives - 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="47_function_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="48_recursive_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursive Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="49_variable_argument_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable Argument Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="50_DSA_in_C.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA in C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/1_rag.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/2_rag_uygulama_alanlari.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Uygulama Alanları
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/3_rag_mimarisi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Mimarisi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/4_Introduction_to_LLM.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to LLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/5_Python_Libraries_for_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Libraries for RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/6_Crafting_Simple_Augmented_Prompts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crafting Simple Augmented Prompts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/7_Information_Retrieval.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval (overview)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval and Search Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Information Retrieval and Search Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/1_retriever_architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retriever Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/2_metadata_filtering.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/3_keyword_search_TF-IDF.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keyword Search (TF-IDF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/4_Keyword_search_BM25.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keyword Search (BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/5_Semantic_search.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semantic Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/6_Semantic_search-embedding_model_deepdive.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedding Model Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/7_Hybrid_Search.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/8_Evaluating_retrieval.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluating Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/10_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval with Vector DB
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Information Retrieval with Vector DB
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/2_Approximate_neares_neighbors_algorithms_ANN.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ANN Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/3_Vector_Databases.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/5_Chuncking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chunking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/6_Advanced_chuncking_techniques.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Chunking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/7_Query_parsing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query Parsing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/8_Cross_encoders_and_ColBERT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-encoders & ColBERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/9_Reranking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLMs and Text Generation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LLMs and Text Generation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/2_Transformer_architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformer Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/3_LLM_sampling_strategies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Sampling Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/4_Choosing_your_LLM.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing Your LLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/5_Promp_engineering_build_a_augmented_prompt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering — Build an Augmented Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/6_Prompt_engineering_advanced.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering (Advanced)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/7_handling_hallucinations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handling Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/8_Evaluating_LLMs_performance.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluating LLM Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/9_Agentic_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/10_RAG_vs_Fine-Tuning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/11_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Systems in Production
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG Systems in Production
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/2_What_makes_production_challenging.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Challenges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/3_Implementation_RAG_evaluation_strategies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation & Evaluation Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/4_Logging_monitoring_and_observability.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging, Monitoring & Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/5_Customized_evaluation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customized Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/6_Quantization.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/7_Cost_vs_Response_Quality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cost vs Response Quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/8_Latency_vs_Response_Quality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latency vs Response Quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/9_Security.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/10_Multimodal_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multimodal RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/11_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robotics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robotics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/intro.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedded
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Embedded
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/intro.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/1_STM32CubeIDE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    STM32CubeIDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/2_Hello%20world.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hello World
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C++
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/basics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/1_difference_between_c_and_cpp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Difference between C and C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/2_valid_in_cpp_invalid_in_c.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Valid in C, invalid in C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/3_rule_difference_between_c_and_cpp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rule differences between C and C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/4_references.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/5_assigment_default_values_to_parameter_vars.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignment default values to parameter vars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/6_function_overloading.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Overloading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/7_classes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/8_operator_overloading.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operator Overloading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Misc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div><h1 id="loop-statements">🔁 Loop Statements<a class="headerlink" href="#loop-statements" title="Permanent link">#</a></h1>
+<p>Control statements that allow a part of a program to be executed repeatedly are called <strong>"loop statements."</strong> There are 3 separate loop statements in the C language:</p>
+<ul>
+<li><code>while</code> loop statement</li>
+<li><code>do while</code> loop statement</li>
+<li><code>for</code> loop statement</li>
+</ul>
+<p>The most frequently used of these is the <code>for</code> loop statement. The <code>for</code> loop statement is the most powerful loop structure, not only in the C language but in all programming languages. Even if there were no <code>while</code> or <code>do while</code> loop statements, code written using those loops could be written using the <code>for</code> loop. However, there are situations where <code>while</code> and <code>do while</code> loops are preferred for readability.</p>
+<hr>
+<h2 id="the-while-loop-statement">⏳ The <code>while</code> Loop Statement<a class="headerlink" href="#the-while-loop-statement" title="Permanent link">#</a></h2>
+<p>The general syntax of the <code>while</code> loop statement is as follows:</p>
+<div class="codehilite"><pre><span></span><code>while (expression)
+    statement;
+</code></pre></div>
+
+<p>The expression inside the parenthesis following the <code>while</code> keyword is called the <strong>control expression</strong>. The first statement following the <code>while</code> parenthesis is called the <strong>loop body</strong>. The loop body can be formed by a simple statement, a null statement, a compound statement, or a control statement.</p>
+<p>The execution of the <code>while</code> loop statement is as follows: First, the numerical value of the control expression is calculated. This expression is evaluated logically. If the expression has a value of 0, it is interpreted as false. In this case, the statement in the loop body is <strong>not</strong> executed, and the program flow continues with the first statement following the loop statement. If the control expression has a non-zero value, it is interpreted as true; in this case, the statement in the loop body is executed.</p>
+<p>After the statement in the loop body is executed, the value of the control expression is calculated again. The statement in the loop body is executed as long as the control expression has a non-zero value (is true). The loop is exited when the control expression has a value of zero, meaning when the expression is interpreted as false.</p>
+<p>The <code>while</code> loop in the C language is a loop statement that allows one or more tasks to be performed as long as a condition is true.</p>
+<p>Examine the following example:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int i = 0;
+    while (i &lt; 100) {
+        printf("%d ", i);
+        ++i;
+    }
+    return 0;
+}
+</code></pre></div>
+
+<p>Let's examine the <code>while</code> loop in the <code>main</code> function. A compound statement forms the loop body. This compound statement is executed as long as the expression <span class="arithmatex">\(i &lt; 100\)</span> is true. That is, the <code>printf</code> function is called, and then the value of the variable <span class="arithmatex">\(i\)</span> is incremented by 1. When the value of the variable <span class="arithmatex">\(i\)</span> becomes 100, the control expression will be false, and the loop is exited. Examine the following example:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main ()
+{
+    char ch = 'A';
+    while (ch &lt;= 'Z')
+        putchar(ch++);
+    return 0;
+}
+</code></pre></div>
+
+<p>With the <code>main</code> function above, all uppercase characters of the English alphabet are printed to the screen sequentially. You see that the variable named <code>ch</code> is first assigned the value 'A'. The loop iterates as long as the expression <code>ch &lt;= 'Z'</code> is true. This time, a simple statement forms the loop body. You know that the postfix <code>++</code> operator produces the object's own value. However, due to the side effect of the operator, the value of the variable <code>ch</code> is incremented by 1. When the value of the variable <code>ch</code> is 'Z', the control expression is still true. But in the next iteration of the loop, the control expression is false, and the loop is exited.</p>
+<p>In the <code>while</code> loop statement, the statement in the loop body is <strong>not guaranteed to be executed at least once</strong>. Since the control expression is evaluated first, if the control expression is false upon the first entry to the loop, the statement in the loop body is never executed.</p>
+<h3 id="control-expressions">Control Expressions<a class="headerlink" href="#control-expressions" title="Permanent link">#</a></h3>
+<p>Any expression can be the control expression of a <code>while</code> loop.</p>
+<p>The control expression can contain a function call:</p>
+<div class="codehilite"><pre><span></span><code>while (isupper(ch)) {
+    /***/
+}
+</code></pre></div>
+
+<p>The <code>while</code> loop above iterates as long as the <code>isupper</code> function returns a non-zero value, i.e., as long as <code>ch</code> is an uppercase character.</p>
+<p>The following <code>while</code> loop iterates as long as the <code>isupper</code> function returns a value of 0, i.e., as long as <code>ch</code> is not an uppercase character.</p>
+<div class="codehilite"><pre><span></span><code>while (!isupper(ch)) {
+    /***/
+}
+</code></pre></div>
+
+<p>The comma operator can also be used in the control expression of the <code>while</code> loop statement. Examine the following example:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+// #include &lt;conio.h&gt; (Assuming getch() is available)
+int getch_mock() { return getchar(); } // Mock function for standard C environment
+int main()
+{
+    char ch;
+    while (ch = getch_mock(), toupper(ch) != 'Q')
+        putchar(ch);
+    return 0;
+}
+</code></pre></div>
+
+<p>You know that the expression that is the left operand of the comma operator is guaranteed to be performed first. Let's look at the control expression of the <code>while</code> loop in the <code>main</code> function above:</p>
+<div class="codehilite"><pre><span></span><code>while (ch = getch_mock(), toupper(ch) != 'Q')
+</code></pre></div>
+
+<p>Since the expression that is the left operand of the comma operator will be performed first, the <code>getch</code> function is called (or <code>getch_mock</code> here). The code number of the character received from the keyboard is assigned to the variable <code>ch</code>. Then, with the call to the <code>toupper</code> function, it is tested whether the value of the variable <code>ch</code> is the character 'Q'. Recall that the value produced by the comma operator is the value of its right operand. In this case, the expression that determines whether the loop continues is:</p>
+<div class="codehilite"><pre><span></span><code>toupper(ch) != 'Q'
+</code></pre></div>
+
+<p>That is, the loop iterates as long as <code>ch</code> is not the uppercase character 'Q' (or 'q').</p>
+<p>A variable can also form the control expression:</p>
+<div class="codehilite"><pre><span></span><code>while (x) {
+    /***/
+}
+</code></pre></div>
+
+<p>The loop above iterates as long as the variable <span class="arithmatex">\(x\)</span> has a non-zero value.</p>
+<p>A literal can also be the control expression:</p>
+<div class="codehilite"><pre><span></span><code>while (1) {
+    /***/
+}
+</code></pre></div>
+
+<p>In the <code>while</code> statement above, the literal 1 is used as the control expression. Since 1 is a non-zero value, and the control expression does not change based on a variable, the loop cannot be exited by the condition becoming false. Such loops are called <strong>infinite loops</strong>. Infinite loops can occur as a result of a programmer's mistake, or they can be created consciously to achieve a specific purpose. A <code>while</code> loop where the literal value 1 is inside the <code>while</code> parenthesis is a consciously created infinite loop statement.</p>
+<p>The use of the assignment operator within the control expression is also a common occurrence:</p>
+<div class="codehilite"><pre><span></span><code>while ((val = get_value()) &gt; 0) {
+    foo(val);
+    /***/
+}
+</code></pre></div>
+
+<p>In the <code>while</code> loop above, the return value of the <code>get_value</code> function is assigned to the variable named <code>val</code>. You see that the expression formed by the assignment operator is enclosed in parentheses. Since the value produced by the assignment operator is the value assigned to the object, the left operand of the greater-than operator is again the return value of the <code>get_value</code> function. In this case, the loop iterates as long as the return value of the <code>get_value</code> function is greater than 0. You see that the <code>foo</code> function called inside the loop body is sent the value of <code>val</code> as an argument. The <code>foo</code> function is called with the return value of the <code>get_value</code> function.</p>
+<hr>
+<h2 id="the-break-statement">🚪 The <code>break</code> Statement<a class="headerlink" href="#the-break-statement" title="Permanent link">#</a></h2>
+<p>The <code>break</code> keyword is immediately followed by the terminating token:</p>
+<div class="codehilite"><pre><span></span><code>break;
+</code></pre></div>
+
+<p>The statement formed in this manner is called the <strong>"break statement."</strong> The <code>break</code> statement can be used in the body of a loop statement or a <code>switch</code> statement. When a <code>break</code> statement is encountered during the execution of a loop statement, the loop is exited, and the program flow continues with the first statement outside the loop body. That is, the loop is exited <strong>unconditionally</strong>.</p>
+<p>Examine the following program:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+int main ()
+{
+    int val;
+    while (1) {
+        printf("enter a number : ");
+        scanf("%d", &amp;val);
+        if (val &lt; 0)
+            break;
+        printf("square root of %d = %lf\n", val, sqrt(val));
+    }
+    printf("loop exited, program terminating!\n");
+    return 0;
+}
+</code></pre></div>
+
+<p>An infinite loop is consciously created in the program. In each iteration of the loop, a value is read into the variable named <code>val</code> from the keyboard. If a value less than 0 is entered from the keyboard, the loop is exited with the <code>break</code> statement.</p>
+<p>The <code>break</code> statement can only be used in the body of a loop statement or a <code>switch</code> statement. The following code snippet is invalid:</p>
+<div class="codehilite"><pre><span></span><code>if (x &gt; 100) {
+    if (y &lt; 200)
+        break; // Invalid use of break outside a loop or switch
+    /***/
+}
+</code></pre></div>
+
+<hr>
+<h2 id="the-continue-statement">⏩ The <code>continue</code> Statement<a class="headerlink" href="#the-continue-statement" title="Permanent link">#</a></h2>
+<p>The <code>continue</code> keyword is also immediately followed by the terminating token:</p>
+<div class="codehilite"><pre><span></span><code>continue;
+</code></pre></div>
+
+<p>The statement formed in this manner is called the <strong>"continue statement."</strong></p>
+<p>When the program flow reaches the <code>continue</code> statement inside a loop statement, the loop skips to the next iteration, as if the current iteration of the loop has finished.</p>
+<div class="codehilite"><pre><span></span><code>int getval(void);
+int isprime(void);
+while (1) {
+    val = getval();
+    if (val &lt; 0)
+        break;
+    /* statements */
+    if (isprime(val))
+        continue;
+    /* statements */
+}
+</code></pre></div>
+
+<p>In the <code>main</code> function above, an infinite loop is created. In each iteration of the loop, the return value of the <code>getval</code> function is stored in the <code>val</code> variable. If the value assigned to the <code>val</code> variable is 0, the loop is exited with the <code>break</code> statement. The subsequent <code>if</code> statement tests whether the <code>val</code> value is prime. If the value assigned to <code>val</code> is prime, the rest of the loop is not executed, and the program moves to the next iteration of the loop with the <code>continue</code> statement.</p>
+<p>The <code>continue</code> statement is particularly used to increase readability, especially when there are long <code>if</code> statements inside the loop.</p>
+<div class="codehilite"><pre><span></span><code>while (k++ &lt; 100) {
+    ch = getch();
+    if (!isspace(ch)) {
+        /* statements */
+    }
+}
+</code></pre></div>
+
+<p>In the <code>while</code> loop written above, the code number of a character is read into the <code>ch</code> variable from the keyboard using the <code>getch</code> function. It is desired that the statements be executed if the character received from the keyboard is not a whitespace character. The readability of the code snippet above can be increased by using the <code>continue</code> statement:</p>
+<div class="codehilite"><pre><span></span><code>while (k++ &lt; 100) {
+    ch = getch();
+    if (isspace(ch))
+        continue;
+    /* statements */
+}
+</code></pre></div>
+
+<p>Some programmers also use the <code>continue</code> statement as an alternative to a null statement in the loop body:</p>
+<div class="codehilite"><pre><span></span><code>while (i++ &lt; 100)
+    continue;
+</code></pre></div>
+
+<p>The <code>continue</code> statement can only be used in the body of a loop statement. Using the <code>continue</code> statement anywhere outside a loop is invalid.</p>
+<h3 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">#</a></h3>
+<p>Accidentally making the loop body of the <code>while</code> loop statement a null statement is a common mistake:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int i = 10;
+    while (--i &gt; 0); /* a null statement here */
+    printf("%d\n", i);
+    return 0;
+}
+</code></pre></div>
+
+<p>The loop iterates until the value of the expression inside the <code>while</code> parenthesis becomes 0. The <code>printf</code> call is not in the body of the loop statement. The terminating token following the <code>while</code> parenthesis is considered the statement that forms the loop body. When the loop is exited, the value 0 is printed to the screen.</p>
+<p>If a null statement is desired in the body of the <code>while</code> loop consciously, not as a mistake, this null statement should be written on the next line, indented by one tab, rather than immediately after the <code>while</code> parenthesis, for readability.</p>
+<p>Another typical mistake related to the <code>while</code> loop statement is forgetting to block the loop body. That is, a simple statement is accidentally used when the loop body should be a compound statement:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int i = 1;
+    while (i &lt;= 100)
+        printf("%d ", i);
+    i++; // This statement is outside the loop body!
+    return 0;
+}
+</code></pre></div>
+
+<p>Suppose it is desired to print numbers from 1 to 100 to the screen with a space between them. In the <code>while</code> statement above, the <code>i++</code> statement, which increments the loop variable, does not belong to the loop body. In this case, since the expression <span class="arithmatex">\(i \le 100\)</span> will always be true, an <strong>infinite loop</strong> occurs, and the value 1 is continuously printed to the screen.</p>
+<p>Similar to the <code>if</code> statement, accidentally using the assignment operator (<code>=</code>) instead of the comparison operator (<code>==</code>) inside the <code>while</code> parenthesis is also a frequent mistake:</p>
+<div class="codehilite"><pre><span></span><code>while (x == 5) {
+    /***/
+}
+</code></pre></div>
+
+<p>A loop like the one above iterates as long as the value of the variable <span class="arithmatex">\(x\)</span> is 5, while the following statement creates an <strong>infinite loop</strong>:</p>
+<div class="codehilite"><pre><span></span><code>while (x = 5) {
+    /***/
+}
+</code></pre></div>
+
+<p>In each iteration of the loop, the value 5 is assigned to the variable <span class="arithmatex">\(x\)</span>. Since the value produced by the assignment operator, which is 5, is interpreted as "true," the loop iterates continuously.</p>
+<h3 id="using-the-postfix-or-operator-in-the-control-expression">Using the Postfix <code>++</code> or <code>--</code> Operator in the Control Expression<a class="headerlink" href="#using-the-postfix-or-operator-in-the-control-expression" title="Permanent link">#</a></h3>
+<p>The postfix <code>++</code> or <code>--</code> operator is often used in the control expression. In such a situation, the decision to continue the loop is made by first looking at the value of the expression, and then the side effect of the increment or decrement operator takes place. Examine the following example:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int i = 0;
+    while (i++ &lt; 100)
+        ;
+    printf("\n%d\n", i); // Prints 101 to the screen.
+    return 0;
+}
+</code></pre></div>
+
+<h3 id="while-loop-that-iterates-n-times"><code>while</code> Loop That Iterates <span class="arithmatex">\(n\)</span> Times<a class="headerlink" href="#while-loop-that-iterates-n-times" title="Permanent link">#</a></h3>
+<p>For <span class="arithmatex">\(n\)</span> being a positive integer, the following code templates can be used to create a <code>while</code> loop that iterates <span class="arithmatex">\(n\)</span> times:</p>
+<div class="codehilite"><pre><span></span><code>while (n-- &gt; 0)
+
+// or
+
+while (n--)
+</code></pre></div>
+
+<p>Below is a function named <code>power</code> that calculates a specific power of an integer. Examine the function:</p>
+<div class="codehilite"><pre><span></span><code>int power(int base, int exp)
+{
+    int result = 1;
+    while (exp--)
+        result *= base;
+    return result;
+}
+</code></pre></div>
+
+<p>The <code>while</code> loop written in the function iterates as many times as the value of the variable <code>exp</code>, right? In this case, the <code>base</code> variable is multiplied by itself <code>exp</code> times.</p>
+<h3 id="loop-body-being-a-null-statement">Loop Body Being a Null Statement<a class="headerlink" href="#loop-body-being-a-null-statement" title="Permanent link">#</a></h3>
+<p>Sometimes the loop body is consciously made a null statement. For readability, it is recommended that the null statement be written according to the indentation rule like a normal statement in this case. Examine the following program:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+// #include &lt;conio.h&gt; (Assuming getch() is available)
+int getch_mock() { return getchar(); } // Mock function for standard C environment
+int main()
+{
+    int ch;
+    printf("Yes or No? [y] [n] : ");
+    while ((ch = toupper(getch_mock())) != 'Y' &amp;&amp; ch != 'N')
+        ;
+    if (ch == 'Y')
+        printf("you said yes!\n");
+    else
+        printf("you said no!\n");
+    return 0;
+}
+</code></pre></div>
+
+<p>The <code>while</code> loop written in the <code>main</code> function above forces the user to enter one of the characters 'y', 'Y', 'n', or 'N' from the keyboard. Examine the loop carefully. The "logical AND" operator (<code>&amp;&amp;</code>) is used in the loop's control expression. Recall that the left operand of the "logical AND" operator is guaranteed to be performed first. The non-standard <code>getch</code> function (or <code>getch_mock</code> here) reads a character from the keyboard. The sequence number of the received character, i.e., the return value of the <code>getch</code> function, is sent as an argument to the standard <code>toupper</code> function. Thus, if a lowercase character is entered from the keyboard, it is converted to uppercase. The return value of the <code>toupper</code> function is assigned to the <code>ch</code> variable. The value of the expression inside the parenthesis is the value assigned to the <code>ch</code> variable. The inequality of the entire right side of the "logical AND" operator to the character 'Y' is queried. If the value assigned to the <code>ch</code> variable is 'Y', the second part of the "logical AND" operator is not even checked, and the control expression is interpreted as false. The loop is thus exited. If the value assigned to the <code>ch</code> variable is 'N', the right operand of the <code>&amp;&amp;</code> operator is evaluated, i.e., the inequality of the value of the <code>ch</code> variable to the character 'N' is queried. If <code>ch</code> is equal to 'N', the control expression is again interpreted as false, and the loop is exited. In all other cases, since the control expression will be interpreted as true, the loop continues to iterate. In other words, exiting the loop is only possible by entering one of the characters 'y', 'Y', 'n', or 'N' from the keyboard.</p>
+<h3 id="examples-using-the-while-loop-statement">Examples Using the <code>while</code> Loop Statement<a class="headerlink" href="#examples-using-the-while-loop-statement" title="Permanent link">#</a></h3>
+<p>Below is the definition of a function named <code>num_digit</code> that returns the number of digits of an integer. Compile and run the program:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int num_digit(int val)
+{
+    int digit_counter = 0;
+    if (val == 0)
+        return 1;
+    while (val != 0) {
+        digit_counter++;
+        val /= 10;
+    }
+    return digit_counter;
+}
+int main()
+{
+    int x;
+    printf("enter an integer :");
+    scanf("%d", &amp;x);
+    printf("the number %d has %d digits!\n", x, num_digit(x));
+    return 0;
+}
+</code></pre></div>
+
+<p>A very simple algorithm is used to calculate the number of digits. The number is continuously divided by 10 until zero is obtained. In the <code>num_digit</code> function, it is first tested whether the value of the parameter variable <code>val</code> is 0. If <code>val</code> is equal to 0, the value 1 is returned. The number 0 also has 1 digit, right? The subsequent <code>while</code> loop iterates with the condition <span class="arithmatex">\(val \neq 0\)</span>. That is, the loop is exited when the value of the variable <code>val</code> becomes 0. In each iteration of the loop, the value of the <code>digit_counter</code> variable is incremented by 1 inside the body. Then, with the statement <code>val /= 10;</code>, the <code>val</code> variable is made equal to one-tenth of its value.</p>
+<p>Below is a function named <code>sum_digit</code> that returns the sum of the digit values of an integer passed to it:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int sum_digit(int val)
+{
+    int digit_sum = 0;
+    while (val) {
+        digit_sum += val % 10;
+        val /= 10;
+    }
+    return digit_sum;
+}
+int main()
+{
+    int val;
+    printf("enter an integer :");
+    scanf("%d", &amp;val);
+    printf("the sum of the digits of the number %d is = %d\n", val, sum_digit(val));
+    return 0;
+}
+</code></pre></div>
+
+<p>In the <code>sum_digit</code> function, the parameter variable <code>val</code> is again continuously divided by 10 in a loop, and the statements in the loop body are executed until <code>val</code> becomes 0. Inside the loop body, with the statement:</p>
+<div class="codehilite"><pre><span></span><code>digit_sum += val % 10;
+</code></pre></div>
+
+<p>the units digit of the <code>val</code> variable is added to the <code>digit_sum</code> variable. Thus, after exiting the loop, the <code>digit_sum</code> variable holds the sum of the digit values of the number passed from outside.</p>
+<p>Below is a function named <code>get_rev_num</code> that returns the reverse of an integer passed to it:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int get_rev_num(int val)
+{
+    int rev_number = 0;
+    while (val) {
+        rev_number = rev_number * 10 + val % 10;
+        val /= 10;
+    }
+    return rev_number;
+}
+int main()
+{
+    int val;
+    printf("enter an integer :");
+    scanf("%d", &amp;val);
+    printf("the reverse of the number %d is = %d\n", val, get_rev_num(val));
+    return 0;
+}
+</code></pre></div>
+
+<p>The variable <code>rev_number</code> defined in the <code>get_rev_num</code> function is initialized to 0. The <code>while</code> loop in the function is made to iterate until the value of the parameter variable <code>val</code> becomes 0. In each iteration of the loop, the value of the expression:</p>
+<div class="codehilite"><pre><span></span><code>rev_number = rev_number * 10 + val % 10
+</code></pre></div>
+
+<p>is assigned to the <code>rev_number</code> variable.</p>
+<p>Suppose the value passed to the function is 1357:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><code>rev_number</code></th>
+<th style="text-align: left;"><code>val</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">1357</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">135</td>
+</tr>
+<tr>
+<td style="text-align: left;">75</td>
+<td style="text-align: left;">13</td>
+</tr>
+<tr>
+<td style="text-align: left;">753</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">7531</td>
+<td style="text-align: left;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Upon exiting the loop, the value of the <code>rev_number</code> variable is 7531.</p>
+<p>The following program defines a function named <code>display_factors</code> that factorizes an integer and prints the factors to the screen from smallest to largest:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+void display_factors(int number)
+{
+    int k = 2;
+    printf("(%d) -&gt; ", number);
+    while (number != 1) {
+        while (number % k == 0) {
+            printf("%d ", k);
+            number /= k;
+        }
+        ++k;
+    }
+    printf("\n");
+}
+</code></pre></div>
+
+<p>The following program prints the 3-digit numbers that satisfy the equality <span class="arithmatex">\(abc = a^3 + b^3 + c^3\)</span> to the screen:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int k = 100;
+    while (k &lt; 1000) {
+        int y = k / 100;
+        int o = k % 100 / 10;
+        int b = k % 10;
+        if (y * y * y + o * o * o + b * b * b == k)
+            printf("%d\n", k);
+        ++k;
+    }
+    return 0;
+}
+</code></pre></div>
+
+<p>Try to find what value the following function calculates:</p>
+<div class="codehilite"><pre><span></span><code>int func(int val)
+{
+    int sum = 0;
+    while (val) {
+        sum += val % 10;
+        if (sum &gt; 10)
+            sum = 1 + sum % 10;
+        val /= 10;
+    }
+    return sum;
+}
+</code></pre></div>
+
+<hr>
+<h2 id="the-do-while-loop-statement">🔁 The <code>do while</code> Loop Statement<a class="headerlink" href="#the-do-while-loop-statement" title="Permanent link">#</a></h2>
+<p>The general syntax of the <code>do while</code> loop statement is as follows:</p>
+<div class="codehilite"><pre><span></span><code>do
+    statement;
+while (expression);
+</code></pre></div>
+
+<p>In the <code>do while</code> loop, the control expression is at the end. The terminating token (semicolon) must be found after the <code>while</code> parenthesis. That is, the semicolon here is part of the loop statement's syntax. The execution of the <code>do while</code> loop is as follows:</p>
+<p>The statement following the <code>do</code> keyword is executed once upon entering the loop; then, the control expression inside the <code>while</code> parenthesis is checked. The statement forming the loop body is executed as long as the control expression is true. What is the difference between the <code>do while</code> loop and the <code>while</code> loop? In the <code>while</code> loop, the statement in the loop body is not guaranteed to be executed at least once. However, in the <code>do while</code> loop, since the check is performed at the end, the statement in the body is executed <strong>at least once</strong>.</p>
+<p>Compile and run the following program:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int val;
+    do {
+        printf("enter a value between 0 - 100 : ");
+        scanf("%d", &amp;val);
+    } while (val &lt; 0 || val &gt; 100);
+    printf("val = %d\n", val);
+    return 0;
+}
+</code></pre></div>
+
+<p>In the <code>main</code> function, the <code>do while</code> loop forces the user to enter a value in the range 0-100. If the entered value is less than 0 or greater than 100, a new value is requested from the user.</p>
+<p>The <code>num_digit</code> function, previously written using a <code>while</code> loop, is now written with a <code>do while</code> loop:</p>
+<div class="codehilite"><pre><span></span><code>int num_digit(int val)
+{
+    int digit_counter = 0;
+    do {
+        digit_counter++;
+        val /= 10;
+    } while(val != 0);
+    return digit_counter;
+}
+</code></pre></div>
+
+<p>The <code>print_ulam</code> function defined below prints the Collatz sequence for an integer to the screen:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+void print_ulam(int val)
+{
+    printf("Collatz sequence for %d\n", val);
+    do {
+        printf("%d ", val);
+        if (val % 2 == 0)
+            val /= 2;
+        else
+            val = val * 3 + 1;
+    } while(val &gt; 1);
+    printf("%d\n", val);
+}
+int main()
+{
+    int x;
+    printf("enter a number: ");
+    scanf("%d", &amp;x);
+    print_ulam(x);
+    return 0;
+}
+</code></pre></div>
+
+<hr>
+<h2 id="the-for-loop-statement">🔂 The <code>for</code> Loop Statement<a class="headerlink" href="#the-for-loop-statement" title="Permanent link">#</a></h2>
+<p>The general syntax of the <code>for</code> loop statement is as follows:</p>
+<div class="codehilite"><pre><span></span><code>for (expression1; expression2; expression3)
+    statement;
+</code></pre></div>
+
+<p>The compiler expects an opening parenthesis after the <code>for</code> keyword and two semicolon tokens inside the parenthesis. These two semicolons divide the <code>for</code> parenthesis into three parts. Expressions conforming to the definition of an expression can be placed in all three parts.</p>
+<p><strong>Two semicolons must be present inside the <code>for</code> parenthesis.</strong> Leaving the <code>for</code> parenthesis empty, or having one, three, or more semicolons inside the <code>for</code> parenthesis is invalid.</p>
+<p>The first statement that follows the closing of the <code>for</code> parenthesis forms the <strong>loop body</strong>. The loop body can consist of a simple statement, a compound statement (i.e., multiple statements enclosed in a block), a null statement, or a control statement.</p>
+<p>Each of the three expressions inside the <code>for</code> parenthesis has a separate function.</p>
+<p>The expression forming the second part of the <code>for</code> parenthesis is called the <strong>control expression</strong>. Like the expression inside the <code>while</code> parenthesis, this expression determines whether the loop continues. If the value of this expression is non-zero, i.e., interpreted as "true," the loop continues. The statement in the loop body is executed. If the value of the control expression is 0, i.e., the expression is interpreted as false, the program flow continues with the execution of the first statement following the <code>for</code> loop statement.</p>
+<p>When the program flow reaches the <code>for</code> statement, the expression in the <strong>first part</strong> of the <code>for</code> parenthesis is evaluated. The expression in the first part is typically used to <strong>initialize</strong> the loop variable. However, there is no such requirement.</p>
+<p>The expression in the <strong>third part</strong> of the <code>for</code> parenthesis is evaluated after the statement(s) in the loop body have been executed and before the control expression is checked again. This part is mostly used for <strong>incrementing or decrementing</strong> a loop variable.</p>
+<p>Examine the following program:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int i;
+    for (i = 0; i &lt; 2; ++i)
+        printf("%d ", i);
+    printf("\nlast value = %d\n", i);
+    return 0;
+}
+</code></pre></div>
+
+<p>When the program flow reaches the <code>for</code> loop statement, the first expression inside the <code>for</code> parenthesis is evaluated first. That is, the value 0 is assigned to the variable <code>i</code>.</p>
+<p>Now the program flow moves to the second part of the <code>for</code> parenthesis, the control expression, and the condition <span class="arithmatex">\(i &lt; 2\)</span> is checked. Since the value of the control expression is non-zero, the expression is accepted as logically true. The program flow thus moves to the loop body. You see that the loop body is formed by a simple statement. This statement is executed. That is, the value of the variable <code>i</code> is printed to the screen, and the cursor moves to the next line.</p>
+<p>The program flow then moves to the third part of the <code>for</code> parenthesis, and the expression here is evaluated. That is, the value of the variable <span class="arithmatex">\(i\)</span> is incremented by 1, and the value of the variable <span class="arithmatex">\(i\)</span> becomes 1.</p>
+<p>The second expression is evaluated again, and since the expression <span class="arithmatex">\(i &lt; 2\)</span> is true, the statement in the loop body is executed one more time.</p>
+<p>The program flow again moves to the third part of the <code>for</code> parenthesis, and the expression here is evaluated. That is, the value of the variable <span class="arithmatex">\(i\)</span> is incremented by 1. The value of the variable <span class="arithmatex">\(i\)</span> becomes 2.</p>
+<p>The program flow again moves to the second part of the <code>for</code> parenthesis. The control expression is checked again. Since the expression <span class="arithmatex">\(i &lt; 2\)</span> is false this time, the program flow does not enter the loop body but continues with the first statement following the loop body. That is, the following is printed to the screen:</p>
+<div class="codehilite"><pre><span></span><code>last value = 2
+</code></pre></div>
+
+<h3 id="loop-variables">Loop Variables<a class="headerlink" href="#loop-variables" title="Permanent link">#</a></h3>
+<p>There is no requirement to use a loop variable in the <code>for</code> loop. For example, the following loop fully conforms to the rules:</p>
+<div class="codehilite"><pre><span></span><code>for (func1(); func2(); func3())
+    func4();
+</code></pre></div>
+
+<p>With the <code>for</code> loop statement above, the <code>func1</code> function is called upon entering the loop. The statement in the loop body is executed, meaning the <code>func4</code> function is called, as long as the <code>func2</code> function returns a non-zero value. After the <code>func4</code> function is called, and before the control expression is checked again, the <code>func3</code> function is called this time.</p>
+<p>The following <code>for</code> loop statement prints the character received from the keyboard as long as the character 'x' is not entered:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+// #include &lt;conio.h&gt; (Assuming getch() is available)
+int getch_mock() { return getchar(); } // Mock function for standard C environment
+int main()
+{
+    char ch;
+    for (ch = getch_mock(); ch != 'x' ; ch = getch_mock())
+        putchar(ch);
+    return 0;
+}
+</code></pre></div>
+
+<p>There is no requirement for the loop variable to be one of the integer types. The loop variable can also be one of the real number types:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    double i;
+    for (i = 0.1; i &lt; 6.28; i += 0.01)
+        printf("%lf ", i);
+    return 0;
+}
+</code></pre></div>
+
+<p>In the loop above, a <code>double</code> type loop variable is chosen. In the first part of the <code>for</code> parenthesis, the value 0.1 is assigned to the loop variable. In the third part of the parenthesis, the loop variable is incremented by 0.01. The loop iterates under the condition that the value of the variable <span class="arithmatex">\(i\)</span> is less than 6.28.</p>
+<h3 id="omission-of-expressions-inside-the-for-parenthesis">Omission of Expressions inside the <code>for</code> Parenthesis<a class="headerlink" href="#omission-of-expressions-inside-the-for-parenthesis" title="Permanent link">#</a></h3>
+<p>The first part of the <code>for</code> loop statement parenthesis may not contain an expression. This is fully compliant with the rules. Suppose it is desired to print numbers from 1 to 100. The initialization of the loop variable can be moved outside the <code>for</code> loop, from the first part of the <code>for</code> parenthesis:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int i = 0;
+    for (; i &lt; 100; ++i)
+        printf("%d ", i);
+    return 0;
+}
+</code></pre></div>
+
+<p>The third part of the <code>for</code> loop parenthesis may also not contain an expression. The increment or decrement of the loop variable can be performed in the loop body instead of inside the <code>for</code> parenthesis:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int i = 0;
+    for (; i &lt; 100;) {
+        printf("%d ", i);
+        i++;
+    }
+    return 0;
+}
+</code></pre></div>
+
+<p><code>for</code> loops without the first and third expressions are completely equivalent to <code>while</code> loops. Any code that can be written with a <code>while</code> loop can also be written with a <code>for</code> loop. The <code>while</code> loop is a better option for <code>for</code> loops without the first and third parts in terms of readability.</p>
+<p>The second expression of the <code>for</code> parenthesis may also be completely absent. In this case, since there will be no control expression, the loop iterates continuously, independent of a condition. That is, an <strong>infinite loop</strong> is created. However, the two semicolons must still be present inside the parenthesis. The same task is now performed using a conscious infinite loop:</p>
+<p>Most C programmers prefer the pattern <strong><code>for (;;)</code></strong> when they want to consciously create an infinite loop. This pattern is equivalent to the pattern <strong><code>while (1)</code></strong>. Both indicate an infinite loop. The <code>for (;;)</code> form is preferred over the <code>while (1)</code> form for creating an infinite loop.</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int i = 0;
+    for (;;) {
+        if (i == 100)
+            break;
+        printf("%d ", i);
+        i++;
+    }
+    return 0;
+}
+</code></pre></div>
+
+<p>Now, try to estimate what will be printed to the screen by the execution of the following loop statement:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    double d;
+    for (d = 1.5; d &lt; 3,0; d += 0.1)
+        printf("%lf ", d);
+    return 0;
+}
+</code></pre></div>
+
+<p>Nothing is printed to the screen! You see that the loop's control expression is <code>d &lt; 3,0</code>. A comma character was accidentally used instead of a period when writing the floating-point literal. In this case, the value produced by the comma operator is the value of the second operand, which is 0. The control expression is interpreted as false, so the statement in the loop body is never executed.</p>
+<h3 id="for-loops-that-iterate-n-times"><code>for</code> Loops That Iterate <span class="arithmatex">\(n\)</span> Times<a class="headerlink" href="#for-loops-that-iterate-n-times" title="Permanent link">#</a></h3>
+<p>For <span class="arithmatex">\(n\)</span> being a positive integer, all of the following loops iterate <span class="arithmatex">\(n\)</span> times:</p>
+<div class="codehilite"><pre><span></span><code>for (i = 0; i &lt; n; ++i)
+for (i = 1; i &lt;= n; ++i)
+for (i = n - 1; i &gt;= 0; --i)
+for (i = n; i &gt; 0; --i)
+</code></pre></div>
+
+<h3 id="use-of-the-continue-statement-in-for-loops">Use of the <code>continue</code> Statement in <code>for</code> Loops<a class="headerlink" href="#use-of-the-continue-statement-in-for-loops" title="Permanent link">#</a></h3>
+<p>With the use of the <code>continue</code> statement inside the body of a loop, the remaining statements in the body are skipped, and the loop moves to the next iteration. When a <code>continue</code> statement is encountered inside the body of a <code>for</code> loop, the program flow moves to the third expression of the <code>for</code> parenthesis, and this expression is evaluated.</p>
+<h3 id="using-the-loop-variable-as-a-flag">Using the Loop Variable as a Flag<a class="headerlink" href="#using-the-loop-variable-as-a-flag" title="Permanent link">#</a></h3>
+<p>In some applications, the loop variable of the <code>for</code> loop also acts as a flag. Suppose it is necessary to exit a <code>for</code> loop when a certain condition occurs:</p>
+<div class="codehilite"><pre><span></span><code>for (i = 0; i &lt; 100; ++i)
+    if (is_valid(i))
+        break;
+</code></pre></div>
+
+<p>As a result of running the loop statement above, two different situations are possible. If the <code>break</code> statement is executed in the loop body, i.e., if the <code>is_valid</code> function returns a non-zero value for any value of <span class="arithmatex">\(i\)</span>, the value of the variable <span class="arithmatex">\(i\)</span> upon loop exit will be less than 100. If the loop completes all its iterations without the <code>break</code> statement being executed, the value of the variable <span class="arithmatex">\(i\)</span> upon loop exit will be 100.</p>
+<p>By checking whether the value of <span class="arithmatex">\(i\)</span> is 100 upon loop exit, it can be understood how the loop was exited.</p>
+<h3 id="examples-of-for-loop-statement-usage">Examples of <code>for</code> Loop Statement Usage<a class="headerlink" href="#examples-of-for-loop-statement-usage" title="Permanent link">#</a></h3>
+<p>The following program defines functions named <code>okek</code> (LCM) and <code>obeb</code> (GCD) that calculate the greatest common divisor and the least common multiple of two numbers:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int obeb(int number1, int number2)
+{
+    int i;
+    int min = (number1 &lt; number2) ? number1 : number2;
+    for (i = min; i &gt;= 1; --i)
+        if (number1 % i == 0 &amp;&amp; number2 % i == 0)
+            return i;
+    return 1;
+}
+int okek(int number1, int number2)
+{
+    int i;
+    int max = (number1 &gt; number2) ? number1 : number2;
+    for (i = max; i &lt;= number1 * number2; i += max)
+        if (i % number1 == 0 &amp;&amp; i % number2 == 0)
+            return i;
+    return number1 * number2;
+}
+int main()
+{
+    int x, y;
+    int n = 5;
+    while (n--) {
+        printf("enter two integers : ");
+        scanf("%d%d", &amp;x, &amp;y);
+        printf("gcd = %d\n", obeb(x, y));
+        printf("lcm = %d\n", okek(x, y));
+    }
+    return 0;
+}
+</code></pre></div>
+
+<p>The function defined below finds the greatest common divisor using the Euclidean algorithm:</p>
+<div class="codehilite"><pre><span></span><code>int obeb(int a, int b)
+{
+    int temp;
+    while (b) {
+        temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+</code></pre></div>
+
+<p>The following program writes a function named <code>fact</code> that calculates the factorial value for an integer. The program should be compiled on a system where the <code>int</code> type is 4 bytes:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int fact(int number)
+{
+    int i;
+    int result = 1;
+    if (number == 0 || number == 1)
+        return 1;
+    for (i = 2; i &lt;= number; ++i)
+        result *= i;
+    return result;
+}
+int main()
+{
+    int k;
+    for (k = 0; k &lt; 14; ++k)
+        printf("%2d! = %-10d\n", k, fact(k));
+    return 0;
+}
+</code></pre></div>
+
+<p>The number <span class="arithmatex">\(e\)</span> is found below using a series summation with the <code>fact</code> function:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int fact(int);
+int main()
+{
+    int k;
+    double e = 0.;
+    for (k = 0; k &lt; 14; ++k)
+        e += 1. / fact(k);
+    printf("e = %lf\n", e);
+    return 0;
+}
+</code></pre></div>
+
+<p>The following program writes a function named <code>isprime</code> that tests whether an integer passed to it is prime. The function returns a non-zero value if the number passed to it is prime, and 0 if it is not prime. In the <code>main</code> function written for testing purposes, the <code>isprime</code> function is called, and prime numbers less than 1000 are printed to the screen:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int isprime(int number)
+{
+    int k;
+    if (number == 0 || number == 1)
+        return 0;
+    if (number % 2 == 0)
+        return number == 2;
+    if (number % 3 == 0)
+        return number == 3;
+    if (number % 5 == 0)
+        return number == 5;
+    for (k = 7; k * k &lt;= number; k += 2)
+        if (number % k == 0)
+            return 0;
+    return 1;
+}
+int main()
+{
+    int k;
+    int prime_counter = 0;
+    for (k = 0; k &lt; 1000; ++k)
+        if (isprime(k)) {
+            if (prime_counter % 10 == 0 &amp;&amp; prime_counter)
+                putchar('\n');
+            prime_counter++;
+            printf("%3d ", k);
+        }
+    return 0;
+}
+</code></pre></div>
+
+<p>An integer that is equal to the sum of its divisors is called a <strong>perfect integer</strong>. For example, 6 and 28 are perfect integers.
+<span class="arithmatex">\(1 + 2 + 3 = 6\)</span>
+<span class="arithmatex">\(1 + 2 + 4 + 7 + 14 = 28\)</span>
+The following program searches for perfect numbers less than 10000. The found numbers are printed to the screen:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int is_perfect(int number);
+int main()
+{
+    int k;
+    for (k = 2; k &lt; 10000; ++k)
+        if (is_perfect(k))
+            printf("%d perfect\n", k);
+    return 0;
+}
+int is_perfect(int number)
+{
+    int i;
+    int total = 1;
+    for (i = 2; i &lt;= number / 2; ++i)
+        if (number % i == 0)
+            total += i;
+    return number == total;
+}
+</code></pre></div>
+
+<p>The following program ensures that characters are continuously read from the keyboard, and the read characters are displayed on the screen. The program terminates when the characters "xyz" are entered consecutively:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+// #include &lt;conio.h&gt; (Assuming getch() is available)
+int getch_mock() { return getchar(); } // Mock function for standard C environment
+int main()
+{
+    char ch;
+    int total = 0;
+    while (total &lt; 3) {
+        ch = getch_mock();
+        putchar(ch);
+        if (ch == 'x' &amp;&amp; total == 0)
+            total++;
+        else if (ch == 'y' &amp;&amp; total == 1)
+            total++;
+        else if (ch == 'z' &amp;&amp; total == 2)
+            total++;
+        else total = 0;
+    }
+    return 0;
+}
+</code></pre></div>
+
+<h3 id="nested-loops">🔄 Nested Loops<a class="headerlink" href="#nested-loops" title="Permanent link">#</a></h3>
+<p>A loop statement can form the body of another loop. Loops created in this manner are called <strong>nested loops</strong>. Compile and run the following program:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int i, k;
+    for (i = 0; i &lt; 5; ++i)
+        for (k = 0; k &lt; 10; ++k)
+            printf("(%d %d) ", i, k);
+    printf("\n\n(%d %d) ", i, k);
+    return 0;
+}
+</code></pre></div>
+
+<p>The statement in the body of the outer <code>for</code> loop is another <code>for</code> loop. The inner <code>for</code> loop statement is executed as long as the expression <span class="arithmatex">\(i &lt; 5\)</span> is true. What values does the last <code>printf</code> call print to the screen? Since the outer loop iterates with the condition <span class="arithmatex">\(i &lt; 5\)</span>, the value of the variable <span class="arithmatex">\(i\)</span> after exiting the outer loop is 5. After the inner <code>for</code> loop statement is executed for the last time, the value of the variable <span class="arithmatex">\(k\)</span> also becomes 10. In this case, the very last <code>printf</code> call prints <strong>(5 10)</strong> to the screen.</p>
+<p>Now, try to find out what the <code>put_stars</code> function, whose code is given below, does:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+void put_stars(int n)
+{
+    int i, k;
+    for (i = 1; i &lt;= n; ++i) {
+        for (k = 1; k &lt;= i; ++k)
+            putchar('*');
+        putchar('\n');
+    }
+}
+int main()
+{
+    int val;
+    printf("enter a value : ");
+    scanf("%d", &amp;val);
+    put_stars(val);
+    return 0;
+}
+</code></pre></div>
+
+<p>The following program prints the 3-digit numbers that satisfy the equality <span class="arithmatex">\(abc = a^3 + b^3 + c^3\)</span> to the screen.</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+int main()
+{
+    int i, j, k;
+    int number = 100;
+    for (i = 1; i &lt;= 9; ++i)
+        for (j = 0; j &lt;= 9; ++j)
+            for (k = 0; k &lt;= 9; ++k) {
+                if (i * i * i + j * j * j + k * k * k == number)
+                    printf("%d\n", number);
+                number++;
+            }
+    return 0;
+}
+</code></pre></div>
+
+<h3 id="use-of-the-break-statement-in-nested-loops">Use of the <code>break</code> Statement in Nested Loops<a class="headerlink" href="#use-of-the-break-statement-in-nested-loops" title="Permanent link">#</a></h3>
+<p>Care must be taken when using the <code>break</code> statement in nested loops. Using the <code>break</code> statement in the body of an inner loop only exits the <strong>innermost</strong> loop: Examine the following example:</p>
+<div class="codehilite"><pre><span></span><code>while (1) {
+    while (1) {
+        if (expression)
+            break;
+        /***/
+    }
+    /* flow comes to this point when inner loop is exited with break */
+}
+</code></pre></div>
+
+<p>If it is desired to exit all nested loops, not just the innermost one, the <strong><code>goto</code></strong> control statement should be used. You will see this topic in the section on the <code>goto</code> control statement.</p>
+<p>Since the second <code>while</code> loop here will be treated as a single control statement, blocking (braces) is not necessary.</p>
+<h3 id="ways-to-exit-loops">Ways to Exit Loops<a class="headerlink" href="#ways-to-exit-loops" title="Permanent link">#</a></h3>
+<p>How can a loop be exited? One of the following ways can be used to exit a loop.</p>
+<ol>
+<li><strong>By the control expression being false:</strong>
+    You know that loop statements iterate as long as their control expressions are true.</li>
+<li><strong>With the <code>return</code> statement:</strong>
+    Since the <code>return</code> statement inside a function terminates the function, the loop is exited when a <code>return</code> statement is encountered inside a loop statement.</li>
+<li><strong>With the <code>break</code> statement:</strong>
+    With the use of the <code>break</code> statement, the program flow continues with the first statement following the loop statement.</li>
+<li><strong>With the <code>goto</code> statement:</strong>
+    The <code>goto</code> statement can redirect the program flow within the same function to another point outside the loop. Thus, the loop can be exited.</li>
+<li><strong>With a function call that terminates the program:</strong>
+    The program itself can be terminated with the standard <code>exit</code> or <code>abort</code> functions.</li>
+</ol>
+<p>Assigning a value to the loop variable in an unnatural way to make the control expression false for the purpose of exiting a loop impairs program readability. Such code should be avoided.</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="14_type_conversions.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Type Conversions">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Type Conversions
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="16_ternary_operator.html" class="md-footer__link md-footer__link--next" aria-label="Next: Ternary Operator">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Ternary Operator
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "search.highlight", "search.share", "content.tabs.link", "toc.integrate", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

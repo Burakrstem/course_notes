@@ -1,0 +1,5400 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Burak Rustemogullari">
+      
+      
+        <link rel="canonical" href="https://burakrustemogullari.github.io/c/34_dynamic_memory_management.html">
+      
+      
+        <link rel="prev" href="32_multidimensional_arrays.html">
+      
+      
+        <link rel="next" href="35_storage_class_specifiers_and_type_qualifiers.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Dynamic Memory Management - Burak's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dynamic-memory-management" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Burak&#39;s Notes" class="md-header__button md-logo" aria-label="Burak's Notes" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Burak's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dynamic Memory Management
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/burakrustemogullari/robotics-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="1_programming_and_c.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  C
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ai/1_RAG_Overview/1_rag.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../robotics/intro.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Robotics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../embedded/intro.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Embedded
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cpp/basics.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  C++
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Burak&#39;s Notes" class="md-nav__button md-logo" aria-label="Burak's Notes" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    Burak's Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/burakrustemogullari/robotics-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_programming_and_c.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming and C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_number_systems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Number Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3_general_concepts_and_terms.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Concepts and Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4_creating_a_c_program.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating a C Program
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5_data_types.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6_declarations_and_definitions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Declarations and Definitions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7_constants.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="9_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10_scope_and_lifetime.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope and Lifetime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11_control_statements.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12_if_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="13_function_declarations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Declarations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="14_type_conversions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="15_loop_statements.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loop Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16_ternary_operator.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ternary Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="17_preprocessor_directives__1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprocessor Directives - 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="18_switch_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="19_goto_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    goto Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="20_random_number_generation_and_control_statements.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Random Number Generation and Control Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="21_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="22_character_arrays_and_strings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Character Arrays and Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="23_sizeof_operator.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sizeof Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="24_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="25_pointer_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="26_standard_functions_for_string_operations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standard Functions for String Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="27_pointer_errors.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="28_void_type_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    void Type Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="29_strings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="30_pointer_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="31_pointers_to_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointers to Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="32_multidimensional_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multidimensional Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="33_exit_abort_and_exit_functions.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    exit, abort and atexit Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Memory Management
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="34_dynamic_memory_management.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Memory Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-dynamic-memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Dynamic Memory Management?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is Dynamic Memory Management?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-malloc-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The malloc Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returning-the-obtained-dynamic-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Returning the Obtained Dynamic Block
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-dynamic-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using a Dynamic Array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-calloc-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The calloc Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-leak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Leak
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-realloc-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The realloc Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-returning-the-starting-address-of-dynamically-obtained-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions Returning the Starting Address of Dynamically Obtained Area
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlling-multiple-dynamic-areas-with-a-pointer-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlling Multiple Dynamic Areas with a Pointer Array
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="35_storage_class_specifiers_and_type_qualifiers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Class Specifiers and Type Qualifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="36_structures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="37_type_definitions_and_typedef.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Definitions and typedef
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="38_date_and_time_standard_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Date and Time Standard Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="39_unions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="40_enumerations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enumerations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="41_bitwise_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitwise Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="42_bit_fields.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bit Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="43_command_line_arguments.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Arguments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="44_files.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="45_macros.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Macros
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="46_preprocessor_directives__2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprocessor Directives - 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="47_function_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="48_recursive_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursive Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="49_variable_argument_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable Argument Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="50_DSA_in_C.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA in C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/1_rag.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/2_rag_uygulama_alanlari.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Uygulama Alanları
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/3_rag_mimarisi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Mimarisi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/4_Introduction_to_LLM.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to LLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/5_Python_Libraries_for_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Libraries for RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/6_Crafting_Simple_Augmented_Prompts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crafting Simple Augmented Prompts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/7_Information_Retrieval.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval (overview)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval and Search Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Information Retrieval and Search Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/1_retriever_architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retriever Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/2_metadata_filtering.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/3_keyword_search_TF-IDF.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keyword Search (TF-IDF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/4_Keyword_search_BM25.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keyword Search (BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/5_Semantic_search.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semantic Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/6_Semantic_search-embedding_model_deepdive.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedding Model Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/7_Hybrid_Search.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/8_Evaluating_retrieval.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluating Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/10_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval with Vector DB
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Information Retrieval with Vector DB
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/2_Approximate_neares_neighbors_algorithms_ANN.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ANN Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/3_Vector_Databases.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/5_Chuncking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chunking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/6_Advanced_chuncking_techniques.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Chunking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/7_Query_parsing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query Parsing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/8_Cross_encoders_and_ColBERT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-encoders & ColBERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/9_Reranking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLMs and Text Generation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LLMs and Text Generation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/2_Transformer_architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformer Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/3_LLM_sampling_strategies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Sampling Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/4_Choosing_your_LLM.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing Your LLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/5_Promp_engineering_build_a_augmented_prompt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering — Build an Augmented Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/6_Prompt_engineering_advanced.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering (Advanced)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/7_handling_hallucinations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handling Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/8_Evaluating_LLMs_performance.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluating LLM Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/9_Agentic_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/10_RAG_vs_Fine-Tuning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/11_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Systems in Production
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG Systems in Production
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/2_What_makes_production_challenging.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Challenges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/3_Implementation_RAG_evaluation_strategies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation & Evaluation Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/4_Logging_monitoring_and_observability.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging, Monitoring & Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/5_Customized_evaluation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customized Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/6_Quantization.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/7_Cost_vs_Response_Quality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cost vs Response Quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/8_Latency_vs_Response_Quality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latency vs Response Quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/9_Security.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/10_Multimodal_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multimodal RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/11_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robotics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robotics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/intro.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedded
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Embedded
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/intro.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/1_STM32CubeIDE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    STM32CubeIDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/2_Hello%20world.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hello World
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C++
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/basics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/1_difference_between_c_and_cpp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Difference between C and C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/2_valid_in_cpp_invalid_in_c.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Valid in C, invalid in C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/3_rule_difference_between_c_and_cpp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rule differences between C and C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/4_references.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/5_assigment_default_values_to_parameter_vars.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignment default values to parameter vars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/6_function_overloading.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Overloading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/7_classes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/8_operator_overloading.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operator Overloading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp/9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Misc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div><h1 id="dynamic-memory-management">💾 Dynamic Memory Management<a class="headerlink" href="#dynamic-memory-management" title="Permanent link">#</a></h1>
+<h2 id="what-is-dynamic-memory-management">What is Dynamic Memory Management?<a class="headerlink" href="#what-is-dynamic-memory-management" title="Permanent link">#</a></h2>
+<p>An executable program uses a memory area. Objects are blocks within the memory area used by the program. The space that one or more objects will occupy during the program's runtime can be obtained in two different ways:</p>
+<ol>
+<li>The compiler allocates space in memory for the object(s) at <strong>compile time</strong>.</li>
+<li>Space is obtained for the object(s) during the program's <strong>runtime</strong>.</li>
+</ol>
+<p>Methods that allow a contiguous block of memory of a certain size to be allocated by the running program during runtime, and this area to be returned to the system when desired, are called <strong>"dynamic memory management."</strong></p>
+<p>When a variable or an array is defined in the C language, the space this variable or array will occupy during the program's runtime is allocated by the compiler at compile time:</p>
+<div class="codehilite"><pre><span></span><code>int a[100];
+</code></pre></div>
+
+<p>A compiler encountering an array definition like the one above allocates a total of 200 bytes in memory (assuming the length of the <code>int</code> type is 2 bytes on the system used). It is <strong>not possible</strong> to change the length of an array during the program's execution. If this array is local, it has <strong>automatic storage duration</strong>. That is, it maintains its life during the execution of the code of the block in which it is defined. If the array is global, it has <strong>static storage duration</strong>. That is, the array retains its place in memory throughout the program's execution.</p>
+<p>By using dynamic memory management tools, obtaining the space that one or more objects will occupy during the program's runtime can be <strong>delayed from compile time to runtime</strong>.</p>
+<p>Why should obtaining the memory block be shifted from compile time to runtime? There are some important reasons for this. Most of these reasons will be addressed in the following pages.</p>
+<p>One of the most important reasons for obtaining the memory area during the program's runtime is that the size of the required memory block is only known during the program's <strong>runtime</strong>.</p>
+<p>In array definitions, the expression indicating the array size, i.e., the expression inside the square brackets, must be a <strong>constant expression</strong>. This expression cannot contain variables. This is because the compiler needs to know the array size at compile time to be able to allocate space for the array in memory. However, the size of the array that needs to be used in many applications is determined during the program's runtime. Suppose the names of the files in a directory need to be temporarily stored in an array for sorting from smallest to largest. What should be the size of the array to be used for this purpose? This is not known initially because the number of files in the directory is unknown. Such situations are frequently encountered, especially in database applications. In some applications, the true length of arrays can only be definitively determined during the program's execution, as a result of certain events. In this case, the programmer working with arrays is forced to define the arrays as large as possible, considering the worst-case scenario, to avoid encountering any pointer errors. This implies the <strong>inefficient use of memory</strong>. Furthermore, if the defined arrays are local, they are held in memory until the end of the block in which they are defined; if the defined arrays are global, they are held in memory until the end of the program's execution. However, releasing the memory region allocated for the array as soon as the operation related to the array is finished is necessary for <strong>efficient memory usage</strong>.</p>
+<p>Memory control is managed by the operating system. Operating systems have system functions that make a memory area not used for another purpose available for use. These functions can certainly be called directly. However, standard C functions are mostly used in applications. Standard C functions should be preferred for the <strong>portability</strong> of the written source code.</p>
+<p>The standard C functions used in dynamic memory management are examined in detail one by one below:</p>
+<h3 id="the-malloc-function">The <code>malloc</code> Function<a class="headerlink" href="#the-malloc-function" title="Permanent link">#</a></h3>
+<p>The <code>malloc</code> function is used to obtain a <strong>dynamic block from memory</strong> during the program's runtime. The declaration of the function in the <code>stdlib.h</code> header file is as follows:</p>
+<div class="codehilite"><pre><span></span><code>void *malloc(size_t nbyte);
+</code></pre></div>
+
+<p>You know that the type <code>size_t</code> is a <code>typedef</code> name for one of the <code>unsigned int</code> or <code>unsigned long</code> types.</p>
+<p>The function takes the length of the block desired to be obtained, in bytes. The allocated area is guaranteed to be <strong>contiguous</strong>. The return value of the <code>malloc</code> function is the <strong>starting address</strong> of the obtained memory block. Since this address is of type <code>void *</code>, it can be assigned to a pointer of any type without any problem. When this address is assigned to a pointer of any type, the obtained block can now be used like an object or an array with the help of the pointer holding the starting address. Obtaining the desired block is <strong>not guaranteed</strong> by the <code>malloc</code> function. The <code>malloc</code> function can fail for many reasons. The lack of enough free memory space for the desired area to be obtained is a common cause of failure.</p>
+<p>The <code>malloc</code> function returns the <strong>NULL address</strong> when it fails. The success of the function call must definitely be checked. An example of obtaining a block in memory with the <code>malloc</code> function is given below:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+int main()
+{
+    int *pd;
+    int k, n;
+    srand(time(0));
+    n = rand() % 100 + 10; // Random size
+
+    pd = (int *) malloc(n * sizeof(int)); // Request dynamic memory
+
+    if (pd == NULL) { // Check for failure
+        printf("cannot allocate memory\n");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("random %d numbers\n", n);
+    for (k = 0; k &lt; n; ++k) {
+        pd[k] = rand() % 100;
+        printf("%d ", pd[k]);
+    }
+    /***/
+    // Memory should be freed here (e.g., free(pd);)
+    return 0; 
+}
+</code></pre></div>
+
+<p>In the <code>main</code> function above, the value of the variable <span class="arithmatex">\(n\)</span> is obtained randomly with a call to the standard <code>rand</code> function during the program's runtime. Then, a memory block large enough to hold <span class="arithmatex">\(n\)</span> number of <code>int</code> type objects is obtained with the standard <code>malloc</code> function.</p>
+<p>The success of the <code>malloc</code> function is checked with an <code>if</code> statement. In case of failure, i.e., if the return value of the <code>malloc</code> function is the <code>NULL</code> address, the program is terminated by calling the standard <code>exit</code> function.</p>
+<p>The obtained dynamic block is then used as an <code>int</code> array. Random values in the range <span class="arithmatex">\(0 - 100\)</span> are assigned to the elements of the dynamic array.</p>
+<p>For the portability of the source code, the size of the memory block to be used should be obtained with the <code>sizeof</code> operator.</p>
+<p>Undoubtedly, it is not mandatory to terminate the program if the <code>malloc</code> function fails. Checking with assignment can also be done in one go.</p>
+<div class="codehilite"><pre><span></span><code>if ((pd = (int *) malloc(n * sizeof(int))) == NULL) { // Check and assign
+    printf("cannot allocate memory\n");
+    exit(EXIT_FAILURE);
+}
+</code></pre></div>
+
+<p>The success of the <code>malloc</code> function must definitely be checked. Reading from or writing to the address that is the return value in case of the function's failure leads to the content of the <code>NULL</code> address being accessed. This is a pointer error.</p>
+<p>Programmers are often inclined to find testing unnecessary when a large number of small blocks are allocated. However, easier methods should be tried instead of giving up the testing operation. For example, suppose a dynamic area of <span class="arithmatex">\(n\)</span> bytes is desired to be obtained for each of 5 separate pointer variables like <span class="arithmatex">\(p1, p2, p3, p4, p5\)</span>. In this case, testing can be done with a single <code>if</code> statement using logical operators.</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+// Assuming 'n' is defined
+int main()
+{
+    char *p1, *p2, *p3, *p4, *p5;
+    p1 = (char *)malloc(n);
+    p2 = (char *)malloc(n);
+    p3 = (char *)malloc(n);
+    p4 = (char *)malloc(n);
+    p5 = (char *)malloc(n);
+
+    if (!(p1 &amp;&amp; p2 &amp;&amp; p3 &amp;&amp; p4 &amp;&amp; p5)) { // Check if ANY is NULL
+        printf("cannot allocate memory!..\n");
+        exit(EXIT_FAILURE);
+    }
+    /*....*/
+    return 0;
+}
+</code></pre></div>
+
+<p>If any of the <code>malloc</code> calls fails, the expression <code>!(p1 &amp;&amp; p2 &amp;&amp; p3 &amp;&amp; p4 &amp;&amp; p5)</code> will be interpreted as "true," and the true part of the <code>if</code> statement will be executed.</p>
+<p>Sometimes, the <code>malloc</code> function is wrapped with another function defined by the programmer:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+void *cmalloc(size_t n)
+{
+    void *pd = malloc(n);
+    if (!pd) {
+        printf("cannot allocate memory!..\n");
+        exit(EXIT_FAILURE);
+    }
+    return pd;
+}
+</code></pre></div>
+
+<p>You see that the parametric structure of the <code>cmalloc</code> function defined above is the same as the <code>malloc</code> function. The function, unlike the <code>malloc</code> function, terminates the program in case of failure. If the program is to be terminated with an error message when a dynamic block obtaining attempt with <code>malloc</code> fails, the <code>cmalloc</code> function can be called instead of constantly repeating the source code.</p>
+<p>Since the return value of the <code>malloc</code> function is a <code>void</code> type address, this address can be assigned to a pointer variable of any type without any problem. However, for readability, it is recommended to convert the address that is the return value of the <code>malloc</code> function to the type of the pointer variable to be used with the help of the type cast operator. Thus, the information of what type of object or objects the block obtained with the <code>malloc</code> function will be used as is given to the person reading the code.</p>
+<p>In the period before the standardization of the C language, i.e., the classical C period, since there were no <code>void</code> pointers, the return value of the <code>malloc</code> function was a <code>char</code> type address. In this case, type conversion was a necessity if the address that was the return value was assigned to a pointer other than the <code>char</code> type.</p>
+<p>The <code>malloc</code> function can be called more than once to obtain more than one dynamic area. Obtaining contiguous blocks in memory with different calls to the <code>malloc</code> function is <strong>not guaranteed</strong>. Therefore, the address that is the return value of every function call must be stored in a pointer variable. The following code snippet is incorrect because it assumes consecutive <code>malloc</code> calls will obtain contiguous memory blocks:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main()
+{
+    int *pd;
+    int i;
+    pd = (int *)malloc(sizeof(int) * 10);
+    if (!pd) {
+        printf("cannot allocate memory!\n");
+        exit(EXIT_FAILURE);
+    }
+    // This is a separate allocation; its location is not guaranteed to be next to 'pd'
+    if (malloc(sizeof(int) * 10) == NULL) { 
+        printf("cannot allocate memory!\n");
+        exit(EXIT_FAILURE);
+    }
+    /* New block is not obliged to be right after the old block */
+    for (i = 0; i &lt; 20; ++i) // Accessing outside the first 10-int block
+        pd[i] = i;           /* Pointer Error */ 
+    /*...*/
+    return 0;
+}
+</code></pre></div>
+
+<p>The block obtained with the <code>malloc</code> function contains <strong>garbage values</strong>. Test this situation with the following code snippet:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main()
+{
+    int *pd;
+    int i;
+    pd = (int *) malloc(10 * sizeof(int));
+    if (!pd) {
+        printf("insufficient memory!..\n");
+        exit(EXIT_FAILURE);
+    }
+    for (i = 0; i &lt; 10; ++i)
+        printf("pd[%d] = %d\n", i, pd[i]); // Output will be garbage
+    return 0;
+}
+</code></pre></div>
+
+<p>The memory region made available for use by dynamic memory functions is called the <strong>heap</strong> in English. This area is called the free store in the C++ language. The size of the heap area can vary from system to system, but when an executable program is in question, a heap area of a specific size is reserved for the program's use when the program is loaded into memory.</p>
+<p>Since the parameter variable of the <code>malloc</code> function is of type <code>unsigned int</code> (<span class="arithmatex">\(\text{size\_t}\)</span>) in most systems, a block of at most 65535 bytes (64 KB) in size can be obtained with the <code>malloc</code> function under DOS. However, in 32-bit systems like UNIX and WINDOWS, since the <code>unsigned int</code> type is 4 bytes long, theoretically, a contiguous block of <span class="arithmatex">\(4,294,967,295\)</span> bytes (4 GB) in length can be obtained with the <code>malloc</code> function in these systems. Of course, this does not mean that the dynamic allocation operation is guaranteed.</p>
+<p>The heap area is also limited. If the <code>malloc</code> function is continuously called, the functions will return the <code>NULL</code> address after a certain point due to failure.</p>
+<p>Below, the size of the heap area used is attempted to be obtained with a code:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#define BLOCK_SIZE 2048
+int main()
+{
+    long total = 0L;
+    void *pd;
+    for (;;) {
+        pd = malloc(BLOCK_SIZE);
+        if (!pd) // Exit if malloc fails
+            break;
+        total += BLOCK_SIZE;
+    }
+    printf("total heap area = %ld byte\n", total);
+    system("pause"); // Non-standard, but pauses execution
+    return 0;
+}
+</code></pre></div>
+
+<p>Run the program above for the DOS operating system first by compiling it with the symbolic constant <span class="arithmatex">\(\text{BLOCK\_SIZE}\)</span> having the value 2048. Then, recompile and run the program by changing the value of the <span class="arithmatex">\(\text{BLOCK\_SIZE}\)</span> constant to 1. You will see that the total value is much smaller.</p>
+<p>The <code>malloc</code> function performs the dynamic block obtaining operation during the program's runtime. A table is maintained in the heap area with an appropriate data structure so that the blocks obtained with dynamic memory functions can be controlled. This table contains the starting address and size of each obtained dynamic block. This table itself is also in the heap area. When a program is run, the heap area is consumed in two different ways:</p>
+<p>i) By making the blocks obtained by the <code>malloc</code>/<code>calloc</code>/<code>realloc</code> functions available for use.
+ii) By adding information to the relevant table for each allocation operation.</p>
+<h3 id="returning-the-obtained-dynamic-block">Returning the Obtained Dynamic Block<a class="headerlink" href="#returning-the-obtained-dynamic-block" title="Permanent link">#</a></h3>
+<p>A block obtained from a call to dynamic memory functions can be returned to the system with a call to the standard function <strong><code>free</code></strong>. The declaration of the <code>free</code> function is also in the <code>stdlib.h</code> header file:</p>
+<div class="codehilite"><pre><span></span><code>void free(void *block);
+</code></pre></div>
+
+<p>The starting address of a memory block previously obtained with the <code>malloc</code>, <code>calloc</code>, or <code>realloc</code> functions must be passed to the <code>free</code> function. With a call to the <code>free</code> function, this block is returned to the heap area. The block returned to the heap area enters the potential for being obtained again by the <code>malloc</code>, <code>calloc</code>, or <code>realloc</code> functions.</p>
+<p>As seen, the <code>free</code> function only takes the starting address of the memory block to be returned; it does not request the size of the previously allocated memory block. At runtime, the size value of the already obtained memory blocks is maintained in the tables held in the heap area.</p>
+<p>Passing an address other than the starting address of a memory block previously obtained with dynamic memory functions as an argument to the <code>free</code> function is <strong>undefined behavior</strong> and should not be done.</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdlib.h&gt;
+int main()
+{
+    char *p1, *ptr;
+    char s[100]; // Static array
+    ptr = (char *)malloc(20); // Dynamic block
+    free(ptr); // Correct and valid
+    // free(p1); /* Incorrect: p1 uninitialized (local) or NULL (global) - Undefined/No-op */
+    // free(s); /* Incorrect: s is a static array, not dynamic */
+    return 0;
+}
+</code></pre></div>
+
+<p>In the example above, the call <code>free(p1)</code> causes a runtime error (or undefined behavior) because there is no area obtained with dynamic memory functions at address <span class="arithmatex">\(p1\)</span>. The call <code>free(s)</code> also causes a runtime error (or undefined behavior) because space for array <span class="arithmatex">\(s\)</span> was not allocated from the dynamic memory area.</p>
+<p>A block previously obtained dynamically is returned to the heap area with the <code>free</code> function, but the pointer holding the starting address of this block is not changed in any way. The pointer that holds the starting address of the block and is sent as an argument to the <code>free</code> function now points to an <strong>unsafe address</strong> after the call to the <code>free</code> function. Accessing a returned memory block is a frequent pointer error. Compile and run the following code:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#define ARRAY_SIZE 100
+int main()
+{
+    char name_entry[ARRAY_SIZE];
+    char *pd;
+    printf("enter a name: ");
+    gets(name_entry);
+    pd = (char *)malloc(strlen(name_entry) + 1); // Allocation size: length + 1 for '\0'
+    if (pd == NULL) {
+        printf("cannot obtain a dynamic block!\n");
+        exit(EXIT_FAILURE);
+    }
+    strcpy(pd, name_entry);
+    printf("string = %s\n", pd);
+    free(pd); // Block is returned to heap
+    printf("string = %s\n", pd); /* Incorrect! Accessing freed memory */
+    return 0;
+}
+</code></pre></div>
+
+<p>In the <code>main</code> function above, a name entered from the keyboard is first placed into the local array named <code>name_entry</code>. Then, a memory block 1 byte larger than the length of the name entered from the keyboard is obtained with the called <code>malloc</code> function. The name in the local array is copied to the obtained memory block. Then, the name in the dynamic block is printed to the screen. The dynamic block is returned to the heap area with the call <code>free(pd)</code>. However, the returned block is accessed with the <code>printf</code> call made after the return operation. This is a pointer error.</p>
+<p>Dynamic memory functions perform dynamic allocation and deallocation operations during the program's runtime.</p>
+<p>A typical mistake related to the <code>free</code> function is trying to shrink a previously obtained dynamic block with the <code>free</code> function. Examine the following code:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdlib.h&gt;
+int main()
+{
+    char *pd;
+    pd = (char *)malloc(1000);
+    /****/
+    free(pd + 500); /* Incorrect */ // Not the start of the block
+    /****/
+    free(pd);
+    return 0;
+}
+</code></pre></div>
+
+<p>In the <code>main</code> function above, first, a 1000-byte block is obtained with the <code>malloc</code> function, and the starting address of the block is assigned to the pointer variable <span class="arithmatex">\(pd\)</span>. You then see that the address <span class="arithmatex">\(pd + 500\)</span> is sent as an argument to the called <code>free</code> function. With such a call, the <code>free</code> function does not return 500 bytes of the previously allocated 1000-byte area. The address <span class="arithmatex">\(pd + 500\)</span> is not the starting address of a dynamic area. Therefore, the function call exhibits <strong>undefined behavior</strong>. A dynamic area obtained with a <code>malloc</code> call cannot be shrunk with a call to the <code>free</code> function.</p>
+<p>Passing an address other than the starting address of a dynamic block to the <code>free</code> function is undefined behavior. The only exception to this situation is passing the <strong><code>NULL</code> address</strong> to the <code>free</code> function. Passing the <code>NULL</code> address to the function does not cause undefined behavior; it is simply a <strong>no operation</strong> call:</p>
+<div class="codehilite"><pre><span></span><code>if (ptr)
+    free(ptr);
+</code></pre></div>
+
+<p>In the <code>if</code> statement above, where <span class="arithmatex">\(ptr\)</span> is a pointer variable, the <code>free</code> function is called if the value of the variable <span class="arithmatex">\(ptr\)</span> is not the <code>NULL</code> address. Even if the <code>free</code> function is called directly, the meaning of the code would not change much.</p>
+<h3 id="using-a-dynamic-array">Using a Dynamic Array<a class="headerlink" href="#using-a-dynamic-array" title="Permanent link">#</a></h3>
+<p>A memory block obtained with the <code>malloc</code> function can be used as an array whose size is obtained at the program's runtime. Compile and run the following program:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+void set_array(int *ptr, int size)
+{
+    int k;
+    for (k = 0; k &lt; size; ++k)
+        ptr[k] = rand() % 100;
+}
+
+void display_array(const int *ptr, int size)
+{
+    int k;
+    for (k = 0; k &lt; size; ++k)
+        printf("%2d ", ptr[k]);
+    printf("\n");
+}
+
+int main()
+{
+    int n;
+    int *pd;
+    printf("how many integers : ");
+    scanf("%d", &amp;n);
+
+    pd = (int *)malloc(sizeof(int) * n);
+    if (pd == NULL) {
+        printf("cannot allocate memory!\n");
+        exit(EXIT_FAILURE);
+    }
+
+    srand(time(0));
+    set_array(pd, n);
+    display_array(pd, n);
+    free(pd);
+    return 0;
+}
+</code></pre></div>
+
+<p>In the program above, the information of how many objects are desired at the program's runtime is received into the variable <span class="arithmatex">\(n\)</span> from the user with the standard <code>scanf</code> function. Then, a dynamic memory block large enough to hold <span class="arithmatex">\(n\)</span> number of <code>int</code> type objects is obtained with the <code>malloc</code> function. You see that the starting address of the obtained dynamic memory block is assigned to the pointer named <span class="arithmatex">\(pd\)</span>. Now, there is an array whose starting address is <span class="arithmatex">\(pd\)</span> and size is <span class="arithmatex">\(n\)</span>, right? The <code>set_array</code> and <code>display_array</code> functions are called with the starting address and size of this array.</p>
+<h3 id="the-calloc-function">The <code>calloc</code> Function<a class="headerlink" href="#the-calloc-function" title="Permanent link">#</a></h3>
+<p>The <code>calloc</code> function is very similar to the <code>malloc</code> function. Its declaration in the <code>stdlib.h</code> header file is as follows:</p>
+<div class="codehilite"><pre><span></span><code>void *calloc(size_t nblock, size_t block_size);
+</code></pre></div>
+
+<p>The <code>calloc</code> function is used to obtain a memory block of size equal to the product of its first parameter and its second parameter from the heap area. The return value of the function is the starting address of the obtained memory block if the allocation operation is successful. If the allocation operation is unsuccessful, the <code>calloc</code> function also returns the <strong><code>NULL</code> address</strong>, just like the <code>malloc</code> function.</p>
+<p>Dynamic allocation for a 100-element array of type <code>int</code> can be done with the <code>calloc</code> function as follows:</p>
+<div class="codehilite"><pre><span></span><code>void func()
+{
+    int *pd;
+    /***/
+    pd = (int*) calloc(100, sizeof(int));
+    if (pd == NULL) {
+        printf("cannot allocate memory\n");
+        exit(EXIT_FAILURE);
+    }
+    /***/
+}
+</code></pre></div>
+
+<p>Undoubtedly, the <code>calloc</code> function could also be called as follows in the code snippet above:</p>
+<div class="codehilite"><pre><span></span><code>pd = (int*) calloc(sizeof(int), 100);
+</code></pre></div>
+
+<p>Another difference between the <code>calloc</code> function and the <code>malloc</code> function is that it <strong>zeros out</strong> the memory block it obtains. All bytes of the block obtained by the <code>calloc</code> function contain zero values. The <code>malloc</code> function is used much more frequently than the <code>calloc</code> function. If the allocated block is to be zeroed out, the <code>calloc</code> function can be preferred instead of the <code>malloc</code> function.</p>
+<p>Suppose the elements of an <span class="arithmatex">\(n\)</span>-element array of type <code>int</code> obtained from the heap area are desired to be zeroed out. If this operation is done with the <code>malloc</code> function, the elements of the array must be zeroed out with a separate loop statement:</p>
+<div class="codehilite"><pre><span></span><code>int main()
+{
+    int *pd;
+    int i;
+    int n = rand() % 100 + 10;
+    pd = (int *) malloc(sizeof(int) * n);
+    /***/
+    for (i = 0; i &lt; n; ++i) // Must be done manually after malloc
+        pd[i] = 0;
+    /***/
+    return 0;
+}
+</code></pre></div>
+
+<p>However, the <code>calloc</code> function performs the zeroing operation within itself:</p>
+<div class="codehilite"><pre><span></span><code>pd = calloc(sizeof(int) , n);
+</code></pre></div>
+
+<p>In most compilers, the <code>calloc</code> function calls the <code>malloc</code> function within itself to perform the memory allocation operation.</p>
+<h3 id="memory-leak">Memory Leak<a class="headerlink" href="#memory-leak" title="Permanent link">#</a></h3>
+<p>A block obtained from the heap area with dynamic memory functions is held until a call to the <code>free</code> function. If the starting address of the dynamic block is lost, there is no longer a chance to use this block until the end of the program, and the block cannot be returned to the heap area. This situation is called a <strong>memory leak</strong>. Suppose a dynamic block is obtained within a function, but this block is not returned to the heap area within the function:</p>
+<div class="codehilite"><pre><span></span><code>void process()
+{
+    char *pd = (char *)malloc(1000);
+    if (pd == NULL) {
+        printf("cannot obtain a dynamic block!\n");
+        exit(EXIT_FAILURE);
+    }
+    /***/
+    // No free(pd) call here!
+}
+</code></pre></div>
+
+<p>Every time the <code>process</code> function is called, a 1000-byte area is obtained. However, the dynamic area obtained within the function is not returned to the heap area. In this case, a 1000-byte area is blocked from the heap area with every call made to the <code>process</code> function. If the <code>process</code> function is a function called very frequently within the main program, the heap area can be entirely consumed after a certain number of calls. That is, after a certain time, the <code>malloc</code> function will no longer be able to obtain a new block.</p>
+<h3 id="the-realloc-function">The <code>realloc</code> Function<a class="headerlink" href="#the-realloc-function" title="Permanent link">#</a></h3>
+<p>The <code>realloc</code> function is called to <strong>enlarge or shrink</strong> a memory block previously obtained with the <code>malloc</code> or <code>calloc</code> functions. The declaration of the function is in the <code>stdlib.h</code> header file.</p>
+<div class="codehilite"><pre><span></span><code>void *realloc(void *block, size_t newsize);
+</code></pre></div>
+
+<p>The first argument sent to the <code>realloc</code> function is the starting address of a previously obtained memory block, and the second argument is the total length of the new block.</p>
+<p>When a dynamic block is desired to be enlarged with the <code>realloc</code> function, the function is <strong>not obliged</strong> to enlarge the block towards a higher numerical address. If the <code>realloc</code> function cannot find a block of the desired length immediately after the end of the previously obtained block, or if it does not prefer to enlarge the dynamic area in this direction, it searches for another unused location in memory for the entire block. If a contiguous block of the desired total length is found, it allocates this block, moves the values in the old memory block to the new location, and returns the old memory block to the system. If a contiguous area of the requested length cannot be found, the function returns the <strong><code>NULL</code> address</strong>.</p>
+<p>Examine the dynamic memory operations performed in the following program:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main()
+{
+    int *pd;
+    int k;
+    int n, nplus;
+    printf("how many integers : ");
+    scanf("%d", &amp;n);
+
+    pd = (int *) malloc(sizeof(int) * n);
+    if (!pd) {
+        printf("insufficient memory!..\n");
+        exit(EXIT_FAILURE);
+    }
+
+    for (k = 0; k &lt; n; ++k)
+        pd[k] = k;
+
+    printf("how many integers to add: ");
+    scanf("%d", &amp;nplus);
+
+    pd = (int *) realloc(pd, sizeof(int) * (n + nplus)); // Resize block
+    if (pd == NULL) {
+        printf("insufficient memory!..\n");
+        exit(EXIT_FAILURE);
+    }
+
+    for (; k &lt; n + nplus; ++k)
+        pd[k] = k;
+
+    for (k = 0; k &lt; n + nplus; ++k)
+        printf("%d ", pd[k]);
+    printf("\n");
+
+    free(pd);
+    return 0;
+}
+</code></pre></div>
+
+<p>A dynamic area large enough to hold <span class="arithmatex">\(n\)</span> number of <code>int</code> type objects is obtained with the <code>malloc</code> function. If the <code>malloc</code> function fails, the program is terminated with the standard <code>exit</code> function. <span class="arithmatex">\(n\)</span> number of objects in the obtained dynamic area are assigned values with the help of a loop. Then, the obtained dynamic area is expanded with the called <code>realloc</code> function to be able to hold <code>nplus</code> more objects. If the <code>realloc</code> function fails, the program is terminated. The array with <span class="arithmatex">\(n + \text{nplus}\)</span> objects at the address that is the return value of the <code>realloc</code> function is then printed with a loop statement.</p>
+<p>If the <code>realloc</code> function is successful, two possibilities exist:</p>
+<ol>
+<li>The <code>realloc</code> function provided the additional memory area immediately after the previously obtained dynamic area, i.e., at a higher numerical address, thus enlarging the initial block. This is rarely encountered in most systems. In this case, the address that is the return value of the <code>realloc</code> function is the address sent as the first parameter of the function.</li>
+<li>The <code>realloc</code> function could not find free space below the previously allocated block or did not prefer to perform an enlargement operation in this direction. And it allocated another free block of total size <span class="arithmatex">\(\text{(n + nplus)} \times \text{sizeof}(\text{int})\)</span> bytes in the heap area. In this case, the <code>realloc</code> function copied the values in the previously obtained area to this new area and returned the old block to the system.</li>
+</ol>
+<p>Due to this behavior of the <code>realloc</code> function, the return value must definitely be assigned to a pointer variable. A common typical mistake is seen below:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main()
+{
+    char *p;
+    p = malloc(10);
+    if (p == NULL) {
+        printf("can not allocate memory!..\n");
+        exit(EXIT_FAILURE);
+    }
+    /***/
+    // The return value of realloc is NOT assigned to p!
+    if (realloc (p, 20) == NULL) { 
+        printf("can not allocate memory!..\n");
+        exit(EXIT_FAILURE);
+    }
+    gets(p); // If realloc moved the block, 'p' is now a dangling pointer
+    return 0;
+}
+</code></pre></div>
+
+<p>The successful execution of the <code>realloc</code> function does not mean that an additional block was provided immediately below the previously obtained block, i.e., at a greater numerical address. The <code>realloc</code> function might have moved the previously obtained dynamic area to another location and returned with the starting address of the new block. In this case, the old block is freed, and this address is no longer reliable.</p>
+<p>In the example above, it is assumed that the <code>realloc</code> function enlarged the previously obtained block in place. If the <code>realloc</code> function moved and enlarged the memory block to another location, a pointer error is made in the code above because the address pointed to by the pointer <span class="arithmatex">\(p\)</span> is no longer a reliable address.</p>
+<p>Therefore, in applications, the return value of the <code>realloc</code> function is generally assigned to the pointer to which the value was sent in the <code>realloc</code> function:</p>
+<div class="codehilite"><pre><span></span><code>ptr = realloc(ptr, 100);
+</code></pre></div>
+
+<p>However, this is not mandatory. If the program is not to be terminated in case the allocation operation with the <code>realloc</code> function is unsuccessful and the values in the previously obtained region are to be written to a file, using a temporary pointer is appropriate because the pointer <span class="arithmatex">\(ptr\)</span> would be assigned the <code>NULL</code> address if the <code>realloc</code> function fails, thus severing the relationship of the pointer <span class="arithmatex">\(ptr\)</span> with the previously obtained block.</p>
+<p>In such a case, using a temporary pointer is appropriate:</p>
+<div class="codehilite"><pre><span></span><code>temp = realloc(ptr, 100);
+if (temp == NULL)
+    printf("cannot allocate memory!..\n"); // ptr still holds the old address
+</code></pre></div>
+
+<p>In this case, the pointer <span class="arithmatex">\(ptr\)</span> still points to the starting address of the previously obtained block.</p>
+<p>The C standards have introduced the following rules regarding the <code>realloc</code> function:</p>
+<p>i) In the case of enlarging a previously obtained memory block, the <code>realloc</code> function does not assign any value to the part added to the block. That is, the new block added to the old block contains <strong>garbage values</strong>. If the <code>realloc</code> function cannot enlarge the previously obtained memory block, it returns the <strong><code>NULL</code> address</strong>, but the values in the previously obtained and unenlargeable memory block are preserved.</p>
+<p>ii) If the first argument sent to the <code>realloc</code> function is the <strong><code>NULL</code> address</strong>, the <code>realloc</code> function behaves entirely like the <code>malloc</code> function. That is:</p>
+<div class="codehilite"><pre><span></span><code>realloc(NULL, 100);
+</code></pre></div>
+
+<p>and</p>
+<div class="codehilite"><pre><span></span><code>malloc(100);
+</code></pre></div>
+
+<p>the calls have exactly the same meaning. Both attempt to obtain a dynamic area of 100 bytes.</p>
+<p>Why is this necessary? That is, why might a call like <code>realloc(NULL, 100)</code> be preferred instead of a call like <code>malloc(100)</code>?</p>
+<p>Examine the following program:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;stdlib.h&gt;
+// Assuming getch() and necessary functions are defined elsewhere
+
+// Function prototypes would be here
+
+int main()
+{
+    int *ptr = NULL;
+    int ch, grade;
+    int counter = 0;
+
+    for (;;) {
+        printf("do you want to enter a grade? [y] [n]\n");
+        // Assuming toupper(getch()) is available and returns 'Y' or 'N'
+        while ((ch = toupper(getch())) != 'Y' &amp;&amp; ch != 'N')
+            ;
+
+        if (ch == 'N')
+            break;
+
+        printf("enter the grade : ");
+        scanf("%d", &amp;grade);
+
+        counter++;
+        // ptr is NULL on the first run, making realloc act like malloc
+        ptr = (int *) realloc(ptr, sizeof(int) * counter);
+
+        if (ptr == NULL) {
+            printf("cannot allocate memory!..\n");
+            exit(EXIT_FAILURE);
+        }
+
+        ptr[counter - 1] = grade;
+    }
+
+    if (counter == 0) {
+        printf("you did not enter any grades!..\n");
+        return 0;
+    }
+
+    // Output results
+    printf("you entered a total of %d grades\n", counter);
+    printf("the grades you entered are listed below :\n");
+    // display_array(ptr, counter); // Assuming display_array is defined
+
+    // Calculations
+    // printf("\nlargest grade : %d\n", get_max(ptr, counter));
+    // printf("smallest grade : %d\n", get_min(ptr, counter));
+    // printf("average of grades : %lf\n", get_ave(ptr, counter));
+    // printf("standard deviation of grades . %lf\n", get_stddev(ptr, counter));
+
+    free(ptr); // Free the memory block
+    return 0;
+}
+</code></pre></div>
+
+<p>In the program above:</p>
+<p>In the statement <code>ptr = (int *) realloc(ptr, sizeof(int) * counter);</code>, since the value of the pointer <span class="arithmatex">\(ptr\)</span> is <code>NULL</code> in the first iteration of the loop, the <code>realloc</code> function will behave like <code>malloc</code> and allocate space for 1 object of type <code>int</code>. However, since the address sent to the <code>realloc</code> function in subsequent iterations of the loop will not be the <code>NULL</code> address, the previously obtained block is continuously enlarged within the loop.</p>
+<p>If the second argument sent to the <code>realloc</code> function is <span class="arithmatex">\(0\)</span>, the <code>realloc</code> function behaves entirely like the <code>free</code> function:</p>
+<div class="codehilite"><pre><span></span><code>realloc(ptr, 0);
+</code></pre></div>
+
+<p>and</p>
+<div class="codehilite"><pre><span></span><code>free(ptr);
+</code></pre></div>
+
+<p>have exactly the same meaning. Why is this necessary? That is, why should a call like <code>realloc(ptr, 0)</code> be preferred instead of a call like <code>free(ptr)</code>?</p>
+<h3 id="functions-returning-the-starting-address-of-dynamically-obtained-area">Functions Returning the Starting Address of Dynamically Obtained Area<a class="headerlink" href="#functions-returning-the-starting-address-of-dynamically-obtained-area" title="Permanent link">#</a></h3>
+<p>Since a dynamically allocated block can be used safely until it is released with the <code>free</code> function and returned to the system, a function can return the starting address of such a block.</p>
+<p>Examine the following function:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+char *getname()
+{
+    char s[30]; // Local array
+    char *ptr;
+    printf("enter name : ");
+    gets(s);
+
+    // Allocate space for the string + null terminator
+    ptr = (char *) malloc(strlen(s) + 1);
+
+    if (ptr == NULL) {
+        printf("cannot allocate memory!..\n");
+        exit(EXIT_FAILURE);
+    }
+    // Copy name from local array 's' to dynamic block 'ptr'
+    return strcpy(ptr, s); 
+}
+</code></pre></div>
+
+<p>In the <code>getname</code> function, a name is first received from the keyboard into a local array. Then, the length of the name received into the local array is found using the <code>strlen</code> function. An area large enough to contain this name and the null terminator at the end is dynamically obtained with the <code>malloc</code> function. Then, the name is copied to the dynamically obtained area using the <code>strcpy</code> function, and the starting address of this block is returned.</p>
+<p>The responsibility for freeing the block allocated as a result of a function call that performs a dynamic allocation operation lies with the calling code:</p>
+<div class="codehilite"><pre><span></span><code>int main()
+{
+    char *p = getname();
+    /*****/
+    free(p);
+    /*****/
+    return 0;
+}
+</code></pre></div>
+
+<p>Allocating a dynamic memory block within a function and then returning the starting address of this block is a very common technique in the C language.</p>
+<p>The <code>strcon</code> function, whose source code is given below, copies the string whose starting address is held in the second parameter to the end of the string whose starting address is held in the first parameter; however, it returns the address that is the starting address of the concatenated string <strong>without modifying either of the strings</strong> at the two addresses:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+char *strcon(const char *s1, const char*s2)
+{
+    // Allocate space for s1 + s2 + null terminator
+    char *ptr = malloc (strlen(s1) + strlen(s2) + 1);
+
+    /* Check for success (omitted here for brevity, but needed) */
+    // Assuming success:
+    strcpy(ptr, s1);
+    strcat(ptr, s2);
+    return ptr;
+}
+</code></pre></div>
+
+<p>Our function copies the strings whose addresses were sent to a dynamic area and returns the starting address of the dynamic area. Since the <code>strcpy</code> and <code>strcat</code> functions return the value of their first parameter, the statements:</p>
+<div class="codehilite"><pre><span></span><code>strcpy(ptr, s1);
+strcat(ptr, s2);
+return ptr;
+</code></pre></div>
+
+<p>could have been written as a single statement, right?</p>
+<div class="codehilite"><pre><span></span><code>return strcat(strcpy(ptr, s1), s2);
+</code></pre></div>
+
+<h3 id="controlling-multiple-dynamic-areas-with-a-pointer-array">Controlling Multiple Dynamic Areas with a Pointer Array<a class="headerlink" href="#controlling-multiple-dynamic-areas-with-a-pointer-array" title="Permanent link">#</a></h3>
+<p>Storing the starting addresses of different blocks obtained with dynamic memory functions in the elements of a pointer array is a frequently encountered theme. Examine the following program:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+char *get_name()
+{
+    char name_entry[40];
+    char *pd;
+    printf("enter name : ");
+    gets(name_entry);
+
+    pd = (char *) malloc(strlen(name_entry) + 1);
+    if (pd == NULL) {
+        printf("insufficient memory!..\n");
+        exit(EXIT_FAILURE);
+    }
+    return strcpy(pd, name_entry); // Copy to dynamic block and return its address
+}
+
+int main()
+{
+    char *p[10]; // Array of 10 char pointers
+    int k;
+    int len_sum = 0;
+
+    for (k = 0; k &lt; 10; ++k)
+        p[k] = get_name(); // Each pointer stores the address of a dynamically allocated string
+
+    printf("names : \n");
+    for (k = 0; k &lt; 10; ++k) {
+        printf("(%s) ", p[k]);
+        len_sum += strlen(p[k]);
+    }
+    printf("\n");
+    printf("average length of entered names = %lf\n", (double)len_sum / 10);
+
+    for (k = 0; k &lt; 10; ++k)
+        free(p[k]); // Free each dynamically allocated string
+
+    return 0;
+}
+</code></pre></div>
+
+<p>In some cases, the pointer array itself is also created dynamically. In the following program, random values between <span class="arithmatex">\(0 - 100\)</span> are first given to the elements of a matrix whose number of rows and columns are entered from the keyboard, and then the matrix is printed to the screen:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+int main()
+{
+    int no_of_rows, no_of_cols;
+    int **prows; // Pointer to a pointer to int (prows will be an array of pointers)
+    int i, k;
+    srand(time(0));
+
+    printf("number of rows : ");
+    scanf("%d", &amp;no_of_rows);
+    printf("number of columns : ");
+    scanf("%d", &amp;no_of_cols);
+
+    // 1. Allocate memory for the array of row pointers (nrows * sizeof(int*))
+    prows = (int **)malloc(sizeof(int *) * no_of_rows);
+    if (prows == NULL) {
+        printf("cannot obtain dynamic memory!\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // 2. Allocate memory for each row (ncols * sizeof(int))
+    for (k = 0; k &lt; no_of_rows; ++k) {
+        prows[k] = (int *) malloc(sizeof(int) * no_of_cols);
+        if (prows[k] == NULL) {
+            printf("cannot obtain dynamic memory!\n");
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    /****/ // Initialization
+    for (i = 0; i &lt; no_of_rows; ++i)
+        for (k = 0; k &lt; no_of_cols; ++k)
+            prows[i][k] = rand() % 100;
+
+    /****/ // Display
+    for (i = 0; i &lt; no_of_rows; ++i) {
+        for (k = 0; k &lt; no_of_cols; ++k)
+            printf("%2d ", prows[i][k]);
+        printf("\n");
+    }
+
+    /****/ // Deallocation (must be in reverse order of allocation)
+    for (i = 0; i &lt; no_of_rows; ++i)
+        free(prows[i]); // Free each row's array
+    free(prows); // Free the array of pointers
+
+    return 0;
+}
+</code></pre></div>
+
+<p>Now examine the program. The number of rows and columns of the matrix is entered by the user from the keyboard. The number of rows of the matrix is <code>no_of_rows</code>, and the number of columns is <code>no_of_cols</code>. The matrix consists of <code>no_of_rows</code> number of dynamic arrays of type <code>int</code> of length <code>no_of_cols</code>. That is, each row of the matrix is a dynamic array. The starting addresses of these dynamic arrays are held in a dynamic pointer array. You first see that a dynamic area is allocated for <code>no_of_rows</code> number of objects of type <code>int *</code>:</p>
+<div class="codehilite"><pre><span></span><code>prows = (int **)malloc(sizeof(int *) * no_of_rows);
+</code></pre></div>
+
+<p>The following loop ensures that each element of this dynamic array holds the starting address of a dynamic array of type <code>int</code> of length <code>no_of_cols</code>.</p>
+<div class="codehilite"><pre><span></span><code>for (k = 0; k &lt; no_of_rows; ++k) {
+    prows[k] = (int *) malloc(sizeof(int) * no_of_cols);
+</code></pre></div>
+
+<p>After the allocation operations are completed, the element at index <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(k\)</span> of the matrix can be accessed with the expression:</p>
+<div class="codehilite"><pre><span></span><code>prows[i][k]
+</code></pre></div>
+
+<p>because <code>prows[i]</code> is an object of type <code>int *</code>. The value of this object is the starting address of a dynamic array of type <code>int</code>. Recall that the square bracket operator is at the first level of the operator precedence table and has left-to-right associativity. In this case, the leftmost square bracket operator produces a value first. The value of type <code>int *</code> produced by the left square bracket operator then becomes the operand of the second square bracket operator. This operator then accesses an element of the dynamic array of type <code>int</code> that forms one of the rows. In this case, the <code>int</code> type object reached is the <span class="arithmatex">\([i][k]\)</span> indexed element of the matrix.</p>
+<p>Care must be taken in returning the allocated dynamic areas. The dynamic arrays that form the rows of the matrix must be returned to the heap area first, and then the return operation of the pointer array that holds the starting addresses of the dynamic arrays must be performed:</p>
+<div class="codehilite"><pre><span></span><code>for (i = 0; i &lt; no_of_rows; ++i)
+    free(prows[i]); // Free the dynamic row array
+free(prows); // Free the dynamic array of pointers
+</code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="32_multidimensional_arrays.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Multidimensional Arrays">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Multidimensional Arrays
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="35_storage_class_specifiers_and_type_qualifiers.html" class="md-footer__link md-footer__link--next" aria-label="Next: Storage Class Specifiers and Type Qualifiers">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Storage Class Specifiers and Type Qualifiers
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "search.highlight", "search.share", "content.tabs.link", "toc.integrate", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

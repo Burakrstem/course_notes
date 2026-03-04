@@ -1,0 +1,5326 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Burak Rustemogullari">
+      
+      
+        <link rel="canonical" href="https://burakrustemogullari.github.io/cpp/9.html">
+      
+      
+        <link rel="prev" href="8_operator_overloading.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Misc - Burak's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#namespaces" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Burak&#39;s Notes" class="md-header__button md-logo" aria-label="Burak's Notes" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Burak's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Misc
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/burakrustemogullari/robotics-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../c/1_programming_and_c.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  C
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ai/1_RAG_Overview/1_rag.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../robotics/intro.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Robotics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../embedded/intro.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Embedded
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="basics.html" class="md-tabs__link">
+          
+  
+  
+    
+  
+  C++
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Burak&#39;s Notes" class="md-nav__button md-logo" aria-label="Burak's Notes" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    Burak's Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/burakrustemogullari/robotics-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/1_programming_and_c.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming and C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/2_number_systems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Number Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/3_general_concepts_and_terms.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Concepts and Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/4_creating_a_c_program.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating a C Program
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/5_data_types.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/6_declarations_and_definitions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Declarations and Definitions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/7_constants.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/8_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/9_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/10_scope_and_lifetime.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope and Lifetime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/11_control_statements.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/12_if_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/13_function_declarations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Declarations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/14_type_conversions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/15_loop_statements.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loop Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/16_ternary_operator.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ternary Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/17_preprocessor_directives__1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprocessor Directives - 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/18_switch_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/19_goto_statement.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    goto Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/20_random_number_generation_and_control_statements.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Random Number Generation and Control Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/21_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/22_character_arrays_and_strings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Character Arrays and Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/23_sizeof_operator.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sizeof Operator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/24_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/25_pointer_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/26_standard_functions_for_string_operations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standard Functions for String Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/27_pointer_errors.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/28_void_type_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    void Type Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/29_strings.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/30_pointer_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointer Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/31_pointers_to_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pointers to Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/32_multidimensional_arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multidimensional Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/33_exit_abort_and_exit_functions.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    exit, abort and atexit Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/34_dynamic_memory_management.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Memory Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/35_storage_class_specifiers_and_type_qualifiers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Class Specifiers and Type Qualifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/36_structures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/37_type_definitions_and_typedef.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Definitions and typedef
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/38_date_and_time_standard_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Date and Time Standard Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/39_unions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/40_enumerations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enumerations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/41_bitwise_operators.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitwise Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/42_bit_fields.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bit Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/43_command_line_arguments.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Arguments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/44_files.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/45_macros.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Macros
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/46_preprocessor_directives__2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprocessor Directives - 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/47_function_pointers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/48_recursive_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursive Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/49_variable_argument_functions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable Argument Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/50_DSA_in_C.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA in C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/1_rag.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/2_rag_uygulama_alanlari.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Uygulama Alanları
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/3_rag_mimarisi.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Mimarisi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/4_Introduction_to_LLM.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to LLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/5_Python_Libraries_for_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Libraries for RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/6_Crafting_Simple_Augmented_Prompts.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crafting Simple Augmented Prompts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/1_RAG_Overview/7_Information_Retrieval.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval (overview)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval and Search Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Information Retrieval and Search Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/1_retriever_architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retriever Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/2_metadata_filtering.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/3_keyword_search_TF-IDF.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keyword Search (TF-IDF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/4_Keyword_search_BM25.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keyword Search (BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/5_Semantic_search.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semantic Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/6_Semantic_search-embedding_model_deepdive.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedding Model Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/7_Hybrid_Search.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/8_Evaluating_retrieval.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluating Retrieval
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/2_Information_Retrieval_and_Search_Foundations/10_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Retrieval with Vector DB
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Information Retrieval with Vector DB
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/2_Approximate_neares_neighbors_algorithms_ANN.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ANN Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/3_Vector_Databases.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/5_Chuncking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chunking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/6_Advanced_chuncking_techniques.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Chunking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/7_Query_parsing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query Parsing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/8_Cross_encoders_and_ColBERT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-encoders & ColBERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/3_Information_Retrieval_with_Vector_DB/9_Reranking.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLMs and Text Generation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LLMs and Text Generation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/2_Transformer_architecture.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformer Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/3_LLM_sampling_strategies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Sampling Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/4_Choosing_your_LLM.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing Your LLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/5_Promp_engineering_build_a_augmented_prompt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering — Build an Augmented Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/6_Prompt_engineering_advanced.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Engineering (Advanced)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/7_handling_hallucinations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handling Hallucinations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/8_Evaluating_LLMs_performance.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluating LLM Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/9_Agentic_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agentic RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/10_RAG_vs_Fine-Tuning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs Fine-Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/4_LLMs_and_Text_Generation/11_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG Systems in Production
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG Systems in Production
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/1_introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/2_What_makes_production_challenging.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Challenges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/3_Implementation_RAG_evaluation_strategies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation & Evaluation Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/4_Logging_monitoring_and_observability.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging, Monitoring & Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/5_Customized_evaluation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customized Evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/6_Quantization.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/7_Cost_vs_Response_Quality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cost vs Response Quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/8_Latency_vs_Response_Quality.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Latency vs Response Quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/9_Security.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/10_Multimodal_RAG.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multimodal RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/5_RAG_System_in_Production/11_Wrap_up.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrap Up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robotics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robotics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/intro.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics/1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedded
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Embedded
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/intro.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/1_STM32CubeIDE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    STM32CubeIDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedded/2_Hello%20world.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hello World
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C++
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="basics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1_difference_between_c_and_cpp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Difference between C and C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2_valid_in_cpp_invalid_in_c.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Valid in C, invalid in C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3_rule_difference_between_c_and_cpp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rule differences between C and C++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4_references.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5_assigment_default_values_to_parameter_vars.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignment default values to parameter vars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6_function_overloading.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Overloading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7_classes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8_operator_overloading.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operator Overloading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Misc
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="9.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Misc
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NAMESPACES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NAMESPACES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#namespace-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Namespace Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-namespace-is-a-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Namespace is a Scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-scope-resolution-operator-and-qualified-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Scope Resolution Operator and Qualified Name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-global-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Global Namespace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespaces-have-an-additive-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Namespaces Have an Additive Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-std-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The std Namespace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nested Namespaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definitions-of-namespace-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definitions of Namespace Members
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        using Declaration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-namespace-directive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        using namespace Directive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placing-a-library-into-a-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Placing a Library into a Namespace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespace-alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Namespace Alias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unnamed-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unnamed Namespace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#koenig-lookup-argument-dependent-lookup-adl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Koenig Lookup (Argument-Dependent Lookup - ADL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#friendship-declarations-in-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Friendship Declarations in Namespaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-should-namespaces-be-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Should Namespaces Be Used
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-of-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost of Namespaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Misc</h1>
+
+<div><h2 id="namespaces">NAMESPACES<a class="headerlink" href="#namespaces" title="Permanent link">#</a></h2>
+<p>Entities declared globally must have names that are different from each other.
+Types, objects, functions, and templates declared by the programmer in the global region are global entities. For example, the name of a function and the name of a global object cannot be the same. Moreover, this situation is valid not only for a single source file but also for other source files that make up the project. Using the same name at the global level in the same source file causes an error at compile time. Using the same name at the global level in different files in a way that belongs to external linkage causes an error at link time.</p>
+<p>The practical importance of this for the programmer is: If other libraries or modules are used in the project, the names of the global entities in the used modules must not be the same as the global names in the source file the programmer is writing. That is, names at the global level must not collide.</p>
+<p>Preventing name collisions is not always easy. Because the modules or libraries used may have been produced by different people or companies. Especially when it comes to large programs, the risk of global name collision is very high. How can name collisions be prevented when libraries developed by different people are combined? This collision problem for global names is known as "global namespace pollution".</p>
+<p>Before the standardization period of the C++ language, programmers tried to prevent the pollution of the global namespace by giving very long names to global entities. These names were also often formed with predetermined prefix words. Let's give an example: Let's assume a class that abstracts a dynamic array is defined. If the name of the class is chosen as <code>Array</code>, the probability of name collision increases. This name may have been given to another class within the used modules. A longer name can be given to the class to prevent a possible name collision:</p>
+<div class="codehilite"><pre><span></span><code>class C_ve_Sistem_Programcilari_Array {
+    //...
+};
+
+void display(const C_ve_Sistem_Programcilari_Array &amp;);
+</code></pre></div>
+
+<p>It cannot be said that this is a good solution. A program written in the C++ language can contain numerous classes, functions, or templates that are visible throughout the entire program. Continuously writing long names is both a troublesome task for the programmer and such names reduce the readability of the program.</p>
+<p>"Namespaces" are an important tool of the C++ language that largely solves the problem of global namespace pollution.</p>
+<p>Let's imagine our computer's hard disk contains only one root directory. There cannot be two files with the same name in this directory, right? We can create various subdirectories under the root directory. Files with the same names can be present in these subdirectories. For example, a file named <code>necati.txt</code> can be in the root directory as well as in the directories named "notes", "letters", "homeworks" under the root directory.</p>
+<p>The global level of the source file, i.e., the global namespace, can be likened to the root directory in the example above. Just as two files cannot have the same name in the root directory, two global entities cannot have the same name in the source file. Just as different named directories are created in the root directory, different name regions can be created in the global area of the source file. In this case, the same names can be used within these different regions.</p>
+<p>Namespaces can be defined to hide certain names from the global area in a program:</p>
+<div class="codehilite"><pre><span></span><code>namespace CDernek {
+    class CDString { /* ... */ };
+    void push_back(CDString &amp;);
+}
+</code></pre></div>
+
+<p><code>CDernek</code> is a namespace declared by the programmer. Every namespace declared by the programmer defines a separate scope. A namespace declared by the programmer can contain other namespace declarations, declarations or definitions of functions, objects, templates, and types.</p>
+<p>As in the global namespace, every name in a namespace declared by the programmer must also relate to a single entity. That is, the same name cannot be present more than once in a declared namespace. But since different namespace declarations define different scopes, the same names can be used in different namespaces.
+Every name used in a namespace is called a "namespace member".</p>
+<h3 id="namespace-definition">Namespace Definition<a class="headerlink" href="#namespace-definition" title="Permanent link">#</a></h3>
+<p>A namespace definition begins with the <code>namespace</code> keyword. The <code>namespace</code> keyword is followed by the name of the namespace. The namespace name must be chosen in accordance with naming rules. The block following the namespace name contains the declarations and/or definitions of the namespace members. A terminating atom (semicolon) is not placed at the end of a namespace definition:</p>
+<div class="codehilite"><pre><span></span><code>namespace CDernek {
+    class CDString {
+        //...
+    };
+    //...
+}
+</code></pre></div>
+
+<p>The namespace name must not collide with another name at the global level. The namespace name must also be unique in the namespace where the definition is made. That is, the global namespace pollution problem is not completely eliminated. However, the problem is minimized with the use of namespaces. Making a declaration or definition within a namespace does not change the meaning of the declaration or definition. The only point that distinguishes a declaration or definition made within a namespace from other declarations or definitions is that the declared or defined names are hidden within the namespace. These names can only be accessed from the outside as qualified names, i.e., with the scope resolution operator.</p>
+<p>A namespace definition must be made either at the global level or within another namespace definition. A namespace cannot be defined at the local level, i.e., within a function's definition.</p>
+<h3 id="a-namespace-is-a-scope">A Namespace is a Scope<a class="headerlink" href="#a-namespace-is-a-scope" title="Permanent link">#</a></h3>
+<p>Every namespace declared by the programmer creates a new scope. A namespace can contain other namespace declarations, function declarations and definitions, type declarations, and object declarations and definitions.
+The same name cannot be used more than once in the same scope. Since a namespace also creates a new scope, the same name cannot be present in a namespace. Since different namespaces specify different scopes, the same name can be used in different namespaces. For example, let's assume a namespace named <code>Project</code> is also defined in addition to the <code>CDernek</code> namespace declared above:</p>
+<div class="codehilite"><pre><span></span><code>namespace CDernek {
+    class CDString {
+        //...
+    };
+    //...
+}
+
+namespace Project {
+    class CDString {
+        //...
+    };
+}
+</code></pre></div>
+
+<p>In both namespaces, the name of the defined class is chosen as <code>CDString</code>. Since the scopes are different, it is valid for the two classes to have the same name.</p>
+<p>Let's recall that there are two more scope rules in C++ that are not in C. It was mentioned in previous topics that the first of these scopes is the <strong>class scope</strong>. The <strong>namespace scope</strong> is also a new scope added by the C++ language that is not in the C language.</p>
+<h3 id="the-scope-resolution-operator-and-qualified-name">The Scope Resolution Operator and Qualified Name<a class="headerlink" href="#the-scope-resolution-operator-and-qualified-name" title="Permanent link">#</a></h3>
+<p>To access the members of a namespace declared by the programmer from outside the namespace, the scope resolution operator is used in the binary infix position. A name written in this form is called a "qualified name". A name declared within a namespace can only be accessed with a qualified name from outside the namespace:</p>
+<div class="codehilite"><pre><span></span><code>namespace Cdernek {
+    class CDString {
+        //...
+    };
+} // (Semicolon was in text, but it's not used here)
+
+void foo(CDString &amp;r);
+// Invalid
+void func(Cdernek::CDString &amp;r);
+// Valid
+</code></pre></div>
+
+<p>In the example above, the <code>CDString</code> class defined within the <code>Cdernek</code> namespace is used as a qualified name outside the <code>Cdernek</code> namespace. The parameter variable of the <code>func</code> function declared at the global level is of type <code>Cdernek::CDString &amp;</code>. A name declared within a namespace is hidden within that namespace. To use this name, the compiler must be informed in which namespace to look for the name in question. If this information is not given to the compiler, the compiler first searches for this name in the current scope. If it cannot find it there, it continues the search in the other scopes that enclose this scope. Let's change the example above:</p>
+<div class="codehilite"><pre><span></span><code>class CDString {
+    //...
+};
+
+namespace CDernek {
+    class CDString {
+        //...
+    };
+}
+
+void foo(CDString &amp;);
+void func(CDernek::CDString &amp;);
+</code></pre></div>
+
+<p>The parameter of the <code>foo</code> function declared above is of the <code>CDString</code> class type declared in the global namespace, while the parameter of the <code>func</code> function is of the <code>CDString</code> type declared in the <code>CDernek</code> namespace.</p>
+<p>There are also tools that allow a name declared in a namespace to be used directly without qualification. These tools are the "<strong>using declaration</strong>", the "<strong>using namespace directive</strong>", and "<strong>argument-dependent lookup</strong>". With the use of one of These tools, a member of a namespace can be accessed directly without the scope resolution operator.</p>
+<h3 id="the-global-namespace">The Global Namespace<a class="headerlink" href="#the-global-namespace" title="Permanent link">#</a></h3>
+<p>The region outside all blocks is named the "global namespace" in C++. Names declared in the global namespace can be used directly. In fact, the unary form of the scope resolution operator provides access to a name in the global namespace. Normally, since a name in the global namespace can be accessed directly, it is not mandatory to use this operator. However, in some cases, the name in the global namespace is masked by a name in inner scopes. In this case, to be able to access the name in the global namespace, it is mandatory to use the unary scope resolution operator. Examine the following example:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;iostream&gt;
+
+const int max = 1000;
+// max in the global namespace
+
+namespace CDernek {
+    const int max = 500;
+    // max in the Cdernek namespace
+}
+
+int main()
+{
+    int max = 100;
+    // max in the block scope
+
+    std::cout &lt;&lt; max &lt;&lt; std::endl;
+    // max in the block scope
+
+    std::cout &lt;&lt; ::max &lt;&lt; std::endl;
+    // max in the global namespace
+
+    std::cout &lt;&lt; CDernek::max &lt;&lt; std::endl; // max in the Cdernek namespace
+
+    return 0;
+}
+</code></pre></div>
+
+<h3 id="namespaces-have-an-additive-structure">Namespaces Have an Additive Structure<a class="headerlink" href="#namespaces-have-an-additive-structure" title="Permanent link">#</a></h3>
+<p>Additions can be made to a previously declared namespace, either in the same source file or in another source file. That is, namespace members do not have to be declared all at once within the namespace. Examine the following example:</p>
+<div class="codehilite"><pre><span></span><code>namespace CDernek {
+    class CDString {
+        //...
+    };
+}
+
+namespace CDernek {
+    class CDVector {
+        //...
+    };
+}
+</code></pre></div>
+
+<p>The definitions made in the same file above are valid. When the compiler sees a namespace definition, it first checks whether the name following the <code>namespace</code> keyword belongs to a previously defined area. If a namespace with this name has been defined before, it automatically merges the names in the second declaration with the first namespace definition. That is, additions can bemade at another point in the source code to a previously defined namespace. In the example above, both the <code>CDString</code> class and the <code>CDVector</code> class are in the <code>CDernek</code> namespace. There is no situation that causes an error.</p>
+<p>The additive structure of namespaces is particularly useful for the programmer when creating libraries.
+While the declarations related to a module, i.e., the module's interface, are in a namespace defined in a header file, the module's implementation can be added to the same namespace in another source file:</p>
+<div class="codehilite"><pre><span></span><code>// cdstring.h file
+namespace CDernek {
+    class CDString {
+        //...
+    public:
+        CDString operator+(const CDString &amp;); // (Text has 'String')
+        //...
+    };
+}
+
+// cdstring.cpp file
+#include "cdstring.h" // (Added include)
+#include &lt;string.h&gt;
+
+namespace CDernek {
+    CDString CDString::operator+(const CDString &amp;)
+    {
+        // ...
+    }
+}
+</code></pre></div>
+
+<p>By taking advantage of the additive structure of namespaces, the interface of a library presented in a namespace can be divided into more than one header file. The best example of this is the <code>std</code> namespace.</p>
+<h3 id="the-std-namespace">The <code>std</code> Namespace<a class="headerlink" href="#the-std-namespace" title="Permanent link">#</a></h3>
+<p>The declarations and definitions of all components of C++'s standard library are made within a namespace named <code>std</code>. The classes, functions, objects, and templates declared in any of the standard header files like <code>&lt;iostream&gt;</code>, <code>&lt;vector&gt;</code>, <code>&lt;string&gt;</code> are declared within the <code>std</code> namespace.</p>
+<p>To access a function or class declared in the standard library, the name of the class or function must normally be qualified with the name of the namespace it is in:</p>
+<p><code>std::cout</code>
+<code>std::string</code>
+<code>std::cin</code></p>
+<p>To be able to use these names without qualification, a <code>using</code> declaration or <code>using namespace</code> directive can be used, or argument-dependent lookup (Koenig lookup) can be done. It is <strong>undefined behavior</strong> to make changes within the <code>std</code> namespace declarations, i.e., to make additions to this namespace or to delete some declarations from this namespace.</p>
+<h3 id="nested-namespaces">Nested Namespaces<a class="headerlink" href="#nested-namespaces" title="Permanent link">#</a></h3>
+<p>Another namespace can be declared within a namespace. Thus, nested namespaces can be created. Nested namespaces can be used to improve the organization of codes in a library.</p>
+<div class="codehilite"><pre><span></span><code>namespace CCernek { // (Text has CCernek)
+    namespace CStringLib {
+        //...
+    }
+    namespace CMathLib {
+        //...
+    }
+}
+</code></pre></div>
+
+<p>The names of the members in a nested namespace are hidden within that namespace. Names in a nested namespace are accessed in the form:</p>
+<p><code>enclosing_namespace_name::nested_namespace_name::namespace_member_name</code></p>
+<p>A nested namespace creates a new scope within another namespace. During the resolution of names by the compiler, nested namespaces are treated like nested blocks. When a name is encountered in a nested namespace, the declaration of this name is first searched for in the nested namespace, then in the enclosing namespaces in order from inside to out. If the name is not declared in the enclosing namespaces either, the name is finally searched for in the global namespace.</p>
+<h3 id="definitions-of-namespace-members">Definitions of Namespace Members<a class="headerlink" href="#definitions-of-namespace-members" title="Permanent link">#</a></h3>
+<p>A namespace member can be defined within the same namespace.
+The definition can also be made outside the namespace. In this case, the namespace member to be defined must be used with its qualified name during the definition:</p>
+<div class="codehilite"><pre><span></span><code>namespace CDernek {
+    namespace CDStringLib {
+        class CDString {
+            int size;
+        public:
+            int get_size() const { return size; }
+        };
+        CDString operator+(const CDString &amp;, const CDString &amp;);
+    }
+}
+</code></pre></div>
+
+<p>In the example above, another nested namespace named <code>CDStringLib</code> is defined within the namespace named <code>CDernek</code>.
+The <code>get_size</code> member function of the <code>CDString</code> class defined in the <code>CDStringLib</code> namespace is defined within the same namespace. The <code>operator+</code> function is declared inside the <code>CDString</code> class. (Translator's Note: The text declares it <em>outside</em> the class, but <em>inside</em> the namespace.)
+However, the definition of this function is not made within the <code>CDStringLib</code> namespace. Let's assume this function is defined in the global namespace in the following form:</p>
+<div class="codehilite"><pre><span></span><code>Cdernek::CDStringLib::CDString
+Cdernek::CDStringLib::operator+(const Cdernek::CDStringLib::CDString &amp;r1, const Cdernek::CDStringLib::CDString &amp;r2)
+{
+    using Cdernek::CDStringLib::CDString; // (Added for 'result')
+    CDString result;
+    //...
+    return result;
+}
+</code></pre></div>
+
+<p>The place where the function's return value type is written is outside the scope defined by the <code>Cdernek::CDStringLib</code> namespace. Therefore, the function's return value type must be written as a qualified name. This is why this type
+is written in the global namespace as <code>Cdernek::CDStringLib::CDString</code>.
+In the function definition, the function name is also written as a qualified name:
+<code>Cdernek::CDStringLib::operator+</code>
+(Translator's note: Text has <code>StringLib</code>, assumed typo for <code>CDStringLib</code>)</p>
+<p>However, the inside of the function's parameter parenthesis and the main block of the function are in the scope of the <code>Cdernek::CDStringLib</code> namespace. Therefore, the type information of <code>r1</code> and <code>r2</code>, which are the parameter variables of the function, and the <code>result</code> local variable inside the function can be written directly as <code>CDString</code>.
+This is because namespace members can be used directly with their unqualified names within the namespace scope.</p>
+<p>A namespace member cannot be defined just anywhere outside the namespace. If the definition is to be made outside the namespace, it can only be made in one of the namespaces that enclose the namespace where the declaration was made. In the example above, the definition of the <code>operator+</code> function must be made either within the <code>Cdernek</code> namespace or within the global namespace. The definition of the function could have been made within the <code>Cdernek</code> namespace in the following form:</p>
+<div class="codehilite"><pre><span></span><code>namespace Cdernek {
+    //...
+    namespace CDStringLib {
+        class CDString {
+            int size;
+            //...
+        public:
+            int get_size() const { return size; }
+            //...
+        };
+        CDString operator+(const CDString &amp;, const CDString &amp;);
+    }
+
+    CDStringLib::CDString
+    CDStringLib::operator+(const CDStringLib::CDString &amp;r1, const CDStringLib::CDString &amp;r2)
+    {
+        //...
+    }
+}
+</code></pre></div>
+
+<p>This time, although the function definition is made outside the <code>CDStringLib</code> namespace, it is made inside the <code>Cdernek</code> namespace. Note that the function's return value type and function name
+are written in the form
+<code>CDStringLib::CDString</code>
+and
+<code>CDStringLib::operator+</code>.</p>
+<h3 id="using-declaration"><code>using</code> Declaration<a class="headerlink" href="#using-declaration" title="Permanent link">#</a></h3>
+<p>It is very troublesome for the programmer to write the qualified name of a namespace member every time to access it. With a <strong><code>using</code> declaration</strong>, the namespace member can be accessed directly with its unqualified name.
+<code>using</code> is a keyword. This keyword is followed by the qualified name of the namespace member. The declaration ends with a semicolon.</p>
+<p><code>using CDernek::CDString;</code></p>
+<p>After the declaration above, the <code>CDString</code> class defined in the <code>CDernek</code> namespace can be used directly in the form
+<code>CDString</code>
+, in addition to the form
+<code>CDernek::CDString</code>
+. That is, after the <code>using</code> declaration, when the <code>CDString</code> name is used, the compiler treats this name as
+<code>CDernek::CDString</code>.</p>
+<p>The name declared with the <code>using</code> declaration is added to the scope where the declaration is made.
+The <code>using</code> declaration also carries the common features of other declarations. This declaration also has a scope. A <code>using</code> declaration can be made locally, or it can be made within the global namespace or within another namespace.
+Like all other declarations, the name added to the scope with a <code>using</code> declaration:
+1. Must be unique in the scope to which it is added.
+2. Masks the same name in a wider scope.
+3. Is masked by the same name in a narrower scope.</p>
+<p>Examine the following example carefully:</p>
+<div class="codehilite"><pre><span></span><code>namespace Mynamespace {
+    int a = 1, b = 2, c = 3;
+    // other declarations
+}
+
+int b = 0;
+
+int main()
+{
+    using Mynamespace::a;
+    a = 10;
+
+    using Mynamespace::b;
+    b = 20; // Accesses Mynamespace::b
+
+    int c;
+    // using Mynamespace::c;
+    // Invalid! 'c' already declared in this scope
+}
+
+void func()
+{
+    int y = a; // Invalid! 'a' is not in scope here
+}
+</code></pre></div>
+
+<p>After the <code>using Mynamespace::b</code> declaration made in the <code>main</code> function, the <code>b</code> accessed with the assignment <code>b = 20</code> (text has 10) is the <code>b</code> defined in the <code>Mynamespace</code> namespace. That is, the <code>b</code> name added to the block scope of the <code>main</code> function with the <code>using</code> declaration masks the global variable <code>b</code>.
+You see that the <code>using Mynamespace::c</code> declaration made after the definition of a local variable named <code>c</code> in the <code>main</code> function causes an error. Remember that the same name cannot be used in the same scope. Before the <code>using</code> declaration, there is already a local variable named <code>c</code> in the block scope. In this case, trying to introduce a second <code>c</code> name into the scope is invalid.
+Finally, let's take a look at the <code>func</code> function defined after the <code>main</code> function. The value of the <code>a</code> variable is assigned to the <code>y</code> variable, which is a local variable defined in the function. However, an object named <code>a</code> is not visible at this point. Let's remember that the <code>using</code> declaration also has a scope.
+Since the <code>using Mynamespace::a;</code> declaration was made at the local level, i.e., inside the <code>main</code> function, it can be used without qualification only within the <code>main</code> function. Inside the main block of the <code>func</code> function, the <code>a</code> name must be used as a qualified name, i.e., in the form <code>Mynamespace::a</code>.</p>
+<p>However, if the <code>using</code> declaration were made at the global level instead of the local level, this access would also be valid.
+Examine the code below:</p>
+<div class="codehilite"><pre><span></span><code>namespace Mynamespace {
+    int a = 1, b = 2, c = 3; // (Text has 'mk = c' and 'mi', likely typos)
+    // other declarations
+}
+
+using Mynamespace::a; // (Text has 'mi', assumed 'a')
+
+int main()
+{
+    a = 10;
+    return 0;
+}
+
+void func()
+{
+    int y = a; // Valid now
+}
+</code></pre></div>
+
+<p>With the <code>using</code> declaration, it becomes easier to use the namespace member. With a <code>using</code> declaration, only one member of the namespace can be brought into the relevant scope at a time. It can be ensured that more than one name is used without qualification at once with the <code>using namespace</code> directive.</p>
+<h3 id="using-namespace-directive"><code>using namespace</code> Directive<a class="headerlink" href="#using-namespace-directive" title="Permanent link">#</a></h3>
+<p>To be able to access each of the names introduced in a namespace with an unqualified name, a separate <code>using</code> declaration can be made for each name. However, making <code>using</code> declarations one by one for a large number of names is time-consuming. Such declarations also spoil the readability of the program. It has been made possible for all names in a namespace to be usable as unqualified names with a single directive.</p>
+<p>A <code>using namespace</code> directive begins with the <code>using</code> and <code>namespace</code> keywords. These words are followed by the name of a previously defined namespace:</p>
+<p><code>using namespace CDernek;</code>
+<code>using namespace std;</code></p>
+<p>Using a name that does not belong to a previously defined namespace is invalid. All names in the namespace subject to the <code>using namespace</code> directive become usable as unqualified names.</p>
+<p>The <code>using namespace</code> directive makes the namespace members visible as if these members were defined at the place where the namespace definition is, but outside the namespace. Examine the following example:</p>
+<div class="codehilite"><pre><span></span><code>namespace Mynamespace {
+    int a = 1, b = 2, c = 3;
+    // other declarations
+}
+
+void func();
+int b = 0;
+
+int main()
+{
+    using namespace Mynamespace;
+
+    a = 10;
+    // b = 20;
+    // Invalid (Ambiguous)
+
+    Mynamespace::b = 100;
+    ::b = 178;
+
+    int c;
+    c = 30;
+    // local c
+    return 0;
+}
+
+void func()
+{
+    // int y = a; // Invalid (using directive is local to main)
+}
+</code></pre></div>
+
+<p>The <code>using namespace</code> directive is at the beginning of the main block of the <code>main</code> function. In the source code range where the directive is visible, all names within the <code>Mynamespace</code> namespace become visible as if they were defined outside the namespace, i.e., in the global region.
+The assignment <code>a = 10;</code> (text has 20) is valid. With this assignment, a value is assigned to the <code>a</code> variable defined in the <code>Mynamespace</code> namespace.
+The assignment <code>b = 20;</code> causes an ambiguity error at compile time. This is because, at this point, both the global <code>b</code> variable and the <code>b</code> variable inside the <code>Mynamespace</code> namespace are visible, due to the effect of the <code>using namespace</code> directive. The error occurs only if the <code>b</code> object is used as an unqualified name. If the <code>b</code> object is not used at all in the main block of the <code>main</code> function, or if the <code>b</code> object is used with qualification, an ambiguity error does not occur:
+<code>//...</code>
+<code>Mynamespace::b = 100;</code>
+<code>::b = 178;</code></p>
+<p>The definition of the <code>c</code> variable in the <code>main</code> function is valid. This is because the scopes of the <code>c</code> defined inside the namespace and the <code>c</code> variable defined inside the <code>main</code> block are different.
+The assignment <code>c = 30</code> is made to the local <code>c</code> variable.
+The <code>using namespace</code> directive also has a scope. In the example above, since the directive is given inside the <code>main</code> function, the scope of the directive only covers the <code>main</code> function. It is invalid to use the <code>a</code> name without qualification inside the <code>foo</code> function that follows the <code>main</code> function.</p>
+<p>The use of the <code>using namespace</code> directive is extremely easy. With the use of a single directive, all names inside the namespace become directly usable. Although this seems like an easy solution, its unnecessary or excessive use can also lead to other problems. If more than one library is used, when the <code>using namespace</code> directive is used for each namespace to use the names in the libraries in their short forms, the global name pollution problem arises again.</p>
+<div class="codehilite"><pre><span></span><code>// header1.h
+namespace HDR1 {
+    void foo();
+    //...
+}
+
+// header2.h
+namespace HDR2 {
+    void foo();
+    //...
+}
+
+// app.cpp
+#include "header1.h"
+#include "header2.h"
+
+using namespace HDR1;
+using namespace HDR2;
+
+int main()
+{
+    foo(); // ambiguity error
+    //...
+}
+</code></pre></div>
+
+<h3 id="placing-a-library-into-a-namespace">Placing a Library into a Namespace<a class="headerlink" href="#placing-a-library-into-a-namespace" title="Permanent link">#</a></h3>
+<p>Namespaces are one of the last tools added to the language during the standardization of the C++ language. Since compilers developed before the standards did not support namespaces, many libraries written in the past were not declared in a namespace. The use of libraries not taken into a namespace increases the risk of name collision.</p>
+<p>Let's assume it is desired to subsequently place declarations, which were not made in a namespace, into a namespace. For example, let's assume it is desired to add the declarations in the previously written header file named <code>cdate.h</code> to the <code>CDernek</code> namespace:</p>
+<div class="codehilite"><pre><span></span><code>// cdate.h
+namespace CDernek {
+    class CDate {
+        //...
+    };
+    // other declarations
+}
+</code></pre></div>
+
+<p>However, in this case, in a file named <code>app1.cpp</code>, where the codes that use the <code>CDate</code> class are, when the header file <code>cdate.h</code> is included in the source file in its new form with the <code>include</code> preprocessor directive, the names declared in <code>cdate.h</code> can no longer be used directly. Since every declaration made in <code>cdate.h</code> has now become a member of the <code>CDernek</code> namespace, these members can only be used with their qualified names. To avoid making too many changes in the <code>app1.cpp</code> file, a <code>using namespace</code> directive can be placed at the beginning of this file:</p>
+<div class="codehilite"><pre><span></span><code>// app.cpp
+#include "cdate.h"
+using namespace CDernek;
+//...
+</code></pre></div>
+
+<h3 id="namespace-alias">Namespace Alias<a class="headerlink" href="#namespace-alias" title="Permanent link">#</a></h3>
+<p>Namespace names must also be unique in the global region. Therefore, namespace names are generally chosen to be long. When using a qualified name, it may not be desired to continuously write the name that qualifies the namespace member. To be able to use shorter names, other -shorter- names that can be used instead of the namespace name can be created. This is provided by the <strong>namespace alias</strong> declaration.</p>
+<p>A namespace alias declaration begins with the <code>namespace</code> keyword. The keyword is followed by the word that will replace the namespace name. Then the assignment operator (<code>=</code>) is placed. The name of a previously defined namespace is written to the right side of the assignment operator. The declaration is completed by the terminating atom (semicolon), as always.</p>
+<p><code>namespace CSD = C_ve_Sistem_Programcilari_Dernegi;</code></p>
+<p>After this declaration, the <code>CSD</code> name can be used in places where the <code>C_ve_Sistem_Programcilari_Dernegi</code> namespace name can be used.
+A namespace alias can also be used for a nested namespace:</p>
+<p><code>namespace CSDSTR = C_ve_Sistem_Programcilari_Dernegi::CDStringLib;</code></p>
+<p>A namespace can have more than one alias.
+Namespace aliases are also used in version control in projects. The life of successful software projects continues after the product is released to the market. New versions of some products are continuously produced. When new and old versions of a program are in question, there are code components that both versions use in common. However, some code components are different for each version. Namespace aliases can be used in the creation of dynamic namespaces for different versions:</p>
+<div class="codehilite"><pre><span></span><code>namespace Ver_1_0 {
+    class File {
+        //...
+    };
+    class Usb {
+        //...
+    };
+}
+
+namespace Ver_2_0 {
+    class File {
+        //...
+    };
+    class Usb {
+        //...
+    };
+}
+
+int main()
+{
+    namespace current = Ver_2_0;
+
+    using current::File;
+    using current::Usb;
+
+    File f;
+    Usb u;
+    //...
+    return 0;
+}
+</code></pre></div>
+
+<p>Let's examine the code above: Two separate namespaces named <code>Ver_1_0</code> and <code>Ver_2_0</code> are defined for use in separate versions. With the namespace alias declaration made in the <code>main</code> function, it is ensured that the <code>current</code> name replaces the <code>Ver_2_0</code> namespace. Then, with the <code>using</code> declarations, it is ensured that the <code>File</code> and <code>Usb</code> class names of the <code>current</code> namespace are used without qualification.
+By replacing the <code>namespace current = Ver_2_0;</code> declaration in the <code>main</code> function with the
+<code>namespace current = Ver_1_0;</code>
+declaration, the use of different <code>File</code> and <code>Usb</code> classes can be ensured.</p>
+<h3 id="unnamed-namespace">Unnamed Namespace<a class="headerlink" href="#unnamed-namespace" title="Permanent link">#</a></h3>
+<p>It is assumed that an <strong>unnamed namespace</strong> exists within each source file. The programmer can make additions to this namespace if they wish:</p>
+<div class="codehilite"><pre><span></span><code>namespace {
+    void func();
+    int g;
+    class A {
+        //...
+    };
+    //...
+}
+</code></pre></div>
+
+<p>The names in this namespace can be accessed directly with unqualified names within their own defined source file. In the example above, at a source code point where the namespace declaration is visible:</p>
+<div class="codehilite"><pre><span></span><code>int main()
+{
+    A a;
+    //..
+    return 0;
+}
+</code></pre></div>
+
+<p>In the <code>main</code> function above, the <code>A</code> name is used unqualified. The <code>A</code> class is defined in the unnamed namespace. It is guaranteed that the unnamed namespace will be unique for each source file. That is, names declared in such a namespace directly have <strong>internal linkage</strong>.</p>
+<p>What is the use of the unnamed namespace? Remember that in the C language, global entities must be declared with the <code>static</code> keyword to have internal linkage. However, in C++, the use of the <code>static</code> keyword for global entities that have internal linkage, i.e., are known only in their own module, has been accepted as <strong>"deprecated"</strong>. The recommended tool is the creation of an unnamed namespace and the declaration of global entities with internal linkage within this namespace.</p>
+<p>At the global level, the <code>static</code> keyword can be used for functions and variables. However, definitions of types created by the programmer can also be made within the unnamed namespace.</p>
+<h3 id="koenig-lookup-argument-dependent-lookup-adl">Koenig Lookup (Argument-Dependent Lookup - ADL)<a class="headerlink" href="#koenig-lookup-argument-dependent-lookup-adl" title="Permanent link">#</a></h3>
+<p>The compiler, encountering a function call, searches for visible functions at the point where the function call is made to understand which function is called.</p>
+<div class="codehilite"><pre><span></span><code>int main()
+{
+    func(object);
+}
+</code></pre></div>
+
+<p>Since a <code>using</code> declaration or <code>using namespace</code> directive is not used in the code above, normally the <code>func</code> function should not be searched for in a namespace. <strong>Koenig lookup</strong> (from the name Andrew Koenig), added to the language with the standards, changes this rule. If the argument <code>object</code> sent to the function is an object belonging to a class declared in a namespace, the existence of a suitable function named <code>func</code> is also searched for in the namespace that encloses the declaration of this class. This rule is called "Koenig lookup" or "argument-dependent lookup" (ADL).</p>
+<p>Compile and run the following code:</p>
+<div class="codehilite"><pre><span></span><code>#include &lt;iostream&gt;
+using namespace std;
+
+namespace NMSPC {
+    class A {
+        //...
+    };
+    void foo(A a)
+    {
+        cout &lt;&lt; "NMSPC::foo(A)" &lt;&lt; endl;
+    }
+}
+
+int main()
+{
+    NMSPC::A den;
+    foo(den); // Calls NMSPC::foo due to ADL
+    return 0;
+}
+</code></pre></div>
+
+<p>Koenig lookup is applied automatically. That is, a declaration or directive is not needed to activate Koenig lookup. It is also not possible to disable this feature. The application of Koenig lookup can, in some cases, lead to the occurrence of an ambiguity error:</p>
+<div class="codehilite"><pre><span></span><code>namespace NMSPC {
+    class A {
+        //...
+    };
+    void foo(A);
+}
+
+void foo(NMSPC::A);
+
+int main()
+{
+    NMSPC::A a;
+    foo(a);
+    // Ambiguity error
+    return 0;
+}
+</code></pre></div>
+
+<p>In the code snippet above, which function is the <code>foo</code> function called inside the <code>main</code> function? The one declared in the <code>NMSPC</code> namespace, or the one declared in the global namespace? If Koenig lookup were not in question, the called function would undoubtedly be the <code>foo</code> function declared in the global namespace. However, since Koenig lookup also makes the <code>foo</code> function inside the <code>NMSPC</code> namespace visible, an ambiguity error occurs at compile time.</p>
+<h3 id="friendship-declarations-in-namespaces">Friendship Declarations in Namespaces<a class="headerlink" href="#friendship-declarations-in-namespaces" title="Permanent link">#</a></h3>
+<p>A friendship declaration is also a prototype declaration for the function given friendship. When friendship is given to a function within a namespace, if the friendship declaration is made within the namespace, the function is also declared in the namespace. Thus, the function given friendship also becomes a member of the namespace.</p>
+<div class="codehilite"><pre><span></span><code>namespace CDernek {
+    class Sample {
+        int x;
+        friend void foo();
+    };
+    //...
+}
+
+void foo()
+{
+    CDernek::Sample sam;
+    sam.x = 10;
+    // Invalid
+}
+</code></pre></div>
+
+<p>Above, the <code>friend void foo();</code> declaration made inside the <code>Sample</code> class defined in the <code>Cdernek</code> namespace is also the declaration of this function, so the function given friendship is the <code>void Cdernek::foo()</code> function. If it were desired to give friendship to a function declared in the global namespace within the <code>Cdernek</code> namespace, the friendship declaration should have been made in the form
+<code>friend void ::foo();</code>
+, and the declaration of the global <code>foo</code> function should have been made before the namespace definition.</p>
+<p>You see that in the <code>foo</code> function defined in the global namespace, an attempt is made to access the private member of the <code>Sample</code> class. The <code>CDernek::Sample</code> class did not give friendship to the global <code>func</code> (foo) function. For this reason, the <code>sam.x</code> access is not valid.</p>
+<h3 id="when-should-namespaces-be-used">When Should Namespaces Be Used<a class="headerlink" href="#when-should-namespaces-be-used" title="Permanent link">#</a></h3>
+<p>It is clear that the possibility of name collision increases even more when large projects are in question. In a project with hundreds of source files, both the risk of name collision and the additional cost that name collision will cause are high. The use of namespaces is inevitable in large projects. However, the use of namespaces does not provide much benefit in projects that do not have too many files, developed by a single programmer. After all, in case of a name collision, the programmer can easily eliminate the collision situation by changing some names.</p>
+<h3 id="cost-of-namespaces">Cost of Namespaces<a class="headerlink" href="#cost-of-namespaces" title="Permanent link">#</a></h3>
+<p>The use of namespaces does not bring an additional load in terms of the running program's speed or the memory it uses, when it comes to the program's runtime. The controls related to namespaces are done at the program's compile time.</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="8_operator_overloading.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Operator Overloading">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Operator Overloading
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "search.highlight", "search.share", "content.tabs.link", "toc.integrate", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
